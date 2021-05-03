@@ -1,9 +1,8 @@
-// import "./App.css";
-
+import WelcomePage from "./Components/WelcomePage/WelcomePage";
 function App() {
   return (
     <div>
-      <h1>Hello react</h1>
+      <WelcomePage />
     </div>
   );
 }
