@@ -2,6 +2,7 @@ import Button from "../Button/Button";
 import DoubleArrows from "../img/doubleArrow.svg";
 import Cinema from "../img/cinema.svg";
 import { WelcomeMainContainer } from "./WelcomePageStyle";
+import { Link } from "react-router-dom";
 
 function WelcomePage() {
   return (
@@ -18,7 +19,7 @@ function WelcomePage() {
         </p>
         <p className="font-Roboto welcome-slogan ">
           La plateforme qui vous fournies les infos les plus récentes sur des
-          films et series, Date de sortie, Casting, et autres ...
+          films et series : Date de sortie, Casting, et autres ...
         </p>
       </div>
       <div>
@@ -28,9 +29,11 @@ function WelcomePage() {
           className="double-arrows"
         />
       </div>
-      <Button animatePrimary fontSize="1.7rem">
-        Parcourir
-      </Button>
+      <Link to="/accueil">
+        <Button animatePrimary fontSize="1.7rem">
+          Parcourir
+        </Button>
+      </Link>
     </WelcomeMainContainer>
   );
 }

@@ -8,6 +8,7 @@ from{
   transform : translateY(0%);
 
 }`;
+
 export const WelcomeMainContainer = styled.section`
   width: 100vw;
   height: 100vh;
@@ -40,6 +41,7 @@ export const WelcomeMainContainer = styled.section`
     width: 70%;
     margin: 0 auto;
     font-size: 1.3rem;
+    color: ${({ theme }) => theme.colors.paleWhite} !important;
   }
   .double-arrows {
     margin: 30px 0;

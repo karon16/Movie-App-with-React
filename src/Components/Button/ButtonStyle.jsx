@@ -12,7 +12,7 @@ from{
 
 export const ButtonContainer = styled.button`
   background: ${({ theme }) => theme.colors.lightBlue};
-  padding: 5px 25px;
+  padding: 15px 25px;
   border: none;
   outline: none;
   font-size: ${({ fontSize }) => fontSize || "1rem"};

@@ -1,9 +1,13 @@
 import WelcomePage from "./Components/WelcomePage/WelcomePage";
+import Home from "./Components/Home/Home";
+import { Route, Switch } from "react-router-dom";
+
 function App() {
   return (
-    <div>
-      <WelcomePage />
-    </div>
+    <Switch>
+      <Route exact path="/" component={WelcomePage} />
+      <Route path="/accueil" component={Home} />
+    </Switch>
   );
 }
 
