@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
-import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import ExplicitCardList from "../Shared/ExplicitCardList/ExplicitCardList";
+import styled from "styled-components";
+
+const StyledHome = styled.div`
+  background: #0e1930;
+`;
 
 const Home = () => {
   const [movie, setMovie] = useState([]);
@@ -17,8 +22,8 @@ const Home = () => {
 
   console.log(movie);
   return (
-    <>
-      <Header />
+    <StyledHome>
+      <ExplicitCardList />
       <Footer />
       {/* <div>
         <img
@@ -28,7 +33,7 @@ const Home = () => {
       </div>
       <h1>{movie.title}</h1>
       <p>{[movie.overview]}</p> */}
-    </>
+    </StyledHome>
   );
 };
 

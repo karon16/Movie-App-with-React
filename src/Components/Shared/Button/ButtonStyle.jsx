@@ -15,18 +15,35 @@ export const ButtonContainer = styled.button`
   padding: 15px 25px;
   border: none;
   outline: none;
-  font-size: ${({ fontSize }) => fontSize || "1rem"};
-  color: #ffffff;
+  line-height: ${({ fontSize }) => fontSize || "0.9rem"};
+  font-size: ${({ fontSize }) => fontSize || "0.9rem"};
+  color: #fff;
   font-family: ${({ theme }) => theme.fonts.biryani};
-  animation: 1.5s ${fadeIn} ease;
+  margin: 10px ${({ buttonMargin }) => buttonMargin || "0"};
+  border-radius: 0;
+  box-sizing: border-box !important;
+  border: 1px solid ${({ theme }) => theme.colors.lightBlue};
 
+  /* display: inline; */
+  ${({ animation }) =>
+    animation &&
+    css`
+      animation: 1.5s ${fadeIn} ease;
+    `}
   ${({ secondary }) =>
     secondary &&
     css`
       background: none;
-      border: 2px solid white;
+      border: 1px solid white;
+      /* margin-left: 10px; */
     `}
 
+    ${({ cardButton }) =>
+    cardButton &&
+    css`
+      padding: 10px 6px;
+      /* border: 1px solid white; */
+    `}
   &:hover {
     ${({ animateSecondary }) =>
       animateSecondary &&

@@ -12,7 +12,7 @@ from{
 export const WelcomeMainContainer = styled.section`
   width: 100vw;
   height: 100vh;
-  background: rgb(14, 25, 48);
+  /* background: rgb(14, 25, 48); */
   background: linear-gradient(
       0deg,
       rgba(14, 25, 48, 1) 11%,

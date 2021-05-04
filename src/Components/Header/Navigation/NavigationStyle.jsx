@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const NavigationLinks = styled.ul`
@@ -21,7 +21,7 @@ export const NavigationLinks = styled.ul`
     margin-right: 0%;
   }
 `;
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(NavLink)`
   color: white;
   text-decoration: none;
   font-family: ${({ theme }) => theme.fonts.biryani};

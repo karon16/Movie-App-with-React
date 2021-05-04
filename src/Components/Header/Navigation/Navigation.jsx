@@ -4,7 +4,7 @@ const Navigation = ({ onClick }) => {
   return (
     <NavigationLinks>
       <li>
-        <StyledLink to="/accueil" className="active" onClick={onClick}>
+        <StyledLink to="/accueil" onClick={onClick} activeClassName="active">
           Accueil
         </StyledLink>
       </li>

@@ -13,7 +13,7 @@ const NavigationBar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: ${({ theme }) => theme.colors.darkBlue};
+  background: ${({ theme }) => theme.colors.footer};
   padding: 10px ${({ theme }) => theme.sizes.defaultPaddingSides}};
  
 

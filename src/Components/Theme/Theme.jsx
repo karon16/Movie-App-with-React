@@ -5,12 +5,14 @@ const Theme = {
     white: "#fff",
     paleWhite: "rgba(255, 255, 255,0.8)",
     footer: "#091326",
+    // header: "",
   },
   fonts: {
     roboto: "'Roboto', sans-serif",
     biryani: "'Biryani', sans-serif",
   },
   mediaQueries: {
+    "bellow-1280": `screen and (max-width: 1280px)`,
     "bellow-1000": `screen and (max-width: 1000px)`,
     "bellow-768": `screen and (max-width: 768px)`,
     "bellow-420": `screen and (max-width: 420px)`,

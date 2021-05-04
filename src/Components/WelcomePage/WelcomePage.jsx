@@ -1,4 +1,4 @@
-import Button from "../Button/Button";
+import Button from "../Shared/Button/Button";
 import DoubleArrows from "../img/doubleArrow.svg";
 import Cinema from "../img/cinema.svg";
 import { WelcomeMainContainer } from "./WelcomePageStyle";
@@ -30,7 +30,7 @@ function WelcomePage() {
         />
       </div>
       <Link to="/accueil">
-        <Button animatePrimary fontSize="1.7rem">
+        <Button animatePrimary animation fontSize="1.7rem">
           Parcourir
         </Button>
       </Link>
