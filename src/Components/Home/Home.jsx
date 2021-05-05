@@ -8,6 +8,7 @@ import SectionTitle from "../Shared/SectionTitle/SectionTitle";
 import SectionDivider from "../Shared/SectionDivider/SectionDivider";
 import Button from "../Shared/Button/Button";
 import { Link } from "react-router-dom";
+import TrendingCardList from "../Shared/TrendingCard/TrendingCardList";
 
 const StyledHome = styled.div`
   background: #0e1930;
@@ -51,6 +52,9 @@ const Home = () => {
             Voir Plus
           </Button>
         </Link>
+        <SectionDivider />
+        <SectionTitle>Tendances actuelles</SectionTitle>
+        <TrendingCardList />
       </StyledHome>
     </>
   );
