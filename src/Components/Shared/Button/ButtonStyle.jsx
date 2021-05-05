@@ -15,16 +15,15 @@ export const ButtonContainer = styled.button`
   padding: 15px 25px;
   border: none;
   outline: none;
-  line-height: ${({ fontSize }) => fontSize || "0.9rem"};
-  font-size: ${({ fontSize }) => fontSize || "0.9rem"};
+  line-height: ${({ fontsize }) => fontsize || "0.9rem"};
+  font-size: ${({ fontsize }) => fontsize || "0.9rem"};
   color: #fff;
   font-family: ${({ theme }) => theme.fonts.biryani};
-  margin: 10px ${({ buttonMargin }) => buttonMargin || "0"};
+  margin: 10px ${({ buttonmargin }) => buttonmargin || "0"};
   border-radius: 0;
   box-sizing: border-box !important;
   border: 1px solid ${({ theme }) => theme.colors.lightBlue};
 
-  /* display: inline; */
   ${({ animation }) =>
     animation &&
     css`
@@ -35,25 +34,24 @@ export const ButtonContainer = styled.button`
     css`
       background: none;
       border: 1px solid white;
-      /* margin-left: 10px; */
     `}
 
-    ${({ cardButton }) =>
-    cardButton &&
+    ${({ cardbutton }) =>
+    cardbutton &&
     css`
       padding: 10px 6px;
       /* border: 1px solid white; */
     `}
   &:hover {
-    ${({ animateSecondary }) =>
-      animateSecondary &&
+    ${({ animatesecondary }) =>
+      animatesecondary &&
       css`
         background-color: rgba(250, 250, 250, 0.2);
         transition: all 0.4s ease-out;
         box-shadow: 0px 0px 10px 0px rgba(250, 250, 250, 0.1);
       `}
-    ${({ animatePrimary }) =>
-      animatePrimary &&
+    ${({ animateprimary }) =>
+      animateprimary &&
       css`
         transition: all 0.4s ease;
         background-color: rgb(3, 91, 190);

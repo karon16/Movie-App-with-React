@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components";
-import ImageBackground from "../img/bg.jpg";
 
 const bouncingArrows = keyframes`
 from{
@@ -19,7 +18,7 @@ export const WelcomeMainContainer = styled.section`
       rgba(14, 25, 48, 0.7685324618128502) 45%,
       rgba(14, 25, 48, 0.2531262993478641) 95%
     ),
-    url("${ImageBackground}");
+    url("${({ bg }) => bg}");
   display: flex;
   background-size: cover;
   display: flex;
@@ -33,6 +32,8 @@ export const WelcomeMainContainer = styled.section`
   .welcome-text--font-size {
     font-size: 3rem;
     line-height: 3rem;
+    /* border: 1px solid white; */
+    margin: 0;
   }
   .color-light-blue {
     color: ${({ theme }) => theme.colors.lightBlue};

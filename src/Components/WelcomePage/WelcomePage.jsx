@@ -3,10 +3,29 @@ import DoubleArrows from "../img/doubleArrow.svg";
 import Cinema from "../img/cinema.svg";
 import { WelcomeMainContainer } from "./WelcomePageStyle";
 import { Link } from "react-router-dom";
+import ImageBackground from "../img/bg.jpg";
+// import ImageBackground1 from "../img/bg1.jpg";
+// import ImageBackground2 from "../img/bg2.jpg";
+// import { useState, useEffect } from "react";
 
-function WelcomePage() {
+function WelcomePage({ bg }) {
+  // const [moviesBackdrops, setMoviesBackdrops] = useState(ImageBackground);
+
+  // useEffect(() => {
+  //   HandleSlide();
+  //   // return HandleSlide();
+  // }, []);
+
+  // const HandleSlide = () => {
+  //   window.setInterval(() => {
+  //     moviesBackdrops === ImageBackground
+  //       ? setMoviesBackdrops(ImageBackground1)
+  //       : setMoviesBackdrops(ImageBackground);
+  //   }, 3000);
+  // };
+
   return (
-    <WelcomeMainContainer>
+    <WelcomeMainContainer bg={ImageBackground}>
       <div className="cinema-logo-container">
         <img src={Cinema} alt="cinema icon" className="cinema-logo-image" />
       </div>
@@ -30,7 +49,7 @@ function WelcomePage() {
         />
       </div>
       <Link to="/accueil">
-        <Button animatePrimary animation fontSize="1.7rem">
+        <Button animateprimary animation fontsize="1.7rem">
           Parcourir
         </Button>
       </Link>

@@ -1,14 +1,13 @@
-import Button from "../Button/Button";
-import MovieImage from "../../img/bg.jpg";
+import Button from "../../Button/Button";
+import MovieImage from "../../../img/bg.jpg";
 import styled from "styled-components";
-import { Icon } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 
 const StyledExplicitCard = styled.div`
   width: calc((20%) - 10px);
   background: #091326;
-  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 1);
-  transition: transform 0.2s linear 0.3s;
+  /* box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 1); */
+  transition: transform 0.3s ease-in;
 
   .movie-image {
     width: 100%;
@@ -61,10 +60,10 @@ const ExplicitCard = () => {
         <h3 className="movie-name">Movie name</h3>
         <p className="movie-duration">Duration</p>
         <div className="button-container">
-          <Button cardButton animatePrimary>
+          <Button cardbutton animateprimary>
             Bande d'annonce
           </Button>
-          <Button buttonMargin="10px" secondary cardButton animateSecondary>
+          <Button buttonmargin="10px" secondary cardbutton animatesecondary>
             Plus d'Infos
           </Button>
         </div>

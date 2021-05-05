@@ -79,7 +79,7 @@ const Header = () => {
         <Navigation onClick={HandleClick} />
         <SearchInput />
       </div>
-      <div onClick={() => setToggleMenu(!toggleMenu)} className="burger-menu">
+      <div onClick={HandleClick} className="burger-menu">
         {toggleMenu ? (
           <Icon name="close" inverted />
         ) : (

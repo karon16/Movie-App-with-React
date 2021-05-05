@@ -2,25 +2,25 @@ import { ButtonContainer } from "./ButtonStyle";
 
 function Button({
   children,
-  fontSize,
+  fontsize,
   primary,
   secondary,
-  animatePrimary,
-  animateSecondary,
+  animateprimary,
+  animatesecondary,
   animation,
-  cardButton,
-  buttonMargin,
+  cardbutton,
+  buttonmargin,
 }) {
   return (
     <ButtonContainer
       secondary={secondary}
       primary={primary}
-      fontSize={fontSize}
-      animatePrimary={animatePrimary}
-      animateSecondary={animateSecondary}
+      fontsize={fontsize}
+      animateprimary={animateprimary}
+      animatesecondary={animatesecondary}
       animation={animation}
-      cardButton={cardButton}
-      buttonMargin={buttonMargin}
+      cardbutton={cardbutton}
+      buttonmargin={buttonmargin}
     >
       {children}
     </ButtonContainer>

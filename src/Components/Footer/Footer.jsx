@@ -3,7 +3,7 @@ import "semantic-ui-css/semantic.min.css";
 import { Icon } from "semantic-ui-react";
 import { StyledLink, StyledFooter } from "./FooterStyle";
 
-const Footer = ({ bold }) => {
+const Footer = () => {
   return (
     <StyledFooter>
       <div className="footer-main-container">
@@ -62,7 +62,7 @@ const Footer = ({ bold }) => {
             </div>
           </div>
           <div className="footer-row-block hidden-420">
-            <StyledLink bold to="/series">
+            <StyledLink bold="bold" to="/series">
               Series
             </StyledLink>
             <div className="flex-row">
@@ -113,7 +113,7 @@ const Footer = ({ bold }) => {
             </div>
           </div>
         </div>
-        <div class="h-line"></div>
+        <div className="h-line"></div>
         <p className="copyright">
           Copyright © 2021 Tala.movies <br></br>Tous droits reservés.
         </p>
