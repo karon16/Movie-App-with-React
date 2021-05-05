@@ -4,26 +4,8 @@ import Cinema from "../img/cinema.svg";
 import { WelcomeMainContainer } from "./WelcomePageStyle";
 import { Link } from "react-router-dom";
 import ImageBackground from "../img/bg.jpg";
-// import ImageBackground1 from "../img/bg1.jpg";
-// import ImageBackground2 from "../img/bg2.jpg";
-// import { useState, useEffect } from "react";
 
-function WelcomePage({ bg }) {
-  // const [moviesBackdrops, setMoviesBackdrops] = useState(ImageBackground);
-
-  // useEffect(() => {
-  //   HandleSlide();
-  //   // return HandleSlide();
-  // }, []);
-
-  // const HandleSlide = () => {
-  //   window.setInterval(() => {
-  //     moviesBackdrops === ImageBackground
-  //       ? setMoviesBackdrops(ImageBackground1)
-  //       : setMoviesBackdrops(ImageBackground);
-  //   }, 3000);
-  // };
-
+function WelcomePage() {
   return (
     <WelcomeMainContainer bg={ImageBackground}>
       <div className="cinema-logo-container">

@@ -3,18 +3,12 @@ import { useState, useEffect } from "react";
 import ExplicitCardList from "../Shared/ExplicitCardComponent/ExplicitCardList/ExplicitCardList";
 import styled from "styled-components";
 import MinimalCardList from "../Shared/MinimalCardComponent/MinimalCardList/MinimalCardList";
+import HeroSection from "../HeroSection/HeroSection";
 
 const StyledHome = styled.div`
   background: #0e1930;
   padding: ${({ theme }) => theme.sizes.defaultPaddingTop}
     ${({ theme }) => theme.sizes.defaultPaddingSides};
-
-  .home-line {
-    width: 100%;
-    height: 0.5px;
-    background: ${({ theme }) => theme.colors.lightBlue};
-    margin: ${({ theme }) => theme.sizes.defaultPaddingTop} auto;
-  }
 
   h3 {
     color: white;
@@ -36,22 +30,17 @@ const Home = () => {
 
   console.log(movie);
   return (
-    <StyledHome>
-      <div className="home-line"></div>
-      <h3>Nouveautés</h3>
-      <ExplicitCardList />
-      <div className="home-line"></div>
-      <h3>En ce moment</h3>
-      <MinimalCardList />
-      {/* <div>
-        <img
-          src={`https://image.tmdb.org/t/p/w500/oLy2V6AWSEfdPgKOtrSGnwB3Q2R.jpg`}
-          alt="movie"
-        />
-      </div>
-      <h1>{movie.title}</h1>
-      <p>{[movie.overview]}</p> */}
-    </StyledHome>
+    <>
+      <HeroSection />
+      <StyledHome>
+        <div className="home-line"></div>
+        <h3>Bientôt en salle</h3>
+        <ExplicitCardList />
+        <div className="home-line"></div>
+        <h3>Fimls</h3>
+        <MinimalCardList />
+      </StyledHome>
+    </>
   );
 };
 

@@ -6,16 +6,13 @@ import "semantic-ui-css/semantic.min.css";
 const StyledExplicitCard = styled.div`
   width: calc((20%) - 10px);
   background: #091326;
-  /* box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 1); */
-  transition: transform 0.3s ease-in;
+  transition: transform 0.3s ease;
 
   .movie-image {
     width: 100%;
   }
 
   .movie-info-container {
-    /* padding: 10px auto; */
-    /* border: 1px solid white; */
     width: 90%;
     margin: 15px auto;
   }
@@ -39,11 +36,12 @@ const StyledExplicitCard = styled.div`
     display: flex;
     justify-content: flex-start;
   }
-  .button-margin {
-    margin-left: 10px !important;
-  }
+
   &:hover {
-    transform: scale(1.12);
+    z-index: 1;
+    transform: scale(1.15);
+    box-shadow: 0px 0px 60px 0px rgba(0, 114, 244, 0.4);
+    /* box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5); */
   }
 
   @media ${({ theme }) => theme.mediaQueries["bellow-1280"]} {

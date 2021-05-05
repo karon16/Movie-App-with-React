@@ -28,7 +28,7 @@ const NavigationBar = styled.nav`
     display: none;
   }
   .tala-movies-logo {
-    width: 100%;
+    /* width: 100%; */
   }
   @media  ${({ theme }) => theme.mediaQueries["bellow-768"]} {
     .burger-menu {

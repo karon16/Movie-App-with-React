@@ -1,12 +1,11 @@
 import Button from "../../Button/Button";
-import MovieImage from "../../../img/bg4.jpg";
+// import MovieImage from "../../../img/bg.jpg";
 import styled from "styled-components";
 
 const StyledMinimalCard = styled.div`
   width: calc((20%) - 10px);
-  /* box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 1); */
   margin-bottom: 20px;
-  transition: transform 0.3s ease-in;
+  transition: transform 0.4s ease;
   position: relative;
 
   .movie-image {
@@ -19,13 +18,8 @@ const StyledMinimalCard = styled.div`
     position: absolute;
     width: 100%;
     padding: 10px;
-    /* margin: 15px auto; */
     display: none;
     opacity: 0;
-    transition: opacity 3s ease-in;
-    z-index: 3;
-
-    /* border: 1px solid white; */
   }
   .dark-box {
     top: 0;
@@ -34,8 +28,7 @@ const StyledMinimalCard = styled.div`
     position: absolute;
     background: rgba(0, 0, 0, 1);
     opacity: 0;
-    transition: all 0.4s ease-in;
-    z-index: 1;
+    transition: all 0.3s ease;
   }
   .movie-name {
     color: ${({ theme }) => theme.colors.white};
@@ -57,13 +50,14 @@ const StyledMinimalCard = styled.div`
     display: flex;
     justify-content: flex-start;
   }
-  .button-margin {
-    margin-left: 10px !important;
-  }
+
   &:hover {
-    /* transform: scale(1.12); */
+    z-index: 1;
+    transform: scale(1.15);
+    box-shadow: 0px 0px 60px 0px rgba(0, 114, 244, 0.4);
+
     .dark-box {
-      opacity: 0.9;
+      opacity: 0.85;
     }
     .movie-info-container {
       display: block;
@@ -80,7 +74,7 @@ const MinimalCard = () => {
     <StyledMinimalCard>
       <div>
         <img
-          src="https://image.tmdb.org/t/p/w500/oBgWY00bEFeZ9N25wWVyuQddbAo.jpg"
+          src="https://image.tmdb.org/t/p/w500/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg"
           alt="movie backdrop"
           className="movie-image"
         />

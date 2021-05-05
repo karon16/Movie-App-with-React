@@ -19,7 +19,8 @@ export const ButtonContainer = styled.button`
   font-size: ${({ fontsize }) => fontsize || "0.9rem"};
   color: #fff;
   font-family: ${({ theme }) => theme.fonts.biryani};
-  margin: 10px ${({ buttonmargin }) => buttonmargin || "0"};
+  margin: 10px 0;
+  margin-left: ${({ buttonmargin }) => buttonmargin || "0"};
   border-radius: 0;
   box-sizing: border-box !important;
   border: 1px solid ${({ theme }) => theme.colors.lightBlue};
@@ -59,6 +60,6 @@ export const ButtonContainer = styled.button`
       `}
   }
   @media ${({ theme }) => theme.mediaQueries["bellow-768"]} {
-    font-size: 1rem;
+    /* font-size: 1rem; */
   }
 `;
