@@ -39,9 +39,8 @@ const StyledExplicitCard = styled.div`
 
   &:hover {
     z-index: 1;
-    transform: scale(1.15);
+    transform: scale(1.12);
     box-shadow: 0px 0px 60px 0px rgba(0, 114, 244, 0.4);
-    /* box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.5); */
   }
 
   @media ${({ theme }) => theme.mediaQueries["bellow-1280"]} {

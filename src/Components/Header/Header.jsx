@@ -9,11 +9,12 @@ import { Icon } from "semantic-ui-react";
 
 const NavigationBar = styled.nav`
   width: 100vw;
-  // position: relative;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: ${({ theme }) => theme.colors.footer};
+  background: rgba(9, 19, 38, 0.95);
+    z-index : 10;
   padding: 10px ${({ theme }) => theme.sizes.defaultPaddingSides}};
  
 

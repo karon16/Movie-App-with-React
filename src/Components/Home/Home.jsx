@@ -4,15 +4,15 @@ import ExplicitCardList from "../Shared/ExplicitCardComponent/ExplicitCardList/E
 import styled from "styled-components";
 import MinimalCardList from "../Shared/MinimalCardComponent/MinimalCardList/MinimalCardList";
 import HeroSection from "../HeroSection/HeroSection";
+import SectionTitle from "../Shared/SectionTitle/SectionTitle";
+import SectionDivider from "../Shared/SectionDivider/SectionDivider";
+import Button from "../Shared/Button/Button";
+import { Link } from "react-router-dom";
 
 const StyledHome = styled.div`
   background: #0e1930;
   padding: ${({ theme }) => theme.sizes.defaultPaddingTop}
     ${({ theme }) => theme.sizes.defaultPaddingSides};
-
-  h3 {
-    color: white;
-  }
 `;
 
 const Home = () => {
@@ -33,12 +33,24 @@ const Home = () => {
     <>
       <HeroSection />
       <StyledHome>
-        <div className="home-line"></div>
-        <h3>Bientôt en salle</h3>
+        <SectionTitle>Bientôt en salle</SectionTitle>
         <ExplicitCardList />
-        <div className="home-line"></div>
-        <h3>Fimls</h3>
+        <SectionDivider />
+        <SectionTitle>Films</SectionTitle>
         <MinimalCardList />
+        <Link to="/movies">
+          <Button animateprimary centered>
+            Voir Plus
+          </Button>
+        </Link>
+        <SectionDivider />
+        <SectionTitle>Series</SectionTitle>
+        <MinimalCardList />
+        <Link to="/series">
+          <Button animateprimary centered>
+            Voir Plus
+          </Button>
+        </Link>
       </StyledHome>
     </>
   );

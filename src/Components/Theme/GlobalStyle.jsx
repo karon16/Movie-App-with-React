@@ -22,12 +22,12 @@ body{
 .bold-text{
     font-weight :bold;
 }
-.home-line {
+/* .home-line {
     width: 100%;
     height: 0.5px;
     background: ${({ theme }) => theme.colors.lightBlue};
     margin: ${({ theme }) => theme.sizes.defaultPaddingTop} auto;
-  }
+  } */
 
 `;
 

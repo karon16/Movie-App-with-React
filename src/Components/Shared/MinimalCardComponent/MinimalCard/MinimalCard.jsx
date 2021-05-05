@@ -1,5 +1,4 @@
 import Button from "../../Button/Button";
-// import MovieImage from "../../../img/bg.jpg";
 import styled from "styled-components";
 
 const StyledMinimalCard = styled.div`
@@ -53,7 +52,7 @@ const StyledMinimalCard = styled.div`
 
   &:hover {
     z-index: 1;
-    transform: scale(1.15);
+    transform: scale(1.12);
     box-shadow: 0px 0px 60px 0px rgba(0, 114, 244, 0.4);
 
     .dark-box {

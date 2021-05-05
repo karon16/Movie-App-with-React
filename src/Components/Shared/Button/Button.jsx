@@ -10,6 +10,7 @@ function Button({
   animation,
   cardbutton,
   buttonmargin,
+  centered,
 }) {
   return (
     <ButtonContainer
@@ -21,6 +22,7 @@ function Button({
       animation={animation}
       cardbutton={cardbutton}
       buttonmargin={buttonmargin}
+      centered={centered}
     >
       {children}
     </ButtonContainer>

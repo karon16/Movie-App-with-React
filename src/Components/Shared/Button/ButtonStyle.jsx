@@ -24,6 +24,7 @@ export const ButtonContainer = styled.button`
   border-radius: 0;
   box-sizing: border-box !important;
   border: 1px solid ${({ theme }) => theme.colors.lightBlue};
+  cursor: pointer;
 
   ${({ animation }) =>
     animation &&
@@ -42,6 +43,12 @@ export const ButtonContainer = styled.button`
     css`
       padding: 10px 6px;
       /* border: 1px solid white; */
+    `}
+    ${({ centered }) =>
+    centered &&
+    css`
+      margin: 10px auto;
+      display: block;
     `}
   &:hover {
     ${({ animatesecondary }) =>
