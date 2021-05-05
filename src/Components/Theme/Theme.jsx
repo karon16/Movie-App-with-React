@@ -5,7 +5,7 @@ const Theme = {
     // lightBlue: "rgba(0, 114, 244,0.4)",
     white: "#fff",
     paleWhite: "rgba(255, 255, 255,0.8)",
-    footer: "#091326",
+    footer: "rgb(9, 19, 38)",
     // header: "",
   },
   fonts: {

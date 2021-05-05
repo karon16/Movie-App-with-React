@@ -14,7 +14,7 @@ function App() {
         <Route exact path="/" component={WelcomePage} />
         <Route path="/accueil" component={Home} />
       </Switch>
-      <Footer />
+      {location.pathname !== "/" && <Footer />}
     </>
   );
 }
