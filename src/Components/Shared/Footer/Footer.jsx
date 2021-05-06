@@ -1,4 +1,4 @@
-import TlLogo from "../img/logo-min.svg";
+import TlLogo from "../../img/logo-min.svg";
 import "semantic-ui-css/semantic.min.css";
 import { Icon } from "semantic-ui-react";
 import { StyledLink, StyledFooter } from "./FooterStyle";

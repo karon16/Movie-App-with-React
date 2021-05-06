@@ -1,6 +1,6 @@
-import Button from "../../Shared/Button/Button";
+// import Button from "../../Shared/Button/Button";
 import styled from "styled-components";
-import Genre from "../../Shared/Genre/Genre";
+// import Genre from "../../Shared/Genre/Genre";
 import MovieSectionTitle from "../MovieSectionTitle/MovieSectionTitle";
 
 const StyledMovieHeroSection = styled.section`
@@ -20,7 +20,7 @@ const StyledMovieHeroSection = styled.section`
   align-items: flex-end;
 `;
 
-const MovieHeroSection = ({ bg }) => {
+const MovieHeroSection = ({ children }) => {
   return (
     <StyledMovieHeroSection bg="https://image.tmdb.org/t/p/original/5g0gisu56NsCGiMa00HWINbc25X.jpg">
       <MovieSectionTitle>Films</MovieSectionTitle>
