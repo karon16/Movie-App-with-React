@@ -11,8 +11,8 @@ import TrendingCardList from "../../Shared/TrendingCard/TrendingCardList";
 
 const StyledHome = styled.div`
   background: #0e1930;
-  padding: ${({ theme }) => theme.sizes.defaultPaddingTop}
-    ${({ theme }) => theme.sizes.defaultPaddingSides};
+  padding: ${({ theme }) => theme.sizes.defaultPaddingTop};
+  ${({ theme }) => theme.sizes.defaultPaddingSides};
 `;
 
 const Home = () => {

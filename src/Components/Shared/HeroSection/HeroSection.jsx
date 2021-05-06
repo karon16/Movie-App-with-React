@@ -14,8 +14,8 @@ const StyledHeroSection = styled.section`
   background-size: cover;
   width: 100vw;
   height: 100vh;
-  padding: ${({ theme }) => theme.sizes.defaultPaddingTop}
-    ${({ theme }) => theme.sizes.defaultPaddingSides};
+  padding: ${({ theme }) => theme.sizes.defaultPaddingTop};
+  ${({ theme }) => theme.sizes.defaultPaddingSides};
 
   display: flex;
   flex-direction: column;

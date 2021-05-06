@@ -14,15 +14,14 @@ const StyledHeroSection = styled.section`
     url("${({ bg }) => bg}");
   background-size: cover;
   width: 100vw;
-  /* height: 100vh; */
   padding: 5% ${({ theme }) => theme.sizes.defaultPaddingSides};
   padding-top: 7%;
 `;
 
 const MediaVideoContainer = styled.div`
   background: #0e1930;
-  padding: ${({ theme }) => theme.sizes.defaultPaddingTop}
-    ${({ theme }) => theme.sizes.defaultPaddingSides};
+  padding: ${({ theme }) => theme.sizes.defaultPaddingTop};
+  ${({ theme }) => theme.sizes.defaultPaddingSides};
 `;
 
 const MovieInfos = () => {

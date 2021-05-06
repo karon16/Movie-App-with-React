@@ -4,8 +4,8 @@ import styled, { css } from "styled-components";
 export const StyledFooter = styled.footer`
   width: 100vw;
   background: ${({ theme }) => theme.colors.footer};
-  padding: ${({ theme }) => theme.sizes.defaultPaddingTop}
-    ${({ theme }) => theme.sizes.defaultPaddingSides};
+  padding: ${({ theme }) => theme.sizes.defaultPaddingTop};
+  ${(theme) => theme.sizes.defaultPaddingSides};
 
   .footer-main-container {
     display: flex;
@@ -126,7 +126,6 @@ export const StyledLink = styled(Link)`
     bold &&
     css`
       font-weight: bold;
-      //   margin-bottom: 15px;
       font-size: 0.9rem;
     `}
   ${({ subcategories }) =>

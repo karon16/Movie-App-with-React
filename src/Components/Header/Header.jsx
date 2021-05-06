@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import Navigation from "./Navigation/Navigation";
 import SearchInput from "./SearchInput/SearchInput";
 import HeaderLogo from "../img/logo-min.svg";
@@ -15,7 +14,7 @@ const NavigationBar = styled.nav`
   align-items: center;
   background: rgba(9, 19, 38, 0.95);
   z-index: 10;
-  padding: 10px ${({ theme }) => theme.sizes.defaultPaddingSides}};
+  padding: 10px ${({ theme }) => theme.sizes.defaultPaddingSides};
 
   .nav-right-side {
     display: flex;
@@ -27,9 +26,7 @@ const NavigationBar = styled.nav`
   .burger-menu {
     display: none;
   }
-  .tala-movies-logo {
-    /* width: 100%; */
-  }
+
   @media ${({ theme }) => theme.mediaQueries["bellow-768"]} {
     .burger-menu {
       display: block;

@@ -9,8 +9,8 @@ import MovieSectionTitle from "../../Shared/MovieSectionTitle/MovieSectionTitle"
 
 const StyledMovies = styled.div`
   background: #0e1930;
-  padding: ${({ theme }) => theme.sizes.defaultPaddingTop}
-    ${({ theme }) => theme.sizes.defaultPaddingSides};
+  padding: ${({ theme }) => theme.sizes.defaultPaddingTop};
+  ${({ theme }) => theme.sizes.defaultPaddingSides};
 `;
 
 const Movies = () => {

@@ -14,8 +14,8 @@ const StyledMovieHeroSection = styled.section`
   background-size: cover;
   width: 100vw;
   height: 70vh;
-  padding: ${({ theme }) => theme.sizes.defaultPaddingTop}
-    ${({ theme }) => theme.sizes.defaultPaddingSides};
+  padding: ${({ theme }) => theme.sizes.defaultPaddingTop};
+  ${({ theme }) => theme.sizes.defaultPaddingSides};
   display: flex;
   align-items: flex-end;
 `;
