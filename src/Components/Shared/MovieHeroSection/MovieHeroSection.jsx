@@ -1,7 +1,4 @@
-// import Button from "../../Shared/Button/Button";
 import styled from "styled-components";
-// import Genre from "../../Shared/Genre/Genre";
-// import MovieSectionTitle from "../MovieSectionTitle/MovieSectionTitle";
 
 const StyledMovieHeroSection = styled.section`
   background: linear-gradient(
@@ -14,15 +11,17 @@ const StyledMovieHeroSection = styled.section`
   background-size: cover;
   width: 100vw;
   height: 70vh;
-  padding: ${({ theme }) => theme.sizes.defaultPaddingTop};
-  ${({ theme }) => theme.sizes.defaultPaddingSides};
   display: flex;
   align-items: flex-end;
+  /* padding-top: 7% !important; */
 `;
 
 const MovieHeroSection = ({ children }) => {
   return (
-    <StyledMovieHeroSection bg="https://image.tmdb.org/t/p/original/5g0gisu56NsCGiMa00HWINbc25X.jpg">
+    <StyledMovieHeroSection
+      className="section-padding"
+      bg="https://image.tmdb.org/t/p/original/5g0gisu56NsCGiMa00HWINbc25X.jpg"
+    >
       {children}
     </StyledMovieHeroSection>
   );

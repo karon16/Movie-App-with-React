@@ -14,8 +14,6 @@ const StyledHeroSection = styled.section`
   background-size: cover;
   width: 100vw;
   height: 100vh;
-  padding: ${({ theme }) => theme.sizes.defaultPaddingTop};
-  ${({ theme }) => theme.sizes.defaultPaddingSides};
 
   display: flex;
   flex-direction: column;
@@ -38,22 +36,15 @@ const StyledHeroSection = styled.section`
     text-align: center;
   }
 `;
-// const GenreContainer = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   margin-bottom: 10px;
-// `;
 
 const HeroSection = () => {
   return (
-    <StyledHeroSection bg="https://image.tmdb.org/t/p/original/5g0gisu56NsCGiMa00HWINbc25X.jpg">
+    <StyledHeroSection
+      className="section-padding"
+      bg="https://image.tmdb.org/t/p/original/5g0gisu56NsCGiMa00HWINbc25X.jpg"
+    >
       <h2 className="movie-title">Movie Title</h2>
       <GenreList />
-      {/* <GenreContainer> */}
-      {/* <Genre>Jeuneusse</Genre>
-        <Genre>Aventure</Genre>
-        <Genre>Comédie</Genre> */}
-      {/* </GenreContainer> */}
       <p className="movie-description">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo animi
         commodi veritatis nobis, doloribus illo atque unde id asperiores

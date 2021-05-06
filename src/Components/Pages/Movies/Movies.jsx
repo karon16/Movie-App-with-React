@@ -8,9 +8,8 @@ import Button from "../../Shared/Button/Button";
 import MovieSectionTitle from "../../Shared/MovieSectionTitle/MovieSectionTitle";
 
 const StyledMovies = styled.div`
+  width: 100vw;
   background: #0e1930;
-  padding: ${({ theme }) => theme.sizes.defaultPaddingTop};
-  ${({ theme }) => theme.sizes.defaultPaddingSides};
 `;
 
 const Movies = () => {
@@ -19,7 +18,7 @@ const Movies = () => {
       <MovieHeroSection>
         <MovieSectionTitle>Films</MovieSectionTitle>
       </MovieHeroSection>
-      <StyledMovies>
+      <StyledMovies className="section-padding">
         <NavigationGenreList />
         <SectionTitle>Action</SectionTitle>
         <MinimalCardList />

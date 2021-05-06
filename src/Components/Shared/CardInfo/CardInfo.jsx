@@ -5,7 +5,9 @@ const StyledCard = styled.div`
   display: flex;
   justify-content: flex-start;
   color: white;
-  /* align-items: center; */
+  margin-top: 7%;
+
+  /* border: 1px solid white; */
 
   .movie-poster {
     width: 100%;
@@ -34,7 +36,6 @@ const StyledCard = styled.div`
   }
   .recommandation-percent {
     color: #04aa04;
-    /* font-weight: bold; */
   }
   .recommandation {
     font-weight: bold;
@@ -50,7 +51,6 @@ const StyledCard = styled.div`
   .overview {
     font-size: 1rem;
     font-weight: regular;
-    /* color: red; */
   }
 `;
 

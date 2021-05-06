@@ -9,8 +9,7 @@ import MovieSectionTitle from "../../Shared/MovieSectionTitle/MovieSectionTitle"
 
 const StyledSeries = styled.div`
   background: #0e1930;
-  padding: ${({ theme }) => theme.sizes.defaultPaddingTop};
-  ${({ theme }) => theme.sizes.defaultPaddingSides};
+  width: 100vw;
 `;
 
 const Series = () => {
@@ -19,7 +18,7 @@ const Series = () => {
       <MovieHeroSection>
         <MovieSectionTitle>Series</MovieSectionTitle>
       </MovieHeroSection>
-      <StyledSeries>
+      <StyledSeries className="section-padding">
         <NavigationGenreList />
         <SectionTitle>Action</SectionTitle>
         <MinimalCardList />

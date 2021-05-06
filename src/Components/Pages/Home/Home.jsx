@@ -11,8 +11,7 @@ import TrendingCardList from "../../Shared/TrendingCard/TrendingCardList";
 
 const StyledHome = styled.div`
   background: #0e1930;
-  padding: ${({ theme }) => theme.sizes.defaultPaddingTop};
-  ${({ theme }) => theme.sizes.defaultPaddingSides};
+  width: 100vw;
 `;
 
 const Home = () => {
@@ -20,7 +19,7 @@ const Home = () => {
 
   useEffect(() => {
     fetch(
-      "https://api.themoviedb.org/3/trending/movie/week?api_key=ff3f7a6f9e9804bf8c152b62e26b928c"
+      "https://api.themoviedb.org/3/person/287/images?api_key=ff3f7a6f9e9804bf8c152b62e26b928c"
     )
       .then((res) => res.json())
       .then((data) => {
@@ -32,7 +31,7 @@ const Home = () => {
   return (
     <>
       <HeroSection />
-      <StyledHome>
+      <StyledHome className="section-padding">
         <SectionTitle>Bientôt en salle</SectionTitle>
         <ExplicitCardList />
         <SectionDivider />

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ActorCardList from "../../Shared/actorCard/ActorCardList";
 import CardInfo from "../../Shared/CardInfo/CardInfo";
 import SectionDivider from "../../Shared/SectionDivider/SectionDivider";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
@@ -14,26 +15,28 @@ const StyledHeroSection = styled.section`
     url("${({ bg }) => bg}");
   background-size: cover;
   width: 100vw;
-  padding: 5% ${({ theme }) => theme.sizes.defaultPaddingSides};
-  padding-top: 7%;
+  /* padding-top: 7%; */
 `;
 
 const MediaVideoContainer = styled.div`
   background: #0e1930;
-  padding: ${({ theme }) => theme.sizes.defaultPaddingTop};
-  ${({ theme }) => theme.sizes.defaultPaddingSides};
+  width: 100vw;
 `;
 
 const MovieInfos = () => {
   return (
     <>
-      <StyledHeroSection bg="https://image.tmdb.org/t/p/original/fPGeS6jgdLovQAKunNHX8l0avCy.jpg">
+      <StyledHeroSection
+        className="section-padding"
+        bg="https://image.tmdb.org/t/p/original/fPGeS6jgdLovQAKunNHX8l0avCy.jpg"
+      >
         <CardInfo />
       </StyledHeroSection>
-      <MediaVideoContainer>
+      <MediaVideoContainer className="section-padding">
         <VideoOverview />
         <SectionDivider />
         <SectionTitle>Casting</SectionTitle>
+        <ActorCardList />
       </MediaVideoContainer>
     </>
   );

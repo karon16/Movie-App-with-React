@@ -2,11 +2,9 @@ const Theme = {
   colors: {
     darkBlue: "#0e1930",
     lightBlue: "#0070F4",
-    // lightBlue: "rgba(0, 114, 244,0.4)",
     white: "#fff",
     paleWhite: "rgba(255, 255, 255,0.8)",
     footer: "rgb(9, 19, 38)",
-    // header: "",
   },
   fonts: {
     roboto: "'Roboto', sans-serif",
