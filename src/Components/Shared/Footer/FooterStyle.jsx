@@ -5,7 +5,7 @@ export const StyledFooter = styled.footer`
   width: 100vw;
   background: ${({ theme }) => theme.colors.footer};
   padding: ${({ theme }) => theme.sizes.defaultPaddingTop};
-  ${(theme) => theme.sizes.defaultPaddingSides};
+  ${({ theme }) => theme.sizes.defaultPaddingSides};
 
   .footer-main-container {
     display: flex;
