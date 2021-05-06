@@ -12,7 +12,7 @@ const StyledGenre = styled.span`
 const Genre = ({ children }) => {
   return (
     <>
-      <StyledGenre>{children}</StyledGenre>;
+      <StyledGenre>{children}</StyledGenre>
     </>
   );
 };

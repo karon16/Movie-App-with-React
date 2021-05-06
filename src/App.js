@@ -5,6 +5,7 @@ import Header from "./Components/Header/Header";
 import Footer from "./Components/Shared/Footer/Footer";
 import Movies from "./Components/Pages/Movies/Movies";
 import Series from "./Components/Pages/Series/Series";
+import MovieInfos from "./Components/Pages/MovieInfos/MovieInfos";
 
 function App() {
   const location = useLocation();
@@ -17,6 +18,7 @@ function App() {
         <Route path="/accueil" component={Home} />
         <Route path="/films" component={Movies} />
         <Route path="/series" component={Series} />
+        <Route path="/movie-info" component={MovieInfos} />
       </Switch>
       {location.pathname !== "/" && <Footer />}
     </>

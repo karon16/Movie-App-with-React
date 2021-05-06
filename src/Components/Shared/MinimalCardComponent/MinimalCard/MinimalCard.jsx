@@ -1,5 +1,6 @@
 import Button from "../../Button/Button";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledMinimalCard = styled.div`
   width: calc((20%) - 10px);
@@ -86,9 +87,11 @@ const MinimalCard = () => {
           <Button cardbutton animateprimary>
             Bande d'annonce
           </Button>
-          <Button buttonmargin="10px" secondary cardbutton animatesecondary>
-            Plus d'Infos
-          </Button>
+          <Link to="/movie-info">
+            <Button buttonmargin="10px" secondary cardbutton animatesecondary>
+              Plus d'Infos
+            </Button>
+          </Link>
         </div>
 
         <p className="movie-genre">

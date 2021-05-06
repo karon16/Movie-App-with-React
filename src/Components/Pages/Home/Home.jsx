@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ExplicitCardList from "../../Shared/ExplicitCardComponent/ExplicitCardList/ExplicitCardList";
 import styled from "styled-components";
 import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList/MinimalCardList";
-import HeroSection from "../../HeroSection/HeroSection";
+import HeroSection from "../../Shared/HeroSection/HeroSection";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import SectionDivider from "../../Shared/SectionDivider/SectionDivider";
 import Button from "../../Shared/Button/Button";
