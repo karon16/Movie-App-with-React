@@ -38,10 +38,6 @@ export const StyledFooter = styled.footer`
     justify-content: space-between;
   }
 
-  .footer-row-block {
-    // width: 20%;
-    // border: 1px solid white;
-  }
   .margin-left {
     margin-left: 20px;
   }

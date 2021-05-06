@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import Footer from "../Footer/Footer";
 import ExplicitCardList from "../../Shared/ExplicitCardComponent/ExplicitCardList/ExplicitCardList";
 import styled from "styled-components";
 import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList/MinimalCardList";
@@ -39,7 +38,7 @@ const Home = () => {
         <SectionDivider />
         <SectionTitle>Films</SectionTitle>
         <MinimalCardList />
-        <Link to="/movies">
+        <Link to="/films">
           <Button animateprimary centered>
             Voir Plus
           </Button>

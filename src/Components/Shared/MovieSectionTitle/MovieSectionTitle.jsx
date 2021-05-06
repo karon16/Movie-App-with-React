@@ -5,7 +5,7 @@ const StytledMovieSectionTitle = styled.h2`
   display: inline-block;
   border-bottom: 10px solid ${({ theme }) => theme.colors.lightBlue};
   font-family: ${({ theme }) => theme.fonts.roboto};
-  font-size: 7rem;
+  font-size: 5rem;
   line-height: 7rem;
   letter-spacing: 0.2rem;
 `;

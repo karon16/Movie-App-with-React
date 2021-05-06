@@ -13,8 +13,9 @@ const StyledExplicitCard = styled.div`
   }
 
   .movie-info-container {
-    width: 90%;
+    width: 100%;
     margin: 15px auto;
+    padding: 10px;
   }
   .movie-name {
     color: ${({ theme }) => theme.colors.white};

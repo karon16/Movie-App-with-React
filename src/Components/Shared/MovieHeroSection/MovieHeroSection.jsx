@@ -1,7 +1,7 @@
 // import Button from "../../Shared/Button/Button";
 import styled from "styled-components";
 // import Genre from "../../Shared/Genre/Genre";
-import MovieSectionTitle from "../MovieSectionTitle/MovieSectionTitle";
+// import MovieSectionTitle from "../MovieSectionTitle/MovieSectionTitle";
 
 const StyledMovieHeroSection = styled.section`
   background: linear-gradient(
@@ -23,7 +23,7 @@ const StyledMovieHeroSection = styled.section`
 const MovieHeroSection = ({ children }) => {
   return (
     <StyledMovieHeroSection bg="https://image.tmdb.org/t/p/original/5g0gisu56NsCGiMa00HWINbc25X.jpg">
-      <MovieSectionTitle>Films</MovieSectionTitle>
+      {children}
     </StyledMovieHeroSection>
   );
 };

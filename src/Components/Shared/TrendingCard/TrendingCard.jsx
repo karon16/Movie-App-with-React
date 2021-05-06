@@ -6,7 +6,6 @@ import "semantic-ui-css/semantic.min.css";
 const StyledTrendingCard = styled.div`
   width: calc((50%) - 10px);
   background: #091326;
-  /* transition: transform 0.3s ease; */
   display: flex;
 
   .movie-image {

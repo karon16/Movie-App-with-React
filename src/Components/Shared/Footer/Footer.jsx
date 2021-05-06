@@ -21,41 +21,41 @@ const Footer = () => {
             <StyledLink to="#">Contacts</StyledLink>
           </div>
           <div className="footer-row-block hidden-420">
-            <StyledLink bold to="/film">
+            <StyledLink bold="bold" to="/film">
               Films
             </StyledLink>
             <div className="flex-row">
               <div className="flex-column">
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Action
                 </StyledLink>
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Drame
                 </StyledLink>
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Romantique
                 </StyledLink>
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Science-Fiction
                 </StyledLink>
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Histoire
                 </StyledLink>
               </div>
               <div className="flex-column margin-left hidden">
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Fantastique
                 </StyledLink>
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Guerre
                 </StyledLink>
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Suspens
                 </StyledLink>
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Horreur
                 </StyledLink>
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Documentaire
                 </StyledLink>
               </div>
@@ -67,30 +67,30 @@ const Footer = () => {
             </StyledLink>
             <div className="flex-row">
               <div className="flex-column">
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Action
                 </StyledLink>
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Drame
                 </StyledLink>
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Romantique
                 </StyledLink>
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Science-Fiction
                 </StyledLink>
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Histoire
                 </StyledLink>
               </div>
               <div className="flex-column margin-left hidden">
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Fantastique
                 </StyledLink>
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Guerre
                 </StyledLink>
-                <StyledLink subcategories to="#">
+                <StyledLink subcategories="true" to="#">
                   Suspens
                 </StyledLink>
               </div>
@@ -98,10 +98,10 @@ const Footer = () => {
           </div>
           <div className="footer-row-block">
             <div className="flex-column">
-              <StyledLink subcategories to="#">
+              <StyledLink subcategories="true" to="#">
                 Politique de confidentialité
               </StyledLink>
-              <StyledLink subcategories to="#">
+              <StyledLink subcategories="true" to="#">
                 Conditions d’utilisation
               </StyledLink>
               <div className="icons">

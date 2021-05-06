@@ -14,9 +14,8 @@ const NavigationBar = styled.nav`
   justify-content: space-between;
   align-items: center;
   background: rgba(9, 19, 38, 0.95);
-    z-index : 10;
+  z-index: 10;
   padding: 10px ${({ theme }) => theme.sizes.defaultPaddingSides}};
- 
 
   .nav-right-side {
     display: flex;
@@ -31,7 +30,7 @@ const NavigationBar = styled.nav`
   .tala-movies-logo {
     /* width: 100%; */
   }
-  @media  ${({ theme }) => theme.mediaQueries["bellow-768"]} {
+  @media ${({ theme }) => theme.mediaQueries["bellow-768"]} {
     .burger-menu {
       display: block;
       cursor: pointer;

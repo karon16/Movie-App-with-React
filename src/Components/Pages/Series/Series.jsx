@@ -5,6 +5,7 @@ import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList/M
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import SectionDivider from "../../Shared/SectionDivider/SectionDivider";
 import Button from "../../Shared/Button/Button";
+import MovieSectionTitle from "../../Shared/MovieSectionTitle/MovieSectionTitle";
 
 const StyledSeries = styled.div`
   background: #0e1930;
@@ -15,7 +16,9 @@ const StyledSeries = styled.div`
 const Series = () => {
   return (
     <>
-      <MovieHeroSection />
+      <MovieHeroSection>
+        <MovieSectionTitle>Series</MovieSectionTitle>
+      </MovieHeroSection>
       <StyledSeries>
         <NavigationGenreList />
         <SectionTitle>Action</SectionTitle>
