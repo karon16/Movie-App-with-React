@@ -69,7 +69,7 @@ const StyledMinimalCard = styled.div`
   }
 `;
 
-const MinimalCard = () => {
+const MinimalCard = ({ onClick }) => {
   return (
     <StyledMinimalCard>
       <div>
@@ -84,7 +84,7 @@ const MinimalCard = () => {
         <h3 className="movie-name">Movie name</h3>
         <p className="movie-duration">Duration</p>
         <div className="button-container">
-          <Button cardbutton animateprimary>
+          <Button cardbutton animateprimary onClick={onClick}>
             Bande d'annonce
           </Button>
           <Link to="/movie-info">

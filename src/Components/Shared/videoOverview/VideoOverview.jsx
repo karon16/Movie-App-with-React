@@ -1,6 +1,12 @@
+import styled from "styled-components";
+
+const MediaOverviewContainer = styled.div`
+  margin: 0 auto;
+`;
+
 const VideoOverview = () => {
   return (
-    <>
+    <MediaOverviewContainer>
       <iframe
         id="player"
         type="text/html"
@@ -10,7 +16,7 @@ const VideoOverview = () => {
         frameborder="0"
         title="video"
       ></iframe>
-    </>
+    </MediaOverviewContainer>
   );
 };
 

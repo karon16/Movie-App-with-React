@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import GenreList from "../../Shared/Genre/GenreList";
+import "semantic-ui-css/semantic.min.css";
+import { Icon } from "semantic-ui-react";
 
 const StyledCard = styled.div`
   display: flex;
@@ -14,6 +16,7 @@ const StyledCard = styled.div`
   }
   .movie-image-container {
     width: 20%;
+    position: relative;
   }
   .info-container {
     width: 40%;
@@ -52,9 +55,14 @@ const StyledCard = styled.div`
     font-size: 1rem;
     font-weight: regular;
   }
+  .play-icon {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+  }
 `;
 
-const CardInfo = () => {
+const CardInfo = ({ onClick }) => {
   return (
     <StyledCard>
       <div className="movie-image-container">
@@ -62,6 +70,14 @@ const CardInfo = () => {
           src="https://image.tmdb.org/t/p/w500/rEm96ib0sPiZBADNKBHKBv5bve9.jpg"
           alt="movie"
           className="movie-poster"
+          onClick={onClick}
+        />
+        <Icon
+          name="play"
+          inverted
+          size="huge"
+          className="play-icon"
+          onClick={onClick}
         />
       </div>
       <div className="info-container">

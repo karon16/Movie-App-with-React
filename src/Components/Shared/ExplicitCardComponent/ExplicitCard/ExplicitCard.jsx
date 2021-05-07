@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 
 const StyledExplicitCard = styled.div`
-  width: calc((20%) - 10px);
+  /* width: calc((20%) - 10px);
+   */
+  width: 270px;
+
   background: #091326;
   transition: transform 0.3s ease;
 
@@ -39,17 +42,17 @@ const StyledExplicitCard = styled.div`
     justify-content: flex-start;
   }
 
-  &:hover {
+  /* &:hover {
     z-index: 1;
     transform: scale(1.12);
     box-shadow: 0px 0px 60px 0px rgba(0, 114, 244, 0.4);
-  }
+  } */
 
   @media ${({ theme }) => theme.mediaQueries["bellow-1280"]} {
   }
 `;
 
-const ExplicitCard = () => {
+const ExplicitCard = ({ onClick }) => {
   return (
     <StyledExplicitCard>
       <div>
@@ -59,7 +62,7 @@ const ExplicitCard = () => {
         <h3 className="movie-name">Movie name</h3>
         <p className="movie-duration">Duration</p>
         <div className="button-container">
-          <Button cardbutton animateprimary>
+          <Button cardbutton animateprimary onClick={onClick}>
             Bande d'annonce
           </Button>
           <Link to="/movie-info">

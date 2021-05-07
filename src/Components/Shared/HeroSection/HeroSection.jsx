@@ -1,7 +1,7 @@
 import Button from "../Button/Button";
 import styled from "styled-components";
-// import Genre from "../Shared/Genre/Genre";
 import GenreList from "../Genre/GenreList";
+import { useState, useEffect } from "react";
 
 const StyledHeroSection = styled.section`
   background: linear-gradient(
@@ -38,33 +38,60 @@ const StyledHeroSection = styled.section`
 `;
 
 const HeroSection = () => {
+  const [trendingMedias, setTrendingMedias] = useState([]);
+
+  const url =
+    "https://api.themoviedb.org/3/trending/all/day?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr";
+
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then(({ results }) => {
+        console.log(results);
+        const trendingMediaList = results
+          .slice(0, 5)
+          .map(
+            ({ backdrop_path, genre_ids, id, name, overview, media_type }) => {
+              return { backdrop_path, genre_ids, id, name, overview };
+            }
+          );
+        setTrendingMedias(trendingMediaList);
+      });
+  }, []);
+
+  // console.log("trendingMedia", trendingMedias[0].genre_ids);
+
   return (
-    <StyledHeroSection
-      className="section-padding"
-      bg="https://image.tmdb.org/t/p/original/5g0gisu56NsCGiMa00HWINbc25X.jpg"
-    >
-      <h2 className="movie-title">Movie Title</h2>
-      <GenreList />
-      <p className="movie-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo animi
-        commodi veritatis nobis, doloribus illo atque unde id asperiores
-        voluptatem cum optio eum obcaecati reprehenderit porro. Quos atque
-        molestias mollitia!
-      </p>
-      <div>
-        <Button animateprimary fontsize="1.5rem">
-          Bande d'annonce
-        </Button>
-        <Button
-          buttonmargin="10px"
-          secondary
-          animatesecondary
-          fontsize="1.3rem"
+    <>
+      {trendingMedias.length === 0 ? (
+        <h1>Loading</h1>
+      ) : (
+        <StyledHeroSection
+          className="section-padding"
+          bg={`https://image.tmdb.org/t/p/original${trendingMedias[0].backdrop_path}`}
         >
-          Plus d'Infos
-        </Button>
-      </div>
-    </StyledHeroSection>
+          <h2 className="movie-title">{trendingMedias[0].name}</h2>
+          <GenreList
+            genre={trendingMedias[0].genre_ids}
+            media_type={trendingMedias[0].media_type}
+          />
+          <p className="movie-description">{trendingMedias[0].overview}</p>
+          <div>
+            <Button animateprimary fontsize="1.5rem">
+              Bande d'annonce
+            </Button>
+            <Button
+              buttonmargin="10px"
+              secondary
+              animatesecondary
+              fontsize="1.3rem"
+            >
+              Plus d'Infos
+            </Button>
+          </div>
+        </StyledHeroSection>
+      )}
+    </>
   );
 };
 
