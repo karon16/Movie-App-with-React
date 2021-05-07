@@ -27,9 +27,8 @@ const Home = () => {
       });
   }, []);
 
-  console.log(movie);
   return (
-    <>
+    <div>
       <HeroSection />
       <StyledHome className="section-padding">
         <SectionTitle>Bientôt en salle</SectionTitle>
@@ -54,7 +53,7 @@ const Home = () => {
         <SectionTitle>Tendances actuelles</SectionTitle>
         <TrendingCardList />
       </StyledHome>
-    </>
+    </div>
   );
 };
 

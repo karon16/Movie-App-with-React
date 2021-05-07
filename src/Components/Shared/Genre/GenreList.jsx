@@ -8,7 +8,7 @@ const GenreContainer = styled.div`
   margin: 10px;
 `;
 
-const GenreList = ({ genre, media_type }) => {
+const GenreList = ({ genre_ids, media_type }) => {
   const [movieGenres, setMovieGenres] = useState([]);
   const [tvGenres, setTvGenres] = useState([]);
 
@@ -40,17 +40,35 @@ const GenreList = ({ genre, media_type }) => {
     getTvGenres();
   }, []);
 
-  console.log("genres", movieGenres);
-  //fetch movie genre List {id : Number , name : String}
-  //fetch tv genre List {id : Number , name : String}
+  const tvGenreTable = () => {
+    const tab = [];
+    for (let genre of tvGenres) {
+      for (let id of genre_ids) {
+        if (genre.id === id) {
+          tab.push(genre.name);
+        }
+      }
+    }
+    return tab;
+  };
 
+  const movieGenreTable = () => {
+    const tab = [];
+    for (let genre of movieGenres) {
+      for (let id of genre_ids) {
+        if (genre.id === id) {
+          tab.push(genre.name);
+        }
+      }
+    }
+    return tab;
+  };
+  console.log(media_type);
   return (
-    //receive movie genre List from parents
-    //map it anc compare with both List
     <GenreContainer>
-      <Genre>{genre}</Genre>
-      <Genre>{genre}</Genre>
-      <Genre>{genre}</Genre>
+      {media_type === "tv"
+        ? tvGenreTable().map((genre, id) => <Genre key={id}>{genre}</Genre>)
+        : movieGenreTable().map((genre, id) => <Genre key={id}>{genre}</Genre>)}
     </GenreContainer>
   );
 };

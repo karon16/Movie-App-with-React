@@ -52,15 +52,21 @@ const HeroSection = () => {
           .slice(0, 5)
           .map(
             ({ backdrop_path, genre_ids, id, name, overview, media_type }) => {
-              return { backdrop_path, genre_ids, id, name, overview };
+              return {
+                backdrop_path,
+                genre_ids,
+                id,
+                name,
+                overview,
+                media_type,
+              };
             }
           );
         setTrendingMedias(trendingMediaList);
       });
   }, []);
 
-  // console.log("trendingMedia", trendingMedias[0].genre_ids);
-
+  console.log(trendingMedias);
   return (
     <>
       {trendingMedias.length === 0 ? (
@@ -72,9 +78,11 @@ const HeroSection = () => {
         >
           <h2 className="movie-title">{trendingMedias[0].name}</h2>
           <GenreList
-            genre={trendingMedias[0].genre_ids}
+            genre_ids={trendingMedias[0].genre_ids}
             media_type={trendingMedias[0].media_type}
           />
+
+          {/* {console.log("genre_ids", trendingMedias[0].genre_ids)} */}
           <p className="movie-description">{trendingMedias[0].overview}</p>
           <div>
             <Button animateprimary fontsize="1.5rem">
