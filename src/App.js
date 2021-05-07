@@ -18,7 +18,8 @@ function App() {
         <Route path="/accueil" component={Home} />
         <Route path="/films" component={Movies} />
         <Route path="/series" component={Series} />
-        <Route path="/movie-info" component={MovieInfos} />
+        <Route path="/movie/:id" render={({ match }) => <MovieInfos match={match} />} />
+        <Route path="/tv/:id" render={({ match }) => <MovieInfos match={match} />} />
       </Switch>
       {location.pathname !== "/" && <Footer />}
     </>

@@ -4,6 +4,7 @@ import GenreList from "../Genre/GenreList";
 import { useState, useEffect } from "react";
 import "react-slideshow-image/dist/styles.css";
 import { Slide } from "react-slideshow-image";
+import { Link } from "react-router-dom";
 
 const StyledHeroSection = styled.section`
   background: linear-gradient(0deg, rgba(14, 25, 48, 1) 11%, rgba(14, 25, 48, 0.7685324618128502) 45%, rgba(14, 25, 48, 0.2531262993478641) 95%),
@@ -22,7 +23,6 @@ const StyledHeroSection = styled.section`
     line-height: 5rem;
     font-family: ${({ theme }) => theme.fonts.biryani};
     margin: 0;
-    /* width: 60%; */
   }
   .movie-description {
     font-size: 1.4rem;
@@ -62,7 +62,6 @@ const HeroSection = () => {
     getTrendingMedia();
   }, []);
 
-  let shortenOverview = "";
   return (
     <>
       {trendingMedias.length === 0 ? (
@@ -73,7 +72,6 @@ const HeroSection = () => {
             {trendingMedias.map((media, index) => {
               return (
                 <div>
-                  {(shortenOverview = `${media.overview.split(".")[0]}.`)}
                   <StyledHeroSection
                     key={index}
                     className="section-padding each-slide"
@@ -82,14 +80,16 @@ const HeroSection = () => {
                     <h2 className="movie-title">{media.name !== undefined ? media.name : media.title}</h2>
                     <GenreList genre_ids={media.genre_ids} media_type={media.media_type} />
 
-                    <p className="movie-description">{shortenOverview}</p>
+                    <p className="movie-description">{`${media.overview.split(".")[0]}.`}</p>
                     <div>
                       <Button animateprimary fontsize="1.5rem">
                         Bande d'annonce
                       </Button>
-                      <Button buttonmargin="10px" secondary animatesecondary fontsize="1.3rem">
-                        Plus d'Infos
-                      </Button>
+                      <Link to={`/${media.media_type}/${media.id}`}>
+                        <Button buttonmargin="10px" secondary animatesecondary fontsize="1.3rem">
+                          Plus d'Infos
+                        </Button>
+                      </Link>
                     </div>
                   </StyledHeroSection>
                 </div>

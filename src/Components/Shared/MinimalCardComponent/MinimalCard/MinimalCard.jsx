@@ -1,6 +1,5 @@
 import Button from "../../Button/Button";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const StyledMinimalCard = styled.div`
   width: calc((20%) - 10px);
@@ -73,11 +72,7 @@ const MinimalCard = ({ onClick }) => {
   return (
     <StyledMinimalCard>
       <div>
-        <img
-          src="https://image.tmdb.org/t/p/w500/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg"
-          alt="movie backdrop"
-          className="movie-image"
-        />
+        <img src="https://image.tmdb.org/t/p/w500/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg" alt="movie backdrop" className="movie-image" />
       </div>
       <div className="dark-box"></div>
       <div className="movie-info-container">
@@ -87,16 +82,11 @@ const MinimalCard = ({ onClick }) => {
           <Button cardbutton animateprimary onClick={onClick}>
             Bande d'annonce
           </Button>
-          <Link to="/movie-info">
-            <Button buttonmargin="10px" secondary cardbutton animatesecondary>
-              Plus d'Infos
-            </Button>
-          </Link>
+          <Button buttonmargin="10px" secondary cardbutton animatesecondary>
+            Plus d'Infos
+          </Button>
         </div>
-
-        <p className="movie-genre">
-          Action &nbsp; Science-fiction &nbsp; Suspens
-        </p>
+        <p className="movie-genre">Action &nbsp; Science-fiction &nbsp; Suspens</p>
       </div>
     </StyledMinimalCard>
   );

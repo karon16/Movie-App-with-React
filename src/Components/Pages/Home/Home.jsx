@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import ExplicitCardList from "../../Shared/ExplicitCardComponent/ExplicitCardList/ExplicitCardList";
 import styled from "styled-components";
 import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList/MinimalCardList";
@@ -18,16 +17,6 @@ const StyledHome = styled.div`
 `;
 
 const Home = () => {
-  const [movie, setMovie] = useState([]);
-
-  useEffect(() => {
-    fetch("https://api.themoviedb.org/3/person/287/images?api_key=ff3f7a6f9e9804bf8c152b62e26b928c")
-      .then((res) => res.json())
-      .then((data) => {
-        setMovie(data);
-      });
-  }, []);
-
   return (
     <mainContainer>
       <HeroSection />

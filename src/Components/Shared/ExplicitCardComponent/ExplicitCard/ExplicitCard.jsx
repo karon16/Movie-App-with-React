@@ -1,7 +1,7 @@
 import Button from "../../Button/Button";
 import MovieImage from "../../../img/bg.jpg";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 
 const StyledExplicitCard = styled.div`
@@ -65,16 +65,14 @@ const ExplicitCard = ({ onClick }) => {
           <Button cardbutton animateprimary onClick={onClick}>
             Bande d'annonce
           </Button>
-          <Link to="/movie-info">
-            <Button buttonmargin="10px" secondary cardbutton animatesecondary>
-              Plus d'Infos
-            </Button>
-          </Link>
+          {/* <Link to="/movie-info"> */}
+          <Button buttonmargin="10px" secondary cardbutton animatesecondary>
+            Plus d'Infos
+          </Button>
+          {/* </Link> */}
         </div>
 
-        <p className="movie-genre">
-          Action &nbsp; Science-fiction &nbsp; Suspens
-        </p>
+        <p className="movie-genre">Action &nbsp; Science-fiction &nbsp; Suspens</p>
       </div>
     </StyledExplicitCard>
   );
