@@ -84,7 +84,7 @@ const CardInfo = ({ onClick }) => {
         <h3 className="movie-title">Tom Clancy's Without Remorse</h3>
         <div className="movie-meta-container">
           <h4 className="type-film">Film</h4>
-          <GenreList />
+          <GenreList genre_ids={[]} media_type="movie" />
         </div>
         <p className="recommandation">
           Recommandé à : <span className="recommandation-percent">90%</span>

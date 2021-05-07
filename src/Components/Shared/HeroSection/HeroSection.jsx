@@ -2,14 +2,11 @@ import Button from "../Button/Button";
 import styled from "styled-components";
 import GenreList from "../Genre/GenreList";
 import { useState, useEffect } from "react";
+import "react-slideshow-image/dist/styles.css";
+import { Slide } from "react-slideshow-image";
 
 const StyledHeroSection = styled.section`
-  background: linear-gradient(
-      0deg,
-      rgba(14, 25, 48, 1) 11%,
-      rgba(14, 25, 48, 0.7685324618128502) 45%,
-      rgba(14, 25, 48, 0.2531262993478641) 95%
-    ),
+  background: linear-gradient(0deg, rgba(14, 25, 48, 1) 11%, rgba(14, 25, 48, 0.7685324618128502) 45%, rgba(14, 25, 48, 0.2531262993478641) 95%),
     url("${({ bg }) => bg}");
   background-size: cover;
   width: 100vw;
@@ -25,6 +22,7 @@ const StyledHeroSection = styled.section`
     line-height: 5rem;
     font-family: ${({ theme }) => theme.fonts.biryani};
     margin: 0;
+    /* width: 60%; */
   }
   .movie-description {
     font-size: 1.4rem;
@@ -40,64 +38,65 @@ const StyledHeroSection = styled.section`
 const HeroSection = () => {
   const [trendingMedias, setTrendingMedias] = useState([]);
 
-  const url =
-    "https://api.themoviedb.org/3/trending/all/day?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr";
+  const url = "https://api.themoviedb.org/3/trending/all/day?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr";
 
-  useEffect(() => {
-    fetch(url)
+  const getTrendingMedia = () => {
+    return fetch(url)
       .then((response) => response.json())
       .then(({ results }) => {
-        console.log(results);
-        const trendingMediaList = results
-          .slice(0, 5)
-          .map(
-            ({ backdrop_path, genre_ids, id, name, overview, media_type }) => {
-              return {
-                backdrop_path,
-                genre_ids,
-                id,
-                name,
-                overview,
-                media_type,
-              };
-            }
-          );
+        const trendingMediaList = results.slice(0, 5).map(({ backdrop_path, genre_ids, id, name, overview, media_type, title }) => {
+          return {
+            backdrop_path,
+            genre_ids,
+            id,
+            name,
+            overview,
+            media_type,
+            title,
+          };
+        });
         setTrendingMedias(trendingMediaList);
       });
+  };
+  useEffect(() => {
+    getTrendingMedia();
   }, []);
 
-  console.log(trendingMedias);
+  let shortenOverview = "";
   return (
     <>
       {trendingMedias.length === 0 ? (
         <h1>Loading</h1>
       ) : (
-        <StyledHeroSection
-          className="section-padding"
-          bg={`https://image.tmdb.org/t/p/original${trendingMedias[0].backdrop_path}`}
-        >
-          <h2 className="movie-title">{trendingMedias[0].name}</h2>
-          <GenreList
-            genre_ids={trendingMedias[0].genre_ids}
-            media_type={trendingMedias[0].media_type}
-          />
+        <>
+          <Slide easing="ease" arrows={false} autoplay={true}>
+            {trendingMedias.map((media, index) => {
+              return (
+                <div>
+                  {(shortenOverview = `${media.overview.split(".")[0]}.`)}
+                  <StyledHeroSection
+                    key={index}
+                    className="section-padding each-slide"
+                    bg={`https://image.tmdb.org/t/p/original${media.backdrop_path}`}
+                  >
+                    <h2 className="movie-title">{media.name !== undefined ? media.name : media.title}</h2>
+                    <GenreList genre_ids={media.genre_ids} media_type={media.media_type} />
 
-          {/* {console.log("genre_ids", trendingMedias[0].genre_ids)} */}
-          <p className="movie-description">{trendingMedias[0].overview}</p>
-          <div>
-            <Button animateprimary fontsize="1.5rem">
-              Bande d'annonce
-            </Button>
-            <Button
-              buttonmargin="10px"
-              secondary
-              animatesecondary
-              fontsize="1.3rem"
-            >
-              Plus d'Infos
-            </Button>
-          </div>
-        </StyledHeroSection>
+                    <p className="movie-description">{shortenOverview}</p>
+                    <div>
+                      <Button animateprimary fontsize="1.5rem">
+                        Bande d'annonce
+                      </Button>
+                      <Button buttonmargin="10px" secondary animatesecondary fontsize="1.3rem">
+                        Plus d'Infos
+                      </Button>
+                    </div>
+                  </StyledHeroSection>
+                </div>
+              );
+            })}
+          </Slide>
+        </>
       )}
     </>
   );

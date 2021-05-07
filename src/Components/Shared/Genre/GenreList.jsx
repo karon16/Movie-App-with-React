@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const GenreContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 10px;
+  margin: 5px;
 `;
 
 const GenreList = ({ genre_ids, media_type }) => {
@@ -63,7 +63,7 @@ const GenreList = ({ genre_ids, media_type }) => {
     }
     return tab;
   };
-  console.log(media_type);
+
   return (
     <GenreContainer>
       {media_type === "tv"

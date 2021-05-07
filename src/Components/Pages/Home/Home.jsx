@@ -9,6 +9,9 @@ import Button from "../../Shared/Button/Button";
 import { Link } from "react-router-dom";
 import TrendingCardList from "../../Shared/TrendingCard/TrendingCardList";
 
+const mainContainer = styled.div`
+  background: #0e1930;
+`;
 const StyledHome = styled.div`
   background: #0e1930;
   width: 100vw;
@@ -18,9 +21,7 @@ const Home = () => {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://api.themoviedb.org/3/person/287/images?api_key=ff3f7a6f9e9804bf8c152b62e26b928c"
-    )
+    fetch("https://api.themoviedb.org/3/person/287/images?api_key=ff3f7a6f9e9804bf8c152b62e26b928c")
       .then((res) => res.json())
       .then((data) => {
         setMovie(data);
@@ -28,7 +29,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <mainContainer>
       <HeroSection />
       <StyledHome className="section-padding">
         <SectionTitle>Bientôt en salle</SectionTitle>
@@ -53,7 +54,7 @@ const Home = () => {
         <SectionTitle>Tendances actuelles</SectionTitle>
         <TrendingCardList />
       </StyledHome>
-    </div>
+    </mainContainer>
   );
 };
 
