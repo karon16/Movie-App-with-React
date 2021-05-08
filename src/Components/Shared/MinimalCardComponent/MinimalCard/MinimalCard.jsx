@@ -1,18 +1,29 @@
 import Button from "../../Button/Button";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const StyledMinimalCard = styled.div`
+  position: relative;
   width: calc((20%) - 10px);
   margin-bottom: 20px;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease 0.2s;
   position: relative;
+  background: white;
 
+  .image-container {
+    width: 100%;
+  }
+  .poster-container {
+    position: relative;
+
+    width: 100%;
+  }
   .movie-image {
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     z-index: 2;
   }
+
   .movie-info-container {
     bottom: 0;
     position: absolute;
@@ -23,12 +34,13 @@ const StyledMinimalCard = styled.div`
   }
   .dark-box {
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     position: absolute;
     background: rgba(0, 0, 0, 1);
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease 0.1s;
   }
   .movie-name {
     color: ${({ theme }) => theme.colors.white};
@@ -84,16 +96,18 @@ const StyledMinimalCard = styled.div`
   }
 `;
 
-const MinimalCard = ({ onClick }) => {
+const MinimalCard = ({ onClick, title, releaseDate, poster }) => {
   return (
     <StyledMinimalCard>
-      <div>
-        <img src="https://image.tmdb.org/t/p/w500/r4Lm1XKP0VsTgHX4LG4syAwYA2I.jpg" alt="movie backdrop" className="movie-image" />
+      <div className="image-container">
+        <div className="poster-container">
+          <img src={`https://image.tmdb.org/t/p/w500/${poster}`} alt="movie backdrop" className="movie-image" />
+        </div>
       </div>
       <div className="dark-box"></div>
       <div className="movie-info-container">
-        <h3 className="movie-name">Movie name</h3>
-        <p className="movie-duration">Duration</p>
+        <h3 className="movie-name">{title}</h3>
+        <p className="movie-duration">{releaseDate}</p>
         <div className="button-container">
           <Button cardbutton animateprimary onClick={onClick}>
             Bande d'annonce
@@ -104,9 +118,6 @@ const MinimalCard = ({ onClick }) => {
         </div>
         <p className="movie-genre">Action &nbsp; Science-fiction &nbsp; Suspens</p>
       </div>
-      {/* <div>
-        <Link to="films">Plus d'info</Link>
-      </div> */}
     </StyledMinimalCard>
   );
 };

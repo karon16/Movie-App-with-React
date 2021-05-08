@@ -1,4 +1,3 @@
-// import ExplicitCardList from "../../Shared/ExplicitCardComponent/ExplicitCardList/ExplicitCardList";
 import styled from "styled-components";
 import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList/MinimalCardList";
 import HeroSection from "../../Shared/HeroSection/HeroSection";
@@ -6,7 +5,7 @@ import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import SectionDivider from "../../Shared/SectionDivider/SectionDivider";
 import Button from "../../Shared/Button/Button";
 import { Link } from "react-router-dom";
-// import TrendingCardList from "../../Shared/TrendingCard/TrendingCardList";
+import { useState, useEffect } from "react";
 
 const StyledHome = styled.div`
   background: #0e1930;
@@ -14,15 +13,54 @@ const StyledHome = styled.div`
 `;
 
 const Home = () => {
+  const [movies, setMovies] = useState([]);
+  const [tvs, setTvs] = useState([]);
+
+  const moviesUrl = "https://api.themoviedb.org/3/trending/movie/day?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr";
+  const tvsUrl = "https://api.themoviedb.org/3/trending/tv/day?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr";
+
+  const getMovies = () => {
+    return fetch(moviesUrl)
+      .then((response) => response.json())
+      .then(({ results }) => {
+        console.log("movies : ", results);
+
+        const mappedMovieData = results
+          .slice(5, 15)
+          .map(({ backdrop_path, genre_ids, id, name, overview, media_type, title, release_date, poster_path }) => {
+            return { backdrop_path, genre_ids, id, name, overview, media_type, poster_path, title, release_date };
+          });
+        setMovies(mappedMovieData);
+      });
+  };
+
+  const getTvs = () => {
+    return fetch(tvsUrl)
+      .then((response) => response.json())
+      .then(({ results }) => {
+        console.log("tv : ", results);
+        const mappedTvData = results
+          .slice(5, 15)
+          .map(({ backdrop_path, genre_ids, id, name, overview, media_type, title, first_air_date, poster_path }) => {
+            return { backdrop_path, genre_ids, id, name, overview, media_type, title, first_air_date, poster_path };
+          });
+        setTvs(mappedTvData);
+      });
+  };
+
+  useEffect(() => {
+    getMovies();
+    getTvs();
+  }, []);
+
+  console.log(tvs);
+
   return (
     <>
       <HeroSection />
       <StyledHome className="section-padding">
-        {/* <SectionTitle>Gros Succès</SectionTitle>
-        <ExplicitCardList />
-        <SectionDivider /> */}
         <SectionTitle>Films</SectionTitle>
-        <MinimalCardList />
+        <MinimalCardList mediaList={movies} />
         <Link to="/films">
           <Button animateprimary centered>
             Voir Plus
@@ -30,15 +68,12 @@ const Home = () => {
         </Link>
         <SectionDivider />
         <SectionTitle>Series</SectionTitle>
-        <MinimalCardList />
+        <MinimalCardList mediaList={tvs} />
         <Link to="/series">
           <Button animateprimary centered>
             Voir Plus
           </Button>
         </Link>
-        {/* <SectionDivider />
-        <SectionTitle>Tendances actuelles</SectionTitle>
-        <TrendingCardList /> */}
       </StyledHome>
     </>
   );
