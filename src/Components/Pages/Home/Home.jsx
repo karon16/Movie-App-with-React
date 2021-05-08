@@ -8,9 +8,6 @@ import Button from "../../Shared/Button/Button";
 import { Link } from "react-router-dom";
 import TrendingCardList from "../../Shared/TrendingCard/TrendingCardList";
 
-const mainContainer = styled.div`
-  background: #0e1930;
-`;
 const StyledHome = styled.div`
   background: #0e1930;
   width: 100vw;
@@ -18,12 +15,12 @@ const StyledHome = styled.div`
 
 const Home = () => {
   return (
-    <mainContainer>
+    <>
       <HeroSection />
       <StyledHome className="section-padding">
-        <SectionTitle>Bientôt en salle</SectionTitle>
-        <ExplicitCardList />
-        <SectionDivider />
+        {/* <SectionTitle>Bientôt en salle</SectionTitle> */}
+        {/* <ExplicitCardList /> */}
+        {/* <SectionDivider /> */}
         <SectionTitle>Films</SectionTitle>
         <MinimalCardList />
         <Link to="/films">
@@ -43,7 +40,7 @@ const Home = () => {
         <SectionTitle>Tendances actuelles</SectionTitle>
         <TrendingCardList />
       </StyledHome>
-    </mainContainer>
+    </>
   );
 };
 

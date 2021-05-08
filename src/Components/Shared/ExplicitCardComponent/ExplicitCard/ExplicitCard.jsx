@@ -5,12 +5,10 @@ import styled from "styled-components";
 import "semantic-ui-css/semantic.min.css";
 
 const StyledExplicitCard = styled.div`
-  /* width: calc((20%) - 10px);
-   */
-  width: 270px;
+  /* width: calc((100%) - 10px); */
 
+  width: 270px;
   background: #091326;
-  transition: transform 0.3s ease;
 
   .movie-image {
     width: 100%;
@@ -41,14 +39,8 @@ const StyledExplicitCard = styled.div`
     display: flex;
     justify-content: flex-start;
   }
-
-  /* &:hover {
-    z-index: 1;
-    transform: scale(1.12);
-    box-shadow: 0px 0px 60px 0px rgba(0, 114, 244, 0.4);
-  } */
-
   @media ${({ theme }) => theme.mediaQueries["bellow-1280"]} {
+    width: 200px;
   }
 `;
 

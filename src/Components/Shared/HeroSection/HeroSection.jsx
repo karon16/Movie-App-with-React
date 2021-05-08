@@ -68,15 +68,11 @@ const HeroSection = () => {
         <h1>Loading</h1>
       ) : (
         <>
-          <Slide easing="ease" arrows={false} autoplay={true}>
+          <Slide easing="ease" arrows={false} autoplay={true} pauseOnHover={false} duration={10000}>
             {trendingMedias.map((media, index) => {
               return (
-                <div>
-                  <StyledHeroSection
-                    key={index}
-                    className="section-padding each-slide"
-                    bg={`https://image.tmdb.org/t/p/original${media.backdrop_path}`}
-                  >
+                <div key={index}>
+                  <StyledHeroSection className="section-padding each-slide" bg={`https://image.tmdb.org/t/p/original${media.backdrop_path}`}>
                     <h2 className="movie-title">{media.name !== undefined ? media.name : media.title}</h2>
                     <GenreList genre_ids={media.genre_ids} media_type={media.media_type} />
 
