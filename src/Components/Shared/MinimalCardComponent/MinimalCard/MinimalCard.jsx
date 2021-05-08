@@ -1,5 +1,6 @@
 import Button from "../../Button/Button";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledMinimalCard = styled.div`
   width: calc((20%) - 10px);
@@ -64,7 +65,22 @@ const StyledMinimalCard = styled.div`
     }
   }
 
-  @media ${({ theme }) => theme.mediaQueries["bellow-1280"]} {
+  @media ${({ theme }) => theme.mediaQueries["bellow-1024"]} {
+    .movie-info-container {
+      display: none;
+    }
+    &:hover {
+      z-index: 1;
+      transform: scale(1);
+      box-shadow: 0px 0px 60px 0px rgba(0, 114, 244, 0.4);
+
+      .dark-box {
+        opacity: 0;
+      }
+      .movie-info-container {
+        display: none;
+      }
+    }
   }
 `;
 
@@ -88,6 +104,9 @@ const MinimalCard = ({ onClick }) => {
         </div>
         <p className="movie-genre">Action &nbsp; Science-fiction &nbsp; Suspens</p>
       </div>
+      {/* <div>
+        <Link to="films">Plus d'info</Link>
+      </div> */}
     </StyledMinimalCard>
   );
 };

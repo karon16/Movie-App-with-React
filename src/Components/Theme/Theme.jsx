@@ -12,6 +12,7 @@ const Theme = {
   },
   mediaQueries: {
     "bellow-1280": `screen and (max-width: 1280px)`,
+    "bellow-1024": `screen and (max-width: 1024px)`,
     "bellow-1000": `screen and (max-width: 1000px)`,
     "bellow-768": `screen and (max-width: 768px)`,
     "bellow-420": `screen and (max-width: 420px)`,

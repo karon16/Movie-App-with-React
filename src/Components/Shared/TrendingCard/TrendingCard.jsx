@@ -19,7 +19,6 @@ const StyledTrendingCard = styled.div`
   .movie-info-container {
     width: 55%;
     padding: 15px;
-    /* border: 1px solid white; */
   }
   .movie-name {
     color: ${({ theme }) => theme.colors.white};
@@ -50,20 +49,14 @@ const TrendingCard = () => {
   return (
     <StyledTrendingCard>
       {/* <div className="image-container"> */}
-      <img
-        src="https://image.tmdb.org/t/p/w500/9yBVqNruk6Ykrwc32qrK2TIE5xw.jpg"
-        alt="movie backdrop"
-        className="movie-image"
-      />
+      <img src="https://image.tmdb.org/t/p/w500/9yBVqNruk6Ykrwc32qrK2TIE5xw.jpg" alt="movie backdrop" className="movie-image" />
       {/* </div> */}
       <div className="movie-info-container">
         <h3 className="movie-name">Movie name</h3>
-        <p className="movie-duration">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error minus
-          iusto deleniti iste, reiciendis aliquam eligendi saepe cum dolorem
-          quisquam molestias adipisci unde? Blanditiis, optio laudantium!
-          Numquam animi officiis voluptatibus!
-        </p>
+        {/* <p className="movie-duration">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error minus iusto deleniti iste, reiciendis aliquam eligendi saepe cum dolorem
+          quisquam molestias adipisci unde? Blanditiis, optio laudantium! Numquam animi officiis voluptatibus!
+        </p> */}
         <div className="button-container">
           <Button cardbutton animateprimary>
             Bande d'annonce
@@ -73,9 +66,7 @@ const TrendingCard = () => {
           </Button>
         </div>
 
-        <p className="movie-genre">
-          Action &nbsp; Science-fiction &nbsp; Suspens
-        </p>
+        <p className="movie-genre">Action &nbsp; Science-fiction &nbsp; Suspens</p>
       </div>
     </StyledTrendingCard>
   );

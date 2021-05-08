@@ -1,33 +1,41 @@
 import ExplicitCard from "../ExplicitCard/ExplicitCard";
-// import styled from "styled-components";
-import Carousel from "react-elastic-carousel";
+import styled from "styled-components";
+import { useState, useEffect } from "react";
 
-// const StyledExplicitCard = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-// `;
+const StyledExplicitCard = styled.div`
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+`;
 
 const ExplicitCardList = () => {
-  const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 2, itemsToScroll: 2 },
-    { width: 850, itemsToShow: 3 },
-    { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
-    { width: 1450, itemsToShow: 5 },
-    { width: 1750, itemsToShow: 6 },
-  ];
+  const [popularMovies, setpopularMovies] = useState([]);
+  const [popularTvs, setpopularTvs] = useState([]);
+
+  const popularMoviesUrl = "https://api.themoviedb.org/3/movie/upcoming?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr&page=1";
+  const popularTvsUrl = "";
+
+  const getPopularMovies = () => {
+    fetch(popularMoviesUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+
+        return data;
+      });
+  };
+
+  getPopularMovies();
 
   return (
-    <Carousel pagination={false} breakPoints={breakPoints}>
+    <StyledExplicitCard>
       <ExplicitCard />
       <ExplicitCard />
       <ExplicitCard />
       <ExplicitCard />
       <ExplicitCard />
-      <ExplicitCard />
-      <ExplicitCard />
-      <ExplicitCard />
-    </Carousel>
+    </StyledExplicitCard>
   );
 };
 

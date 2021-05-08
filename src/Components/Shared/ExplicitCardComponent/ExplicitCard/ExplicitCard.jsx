@@ -5,9 +5,7 @@ import styled from "styled-components";
 import "semantic-ui-css/semantic.min.css";
 
 const StyledExplicitCard = styled.div`
-  /* width: calc((100%) - 10px); */
-
-  width: 270px;
+  width: calc((20%) - 10px);
   background: #091326;
 
   .movie-image {
@@ -39,9 +37,9 @@ const StyledExplicitCard = styled.div`
     display: flex;
     justify-content: flex-start;
   }
-  @media ${({ theme }) => theme.mediaQueries["bellow-1280"]} {
+  /* @media ${({ theme }) => theme.mediaQueries["bellow-1280"]} {
     width: 200px;
-  }
+  } */
 `;
 
 const ExplicitCard = ({ onClick }) => {
