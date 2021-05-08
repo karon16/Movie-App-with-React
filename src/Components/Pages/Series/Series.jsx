@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import NavigationGenreList from "../../Shared/NavigationGenre/NavigationGenreList";
 import MovieHeroSection from "../../Shared/MovieHeroSection/MovieHeroSection";
-import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList/MinimalCardList";
+import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import SectionDivider from "../../Shared/SectionDivider/SectionDivider";
 import Button from "../../Shared/Button/Button";
@@ -21,37 +21,37 @@ const Series = () => {
       <StyledSeries className="section-padding">
         <NavigationGenreList />
         <SectionTitle>Action</SectionTitle>
-        <MinimalCardList />
+        <MinimalCardList mediaList={[]} />
         <Button animateprimary centered>
           Voir Plus
         </Button>
         <SectionDivider />
         <SectionTitle>Action</SectionTitle>
-        <MinimalCardList />
+        <MinimalCardList mediaList={[]} />
         <Button animateprimary centered>
           Voir Plus
         </Button>
         <SectionDivider />
         <SectionTitle>Science-Fiction</SectionTitle>
-        <MinimalCardList />
+        <MinimalCardList mediaList={[]} />
         <Button animateprimary centered>
           Voir Plus
         </Button>
         <SectionDivider />
         <SectionTitle>Animation</SectionTitle>
-        <MinimalCardList />
+        <MinimalCardList mediaList={[]} />
         <Button animateprimary centered>
           Voir Plus
         </Button>
         <SectionDivider />
         <SectionTitle>Drame</SectionTitle>
-        <MinimalCardList />
+        <MinimalCardList mediaList={[]} />
         <Button animateprimary centered>
           Voir Plus
         </Button>
         <SectionDivider />
         <SectionTitle>Suspens</SectionTitle>
-        <MinimalCardList />
+        <MinimalCardList mediaList={[]} />
         <Button animateprimary centered>
           Voir Plus
         </Button>

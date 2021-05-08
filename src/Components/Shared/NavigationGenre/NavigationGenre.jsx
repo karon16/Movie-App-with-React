@@ -9,10 +9,10 @@ const StyledNavigationGenre = styled.span`
   font-size: 1rem;
 `;
 
-const NavigationGenre = ({ children }) => {
+const NavigationGenre = ({ children, id }) => {
   return (
     <>
-      <StyledNavigationGenre>{children}</StyledNavigationGenre>;
+      <StyledNavigationGenre id={id}>{children}</StyledNavigationGenre>;
     </>
   );
 };

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const GenreContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 5px;
+  margin: 5px 0;
 `;
 
 const GenreList = ({ genre_ids, media_type }) => {
@@ -39,34 +39,38 @@ const GenreList = ({ genre_ids, media_type }) => {
   }, []);
 
   const tvGenreTable = () => {
-    const tab = [];
+    const filledTvTable = [];
     for (let genre of tvGenres) {
       for (let id of genre_ids) {
         if (genre.id === id) {
-          tab.push(genre.name);
+          filledTvTable.push(genre.name);
         }
       }
     }
-    return tab;
+    return filledTvTable;
   };
 
   const movieGenreTable = () => {
-    const tab = [];
+    const filledMovieTable = [];
     for (let genre of movieGenres) {
       for (let id of genre_ids) {
         if (genre.id === id) {
-          tab.push(genre.name);
+          filledMovieTable.push(genre.name);
         }
       }
     }
-    return tab;
+    return filledMovieTable;
   };
 
   return (
     <GenreContainer>
       {media_type === "tv"
-        ? tvGenreTable().map((genre, id) => <Genre key={id}>{genre}</Genre>)
-        : movieGenreTable().map((genre, id) => <Genre key={id}>{genre}</Genre>)}
+        ? tvGenreTable()
+            .slice(0, 2)
+            .map((genre, id) => <Genre key={id}>{genre}</Genre>)
+        : movieGenreTable()
+            .slice(0, 2)
+            .map((genre, id) => <Genre key={id}>{genre}</Genre>)}
     </GenreContainer>
   );
 };

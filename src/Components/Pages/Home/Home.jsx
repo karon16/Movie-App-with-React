@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList/MinimalCardList";
+import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList";
 import HeroSection from "../../Shared/HeroSection/HeroSection";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import SectionDivider from "../../Shared/SectionDivider/SectionDivider";
@@ -23,8 +23,6 @@ const Home = () => {
     return fetch(moviesUrl)
       .then((response) => response.json())
       .then(({ results }) => {
-        console.log("movies : ", results);
-
         const mappedMovieData = results
           .slice(5, 15)
           .map(({ backdrop_path, genre_ids, id, name, overview, media_type, title, release_date, poster_path }) => {
@@ -38,7 +36,6 @@ const Home = () => {
     return fetch(tvsUrl)
       .then((response) => response.json())
       .then(({ results }) => {
-        console.log("tv : ", results);
         const mappedTvData = results
           .slice(5, 15)
           .map(({ backdrop_path, genre_ids, id, name, overview, media_type, title, first_air_date, poster_path }) => {
@@ -52,8 +49,6 @@ const Home = () => {
     getMovies();
     getTvs();
   }, []);
-
-  console.log(tvs);
 
   return (
     <>

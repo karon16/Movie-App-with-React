@@ -9,23 +9,16 @@ const StyledNavigationGenreList = styled.div`
   width: 90%;
 `;
 
-const NavigationGenreList = () => {
+const NavigationGenreList = ({ genreList }) => {
   return (
     <StyledNavigationGenreList>
-      <NavigationGenre>Actions</NavigationGenre>
-      <NavigationGenre>Actions</NavigationGenre>
-      <NavigationGenre>Actions</NavigationGenre>
-      <NavigationGenre>Actions</NavigationGenre>
-      <NavigationGenre>Actions</NavigationGenre>
-      <NavigationGenre>Actions</NavigationGenre>
-      <NavigationGenre>Actions</NavigationGenre>
-      <NavigationGenre>Actions</NavigationGenre>
-      <NavigationGenre>Actions</NavigationGenre>
-      <NavigationGenre>Actions</NavigationGenre>
-      <NavigationGenre>Actions</NavigationGenre>
-      <NavigationGenre>Actions</NavigationGenre>
-      <NavigationGenre>Actions</NavigationGenre>
-      <NavigationGenre>Actions</NavigationGenre>
+      {genreList.map((genre, index) => {
+        return (
+          <NavigationGenre key={index} id={genre.id}>
+            {genre.name}
+          </NavigationGenre>
+        );
+      })}
     </StyledNavigationGenreList>
   );
 };

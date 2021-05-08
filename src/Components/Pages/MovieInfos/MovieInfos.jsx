@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ActorCardList from "../../Shared/actorCard/ActorCardList";
 import CardInfo from "../../Shared/CardInfo/CardInfo";
-import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList/MinimalCardList";
+import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList";
 import SectionDivider from "../../Shared/SectionDivider/SectionDivider";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import VideoOverview from "../../Shared/videoOverview/VideoOverview";
@@ -52,7 +52,7 @@ const MovieInfos = ({ match }) => {
         <ActorCardList />
         <SectionDivider />
         <SectionTitle>Titres similaires</SectionTitle>
-        <MinimalCardList />
+        <MinimalCardList mediaList={[]} />
       </MediaVideoContainer>
       <Modal onClose={() => setOpenModal(false)} onOpen={() => setOpenModal(true)} open={openModal}>
         <VideoOverview />

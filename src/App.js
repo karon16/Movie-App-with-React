@@ -6,9 +6,11 @@ import Movies from "./Components/Pages/Movies/Movies";
 import Series from "./Components/Pages/Series/Series";
 import MovieInfos from "./Components/Pages/MovieInfos/MovieInfos";
 import WelcomePage from "./Components/Pages/WelcomePage/WelcomePage";
+import { MovieGenresProvider, TvGenresProvider } from "./Components/Contexts/NavigationGenreContext";
 
 function App() {
   const location = useLocation();
+  console.log(location);
 
   return (
     <>
@@ -16,8 +18,13 @@ function App() {
       <Switch>
         <Route exact path="/" component={WelcomePage} />
         <Route path="/accueil" component={Home} />
-        <Route path="/films" component={Movies} />
-        <Route path="/series" component={Series} />
+        <MovieGenresProvider>
+          <Route path="/films" component={Movies} />
+        </MovieGenresProvider>
+        <TvGenresProvider>
+          <Route path="/series" component={Series} />
+        </TvGenresProvider>
+
         <Route path="/movie/:id" render={({ match }) => <MovieInfos match={match} />} />
         <Route path="/tv/:id" render={({ match }) => <MovieInfos match={match} />} />
       </Switch>
