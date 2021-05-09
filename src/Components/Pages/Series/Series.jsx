@@ -6,6 +6,8 @@ import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import SectionDivider from "../../Shared/SectionDivider/SectionDivider";
 import Button from "../../Shared/Button/Button";
 import MovieSectionTitle from "../../Shared/MovieSectionTitle/MovieSectionTitle";
+import { useContext } from "react";
+import { MovieGenresContext } from "../../Contexts/NavigationGenreContext";
 
 const StyledSeries = styled.div`
   background: #0e1930;
@@ -13,13 +15,14 @@ const StyledSeries = styled.div`
 `;
 
 const Series = () => {
+  const [tvGenres, setTvGenres] = useContext(MovieGenresContext);
   return (
     <>
       <MovieHeroSection>
         <MovieSectionTitle>Series</MovieSectionTitle>
       </MovieHeroSection>
       <StyledSeries className="section-padding">
-        <NavigationGenreList />
+        <NavigationGenreList genreList={tvGenres} />
         <SectionTitle>Action</SectionTitle>
         <MinimalCardList mediaList={[]} />
         <Button animateprimary centered>

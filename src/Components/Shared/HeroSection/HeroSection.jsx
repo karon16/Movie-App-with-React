@@ -33,6 +33,39 @@ const StyledHeroSection = styled.section`
     color: white;
     text-align: center;
   }
+  @media ${({ theme }) => theme.mediaQueries["bellow-768"]} {
+    height: 70vh;
+    .movie-title {
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+    .movie-description {
+      font-size: 1.2rem;
+      width: 75%;
+    }
+  }
+  @media ${({ theme }) => theme.mediaQueries["bellow-1000"]} {
+    height: 80vh;
+    .movie-title {
+      font-size: 3rem;
+      line-height: 3rem;
+    }
+    .movie-description {
+      font-size: 1.1rem;
+      width: 80%;
+    }
+  }
+  @media ${({ theme }) => theme.mediaQueries["bellow-420"]} {
+    height: 50vh;
+    .movie-title {
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+    .movie-description {
+      font-size: 1rem;
+      width: 90%;
+    }
+  }
 `;
 
 const HeroSection = () => {

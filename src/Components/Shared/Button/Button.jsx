@@ -11,6 +11,7 @@ function Button({
   cardbutton,
   buttonmargin,
   centered,
+  onClick,
 }) {
   return (
     <ButtonContainer
@@ -23,6 +24,7 @@ function Button({
       cardbutton={cardbutton}
       buttonmargin={buttonmargin}
       centered={centered}
+      onClick={onClick}
     >
       {children}
     </ButtonContainer>

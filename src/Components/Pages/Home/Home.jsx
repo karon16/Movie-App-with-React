@@ -6,6 +6,7 @@ import SectionDivider from "../../Shared/SectionDivider/SectionDivider";
 import Button from "../../Shared/Button/Button";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { HashLink } from "react-router-hash-link";
 
 const StyledHome = styled.div`
   background: #0e1930;
@@ -56,6 +57,7 @@ const Home = () => {
       <StyledHome className="section-padding">
         <SectionTitle>Films</SectionTitle>
         <MinimalCardList mediaList={movies} />
+        {console.log(movies)}
         <Link to="/films">
           <Button animateprimary centered>
             Voir Plus

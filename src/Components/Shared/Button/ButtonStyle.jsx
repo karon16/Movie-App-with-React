@@ -67,6 +67,12 @@ export const ButtonContainer = styled.button`
       `}
   }
   @media ${({ theme }) => theme.mediaQueries["bellow-768"]} {
-    /* font-size: 1rem; */
+  
+  }
+  @media ${({ theme }) => theme.mediaQueries["bellow-1000"]} {
+  
+  }
+  @media ${({ theme }) => theme.mediaQueries["bellow-420"]} {
+    
   }
 `;

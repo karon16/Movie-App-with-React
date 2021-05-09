@@ -7,10 +7,12 @@ import Series from "./Components/Pages/Series/Series";
 import MovieInfos from "./Components/Pages/MovieInfos/MovieInfos";
 import WelcomePage from "./Components/Pages/WelcomePage/WelcomePage";
 import { MovieGenresProvider, TvGenresProvider } from "./Components/Contexts/NavigationGenreContext";
+import { ActionMovieProvider } from "./Components/Contexts/RenderMovieContext";
+import { AnimationMovieProvier } from "./Components/Contexts/AnimationMovieContext";
 
 function App() {
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
 
   return (
     <>
@@ -19,14 +21,17 @@ function App() {
         <Route exact path="/" component={WelcomePage} />
         <Route path="/accueil" component={Home} />
         <MovieGenresProvider>
-          <Route path="/films" component={Movies} />
+          <AnimationMovieProvier>
+            <ActionMovieProvider>
+              <Route path="/films" component={Movies} />
+            </ActionMovieProvider>
+          </AnimationMovieProvier>
+          <TvGenresProvider>
+            <Route path="/series" component={Series} />
+          </TvGenresProvider>
+          <Route path="/movie/:id" render={({ match }) => <MovieInfos match={match} />} />
+          <Route path="/tv/:id" render={({ match }) => <MovieInfos match={match} />} />
         </MovieGenresProvider>
-        <TvGenresProvider>
-          <Route path="/series" component={Series} />
-        </TvGenresProvider>
-
-        <Route path="/movie/:id" render={({ match }) => <MovieInfos match={match} />} />
-        <Route path="/tv/:id" render={({ match }) => <MovieInfos match={match} />} />
       </Switch>
       {location.pathname !== "/" && <Footer />}
     </>

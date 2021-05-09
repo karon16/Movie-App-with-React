@@ -21,7 +21,7 @@ const Footer = () => {
             <StyledLink to="#">Contacts</StyledLink>
           </div>
           <div className="footer-row-block hidden-420">
-            <StyledLink bold="bold" to="/film">
+            <StyledLink bold="bold" to="/films">
               Films
             </StyledLink>
             <div className="flex-row">

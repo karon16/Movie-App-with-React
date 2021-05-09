@@ -27,7 +27,7 @@ const MovieInfos = ({ match }) => {
 
   const urlSegment = match.url;
   console.log("urlSegment", urlSegment);
-  const url = `https://api.themoviedb.org/3${urlSegment}?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=en`;
+  const url = `https://api.themoviedb.org/3${urlSegment}?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr`;
 
   const ShowModal = () => {
     return setOpenModal(true);
@@ -37,7 +37,7 @@ const MovieInfos = ({ match }) => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => setMovieInfo(data));
-  }, [url]);
+  }, []);
 
   console.log(movieInfo);
 
