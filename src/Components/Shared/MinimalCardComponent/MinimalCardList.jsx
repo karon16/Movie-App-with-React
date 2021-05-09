@@ -8,7 +8,7 @@ const StyledMinimalCardList = styled.div`
   justify-content: space-between;
 `;
 
-const MinimalCardList = ({ mediaList }) => {
+const MinimalCardList = ({ mediaList, defined_media_type }) => {
   return (
     <StyledMinimalCardList>
       {mediaList.map((media, index) => {
@@ -20,6 +20,8 @@ const MinimalCardList = ({ mediaList }) => {
             poster={media.poster_path}
             genre_ids={media.genre_ids}
             media_type={media.media_type}
+            defined_media_type={defined_media_type}
+            id={media.id}
           />
         );
       })}

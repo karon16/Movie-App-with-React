@@ -65,7 +65,7 @@ const StyledCard = styled.div`
   }
 `;
 
-const CardInfo = ({ onClick }) => {
+const CardInfo = ({ onClick, mediaInfo }) => {
   return (
     <StyledCard>
       <div className="movie-image-container">
@@ -75,21 +75,18 @@ const CardInfo = ({ onClick }) => {
         </div>
       </div>
       <div className="info-container">
-        <h3 className="movie-title">Tom Clancy's Without Remorse</h3>
+        <h3 className="movie-title">{mediaInfo.name}</h3>
         <div className="movie-meta-container">
           <h4 className="type-film">Film</h4>
           <GenreList genre_ids={[]} media_type="movie" />
         </div>
         <p className="recommandation">
-          Recommandé à : <span className="recommandation-percent">90%</span>
+          Recommandé à : <span className="recommandation-percent">{`${mediaInfo.vote_average * 10}%`}</span>
         </p>
         <h4 className="overview-title">Aperçu</h4>
-        <p className="overview">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, rerum, ullam cupiditate voluptas tenetur architecto, dolorem odit libero
-          quibusdam ipsum a iure debitis perferendis dolorum velit nulla excepturi! Sit, eaque.
-        </p>
+        <p className="overview"> {mediaInfo.overview}</p>
         <h4 className="director-title">Realisateurs</h4>
-        <em className="director-name">Christopher Buhendwa</em>
+        <em className="director-name">hello</em>
       </div>
     </StyledCard>
   );

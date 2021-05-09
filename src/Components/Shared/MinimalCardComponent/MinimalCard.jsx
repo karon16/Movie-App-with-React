@@ -1,7 +1,7 @@
 import Button from "../Button/Button";
 import styled from "styled-components";
 import GenreList from "../Genre/GenreList";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const StyledMinimalCard = styled.div`
   position: relative;
@@ -98,7 +98,7 @@ const StyledMinimalCard = styled.div`
   }
 `;
 
-const MinimalCard = ({ onClick, title, releaseDate, poster, genre_ids, media_type }) => {
+const MinimalCard = ({ onClick, title, releaseDate, poster, genre_ids, media_type, id, defined_media_type }) => {
   return (
     <StyledMinimalCard>
       <div className="image-container">
@@ -114,9 +114,11 @@ const MinimalCard = ({ onClick, title, releaseDate, poster, genre_ids, media_typ
           <Button cardbutton animateprimary onClick={onClick}>
             Bande d'annonce
           </Button>
-          <Button buttonmargin="10px" secondary cardbutton animatesecondary>
-            Plus d'Infos
-          </Button>
+          <Link to={`/${defined_media_type !== undefined ? defined_media_type : media_type}/${id}`}>
+            <Button buttonmargin="10px" secondary cardbutton animatesecondary>
+              Plus d'Infos
+            </Button>
+          </Link>
         </div>
         <GenreList genre_ids={genre_ids} media_type={media_type} />
       </div>
