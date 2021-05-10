@@ -14,7 +14,7 @@ const StyledCard = styled.div`
     width: 100%;
   }
   .movie-image-container {
-    width: 20%;
+    width: 25%;
     position: relative;
   }
   .movie-image-container:hover .play-icon {
@@ -22,11 +22,11 @@ const StyledCard = styled.div`
     opacity: 1;
   }
   .info-container {
-    width: 60%;
+    width: 65%;
     padding: 0 30px;
   }
   .movie-title {
-    font-size: 3rem;
+    font-size: 4rem;
     margin: 0;
     font-family: ${({ theme }) => theme.fonts.biryani};
   }
@@ -52,13 +52,14 @@ const StyledCard = styled.div`
   }
   .overview-title,
   .director-title {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-family: ${({ theme }) => theme.fonts.biryani};
   }
 
   .director-name,
-  .overview {
-    font-size: 1rem;
+  .overview,
+  .recommandation {
+    font-size: 1.3rem;
     font-weight: regular;
   }
   .play-icon {
@@ -74,13 +75,24 @@ const StyledCard = styled.div`
     position: relative;
     width: 100%;
   }
+  .logo-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .logo-container img {
+    width: 5%;
+  }
 `;
 
 const CardInfo = ({ onClick, mediaInfo }) => {
   const [voteAverage, setVoteAverage] = useState("green");
-  // console.log(mediaInfo.vote_average);
 
-  console.log("card media : ", mediaInfo.genres);
+  const filteredompagnieLogos = mediaInfo.production_companies.filter((logo) => logo.logo_path !== null);
+  // console.log("emmie", mediaInfo);
+
+  // console.log("card media : ", mediaInfo.genres);
   return (
     <>
       {mediaInfo === undefined || (
@@ -108,6 +120,12 @@ const CardInfo = ({ onClick, mediaInfo }) => {
             ) : (
               <em className="director-name">Realisateurs : Données Indisponibles</em>
             )}
+            {/* <div className="logo-container">
+              {filteredompagnieLogos.map((logo) => {
+                // eslint-disable-next-line jsx-a11y/alt-text
+                return <img src={`https://image.tmdb.org/t/p/original/${logo.logo_path}`} />;
+              })}
+            </div> */}
           </div>
         </StyledCard>
       )}

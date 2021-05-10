@@ -56,12 +56,13 @@ const MovieInfos = ({ match }) => {
   let [type, movieId] = urlSegment.split("/").slice(1, 3);
   movieId = Number(movieId);
 
-  const apiUrl = "https://api.themoviedb.org/3/";
+  const apiUrl = "https://api.themoviedb.org/3";
   const personalKey = "api_key=ff3f7a6f9e9804bf8c152b62e26b928c";
   const similarMoviesUrl = `${apiUrl}${urlSegment}/similar?${personalKey}&language=fr&page=1`;
 
-  const url = `${apiUrl}${urlSegment}?${personalKey}&language=fr`;
-  const movieVideoUrl = `${apiUrl}${type}/${mediaInfo === undefined || mediaInfo.id}/videos?${personalKey}&language=fr`;
+  const url = `${apiUrl}/${type}/${movieId}?${personalKey}&language=fr`;
+  console.log(url);
+  const movieVideoUrl = `${apiUrl}/${type}/${mediaInfo === undefined || mediaInfo.id}/videos?${personalKey}&language=fr`;
 
   const actorsUrl = `${apiUrl}${urlSegment}/credits?${personalKey}&language=fr`;
 
@@ -100,9 +101,9 @@ const MovieInfos = ({ match }) => {
   }, [actorsUrl, movieVideoUrl, similarMoviesUrl, url]);
 
   console.log("movie similar", similarMovies);
-  // console.log("video url", movieUrl);
+  console.log("video url", movieUrl);
   console.log("actors", actors);
-  // console.log("mediaInfo", mediaInfo);
+  console.log("mediaInfo", mediaInfo);
 
   return (
     <>
@@ -137,7 +138,7 @@ const MovieInfos = ({ match }) => {
             </ButtonWrapper>
           </MediaVideoContainer>
           <Modal onClose={() => setOpenModal(false)} onOpen={() => setOpenModal(true)} open={openModal}>
-            <VideoOverview videoOverview={movieUrl === undefined || movieUrl[0].key} />
+            <VideoOverview videoOverview={movieUrl === undefined || movieUrl.length === 0 ? "" : movieUrl[0].key} />
           </Modal>
         </>
       )}
