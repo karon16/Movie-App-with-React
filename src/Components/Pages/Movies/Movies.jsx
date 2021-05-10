@@ -8,8 +8,7 @@ import Button from "../../Shared/Button/Button";
 import MovieSectionTitle from "../../Shared/MovieSectionTitle/MovieSectionTitle";
 import { useContext, useState, useEffect, useReducer } from "react";
 import { MovieGenresContext } from "../../Contexts/NavigationGenreContext";
-import { RenderMovieContext } from "../../Contexts/RenderMovieContext";
-
+// import { RenderMovieContext } from "../../Contexts/RenderMovieContext";
 
 const StyledMovies = styled.div`
   width: 100vw;
@@ -34,22 +33,40 @@ const reducer = (state, action) => {
   }
 };
 
-const Movies = () => {
-  const [movieGenres, setMovieGenres] = useContext(MovieGenresContext);
-  const [actionMovies, setActionMovies] = useContext(RenderMovieContext);
+const Movies = ({ match }) => {
+  let movieUrlId = Number(match.params.id);
 
+  // eslint-disable-next-line no-unused-vars
+  const [movieGenres, setMovieGenres] = useContext(MovieGenresContext);
+  const [actionMovies, setActionMovies] = useState([]);
+  const [movieGenreTitle, setMovieGenreTile] = useState("Action");
   const [actionLimit, actionDispatch] = useReducer(reducer, initialState);
 
+  const actionMoviesUrl = `https://api.themoviedb.org/3/discover/movie?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${movieUrlId}&with_watch_monetization_types=flatrate;`;
 
+  useEffect(() => {
+    fetch(actionMoviesUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        const actionMoviesList = data.results;
+        setActionMovies(actionMoviesList);
+      });
+  }, [actionMoviesUrl]);
+
+  let newMovieId = movieGenres.filter((genre) => genre.id === movieUrlId);
+
+  const UpdateGenreTitle = () => {
+    return setMovieGenreTile(newMovieId === undefined || newMovieId[0].name);
+  };
   return (
     <>
       <MovieHeroSection bg={`https://image.tmdb.org/t/p/original${actionMovies.length === 0 || actionMovies[0].backdrop_path}`}>
         <MovieSectionTitle>Films</MovieSectionTitle>
       </MovieHeroSection>
       <StyledMovies className="section-padding">
-        <NavigationGenreList genreList={movieGenres} />
+        <NavigationGenreList genreList={movieGenres} onClick={UpdateGenreTitle} />
         <section id={movieGenres.length !== 0 ? movieGenres[0].id : ""}>
-          <SectionTitle>Action</SectionTitle>
+          <SectionTitle>{movieGenreTitle}</SectionTitle>
           <MinimalCardList mediaList={actionMovies.slice(0, actionLimit)} defined_media_type="movie" />
           <ButtonWrapper>
             {actionLimit >= 20 || (
@@ -65,22 +82,6 @@ const Movies = () => {
           </ButtonWrapper>
           <SectionDivider />
         </section>
-
-        {/* <section id={movieGenres.length !== 0 ? movieGenres[2].id : ""}>
-          <SectionTitle>Animation</SectionTitle>
-          <MinimalCardList mediaList={animationMovies.slice(0, animationLimit)} />
-          <ButtonWrapper>
-            <Button animateprimary onClick={() => animationDispatch("increment")}>
-              Voir Plus
-            </Button>
-            {animationLimit > 5 && (
-              <Button animatesecondary secondary buttonmargin="10px" onClick={() => animationDispatch("decrement")}>
-                Voir Moins
-              </Button>
-            )}
-          </ButtonWrapper>
-          <SectionDivider />
-        </section> */}
       </StyledMovies>
     </>
   );

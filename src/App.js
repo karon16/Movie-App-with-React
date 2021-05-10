@@ -12,7 +12,6 @@ import { AnimationMovieProvier } from "./Components/Contexts/AnimationMovieConte
 
 function App() {
   const location = useLocation();
-  // console.log(props.match);
 
   return (
     <>
@@ -23,7 +22,7 @@ function App() {
         <MovieGenresProvider>
           <AnimationMovieProvier>
             <ActionMovieProvider>
-              <Route path="/films" component={Movies} />
+              <Route path="/films/:id" component={Movies} />
             </ActionMovieProvider>
           </AnimationMovieProvier>
           <TvGenresProvider>

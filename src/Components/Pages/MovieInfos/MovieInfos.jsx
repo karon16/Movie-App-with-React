@@ -43,6 +43,7 @@ const reducer = (state, action) => {
 
 const MovieInfos = ({ match }) => {
   const [openModal, setOpenModal] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [loader, setLoader] = useState(false);
   const [mediaInfo, setMediaInfo] = useState();
   const [movieUrl, setMovieVideoUrl] = useState();
@@ -61,7 +62,7 @@ const MovieInfos = ({ match }) => {
   const similarMoviesUrl = `${apiUrl}${urlSegment}/similar?${personalKey}&language=fr&page=1`;
 
   const url = `${apiUrl}/${type}/${movieId}?${personalKey}&language=fr`;
-  console.log(url);
+  // console.log(url);
   const movieVideoUrl = `${apiUrl}/${type}/${mediaInfo === undefined || mediaInfo.id}/videos?${personalKey}&language=fr`;
 
   const actorsUrl = `${apiUrl}${urlSegment}/credits?${personalKey}&language=fr`;
@@ -100,10 +101,10 @@ const MovieInfos = ({ match }) => {
     setLoader(false);
   }, [actorsUrl, movieVideoUrl, similarMoviesUrl, url]);
 
-  console.log("movie similar", similarMovies);
-  console.log("video url", movieUrl);
-  console.log("actors", actors);
-  console.log("mediaInfo", mediaInfo);
+  // console.log("movie similar", similarMovies);
+  // console.log("video url", movieUrl);
+  // console.log("actors", actors);
+  // console.log("mediaInfo", mediaInfo);
 
   return (
     <>

@@ -9,7 +9,7 @@ const Navigation = ({ onClick }) => {
         </StyledLink>
       </li>
       <li>
-        <StyledLink to="/films" onClick={onClick}>
+        <StyledLink to="/films/28" onClick={onClick}>
           Films
         </StyledLink>
       </li>

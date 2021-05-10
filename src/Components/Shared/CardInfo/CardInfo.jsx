@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import styled from "styled-components";
 import GenreList from "../../Shared/Genre/GenreList";
 import "semantic-ui-css/semantic.min.css";
@@ -89,7 +90,7 @@ const StyledCard = styled.div`
 const CardInfo = ({ onClick, mediaInfo }) => {
   const [voteAverage, setVoteAverage] = useState("green");
 
-  const filteredompagnieLogos = mediaInfo.production_companies.filter((logo) => logo.logo_path !== null);
+  // const filteredompagnieLogos = mediaInfo.production_companies.filter((logo) => logo.logo_path !== null);
   // console.log("emmie", mediaInfo);
 
   // console.log("card media : ", mediaInfo.genres);

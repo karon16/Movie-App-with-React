@@ -6,7 +6,7 @@ import SectionDivider from "../../Shared/SectionDivider/SectionDivider";
 import Button from "../../Shared/Button/Button";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { HashLink } from "react-router-hash-link";
+// import { HashLink } from "react-router-hash-link";
 
 const StyledHome = styled.div`
   background: #0e1930;
@@ -58,7 +58,7 @@ const Home = () => {
         <SectionTitle>Films</SectionTitle>
         <MinimalCardList mediaList={movies} />
         {console.log(movies)}
-        <Link to="/films">
+        <Link to="/films/28">
           <Button animateprimary centered>
             Voir Plus
           </Button>

@@ -15,6 +15,7 @@ const StyledSeries = styled.div`
 `;
 
 const Series = () => {
+  // eslint-disable-next-line no-unused-vars
   const [tvGenres, setTvGenres] = useContext(MovieGenresContext);
   return (
     <>

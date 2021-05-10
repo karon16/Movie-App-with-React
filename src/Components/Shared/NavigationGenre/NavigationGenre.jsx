@@ -11,10 +11,14 @@ const StyledNavigationGenre = styled(HashLink)`
   font-size: 1rem;
 `;
 
-const NavigationGenre = ({ children, id }) => {
+const NavigationGenre = ({ children, id, onClick }) => {
   return (
     <>
-      <StyledNavigationGenre scroll={(el) => el.scrollIntoView({ behavior: "smooth", block: "center", inline: "end" })} to={`/films/#${id}`}>
+      <StyledNavigationGenre
+        scroll={(el) => el.scrollIntoView({ behavior: "smooth", block: "center", inline: "end" })}
+        to={`/films/${id}`}
+        onClick={onClick}
+      >
         {children}
       </StyledNavigationGenre>
     </>
