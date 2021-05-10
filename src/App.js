@@ -12,7 +12,7 @@ import { AnimationMovieProvier } from "./Components/Contexts/AnimationMovieConte
 
 function App() {
   const location = useLocation();
-  // console.log(location);
+  // console.log(props.match);
 
   return (
     <>

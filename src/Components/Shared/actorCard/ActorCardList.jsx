@@ -3,19 +3,17 @@ import styled from "styled-components";
 
 const StyledActorCardList = styled.div`
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `;
 
-const ActorCardList = () => {
+const ActorCardList = ({ actorsList }) => {
   return (
     <StyledActorCardList>
-      <ActorCard />
-      <ActorCard />
-      <ActorCard />
-      <ActorCard />
-      <ActorCard />
-      <ActorCard />
+      {actorsList.map((actor) => {
+        return <ActorCard actorPicture={actor.profile_path} actorName={actor.name} />;
+      })}
     </StyledActorCardList>
   );
 };

@@ -7,7 +7,7 @@ import { useState } from "react";
 const StyledCard = styled.div`
   display: flex;
   justify-content: flex-start;
-  color: white;
+  color: rgb(255, 255, 255);
   margin-top: 7%;
 
   .movie-poster {
@@ -17,8 +17,12 @@ const StyledCard = styled.div`
     width: 20%;
     position: relative;
   }
+  .movie-image-container:hover .play-icon {
+    /* display: block; */
+    opacity: 1;
+  }
   .info-container {
-    width: 40%;
+    width: 60%;
     padding: 0 30px;
   }
   .movie-title {
@@ -62,6 +66,9 @@ const StyledCard = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 0.5;
+    transition: all 0.4s ease;
+    /* display: none; */
   }
   .jeereq {
     position: relative;
@@ -73,7 +80,7 @@ const CardInfo = ({ onClick, mediaInfo }) => {
   const [voteAverage, setVoteAverage] = useState("green");
   // console.log(mediaInfo.vote_average);
 
-  console.log("card media : ", mediaInfo);
+  console.log("card media : ", mediaInfo.genres);
   return (
     <>
       {mediaInfo === undefined || (
@@ -87,7 +94,7 @@ const CardInfo = ({ onClick, mediaInfo }) => {
           <div className="info-container">
             <h3 className="movie-title">{mediaInfo.name !== undefined ? mediaInfo.name : mediaInfo.title}</h3>
             <div className="movie-meta-container">
-              <h4 className="type-film">Film</h4>
+              {/* <h4 className="type-film">Film</h4> */}
               <GenreList genre_ids={mediaInfo.genres.map((genre) => genre.id)} media_type={mediaInfo.type} />
             </div>
             <p className="recommandation">
@@ -99,7 +106,7 @@ const CardInfo = ({ onClick, mediaInfo }) => {
             {mediaInfo.created_by !== undefined ? (
               mediaInfo.created_by.map(({ name }) => <em className="director-name">{name} &nbsp;&nbsp;</em>)
             ) : (
-              <em className="director-name">Realisateur Inconnue</em>
+              <em className="director-name">Realisateurs : Données Indisponibles</em>
             )}
           </div>
         </StyledCard>

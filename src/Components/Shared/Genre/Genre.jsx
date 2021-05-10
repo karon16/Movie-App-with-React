@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledGenre = styled.span`
   color: ${({ theme }) => theme.colors.paleWhite};
   font-family: ${({ theme }) => theme.fonts.biryani};
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 `;
 
 const Genre = ({ children }) => {

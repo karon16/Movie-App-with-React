@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 const StyledActorCard = styled.div`
-  width: 10%;
+  width: calc((10%) - 10px);
+  /* width: 100px; */
+  background: ${({ theme }) => theme.colors.darkBlue};
 
   .actor-image {
     width: 100%;
@@ -12,13 +14,13 @@ const StyledActorCard = styled.div`
   }
 `;
 
-const ActorCard = () => {
+const ActorCard = ({ actorPicture, actorName }) => {
   return (
     <StyledActorCard>
       <div>
-        <img src="https://image.tmdb.org/t/p/original/oTB9vGIBacH5aQNS0pUM74QSWuf.jpg" alt="" className="actor-image" />
+        <img src={`https://image.tmdb.org/t/p/original/${actorPicture}`} alt="" className="actor-image" />
       </div>
-      <h4 className="actor-name">Actor Name</h4>
+      <h4 className="actor-name">{actorName}</h4>
     </StyledActorCard>
   );
 };

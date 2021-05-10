@@ -4,25 +4,27 @@ import GenreList from "../Genre/GenreList";
 import { Link } from "react-router-dom";
 
 const StyledMinimalCard = styled.div`
-  position: relative;
+  /* position: relative; */
   width: calc((20%) - 10px);
   margin-bottom: 20px;
-  transition: transform 0.4s ease 0.2s;
+  transition: transform 0.4s ease;
   position: relative;
-  background: white;
+  /* background: white; */
 
   .image-container {
     width: 100%;
+    /* border: 1px solid red; */
   }
-  .poster-container {
+  /* .poster-container {
     position: relative;
 
     width: 100%;
-  }
+  } */
   .movie-image {
     width: 100%;
+    height: 400px;
     object-fit: cover;
-    z-index: 2;
+    /* z-index: 2; */
   }
 
   .movie-info-container {
@@ -42,7 +44,7 @@ const StyledMinimalCard = styled.div`
     position: absolute;
     background: rgba(0, 0, 0, 1);
     opacity: 0;
-    transition: all 0.3s ease 0.1s;
+    transition: all 0.3s ease;
   }
   .movie-name {
     color: ${({ theme }) => theme.colors.white};
@@ -102,9 +104,9 @@ const MinimalCard = ({ onClick, title, releaseDate, poster, genre_ids, media_typ
   return (
     <StyledMinimalCard>
       <div className="image-container">
-        <div className="poster-container">
-          <img src={`https://image.tmdb.org/t/p/w500/${poster}`} alt="movie backdrop" className="movie-image" />
-        </div>
+        {/* <div className="poster-container"> */}
+        <img src={`https://image.tmdb.org/t/p/w500/${poster}`} alt="movie backdrop" className="movie-image" />
+        {/* </div> */}
       </div>
       <div className="dark-box"></div>
       <div className="movie-info-container">
@@ -114,7 +116,7 @@ const MinimalCard = ({ onClick, title, releaseDate, poster, genre_ids, media_typ
           <Button cardbutton animateprimary onClick={onClick}>
             Bande d'annonce
           </Button>
-          <Link to={`/${media_type === undefined ? defined_media_type : media_type}/${id}`}>
+          <Link to={`/${media_type === undefined ? defined_media_type : media_type}/${id}/#`}>
             <Button buttonmargin="10px" secondary cardbutton animatesecondary>
               Plus d'Infos
             </Button>

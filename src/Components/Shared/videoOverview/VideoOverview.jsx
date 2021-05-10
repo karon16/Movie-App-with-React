@@ -4,7 +4,7 @@ const MediaOverviewContainer = styled.div`
   margin: 0 auto;
 `;
 
-const VideoOverview = () => {
+const VideoOverview = ({ videoOverview }) => {
   return (
     <MediaOverviewContainer>
       <iframe
@@ -12,7 +12,7 @@ const VideoOverview = () => {
         type="text/html"
         width="640"
         height="360"
-        src="http://www.youtube.com/embed/SUXWAEX2jlg?enablejsapi=1&origin=https://projet-kda-movie-app.netlify.app/"
+        src={`http://www.youtube.com/embed/${videoOverview}?enablejsapi=1&origin=https://projet-kda-movie-app.netlify.app/`}
         frameborder="0"
         title="video"
       ></iframe>

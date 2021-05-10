@@ -9,7 +9,7 @@ import MovieSectionTitle from "../../Shared/MovieSectionTitle/MovieSectionTitle"
 import { useContext, useState, useEffect, useReducer } from "react";
 import { MovieGenresContext } from "../../Contexts/NavigationGenreContext";
 import { RenderMovieContext } from "../../Contexts/RenderMovieContext";
-import { AnimationMovieContext } from "../../Contexts/AnimationMovieContext";
+
 
 const StyledMovies = styled.div`
   width: 100vw;
@@ -38,16 +38,12 @@ const Movies = () => {
   const [movieGenres, setMovieGenres] = useContext(MovieGenresContext);
   const [actionMovies, setActionMovies] = useContext(RenderMovieContext);
 
-  const [animationMovies, setAnimationMovies] = useContext(AnimationMovieContext);
-
-  console.log("animation ", animationMovies);
-
   const [actionLimit, actionDispatch] = useReducer(reducer, initialState);
-  const [animationLimit, animationDispatch] = useReducer(reducer, initialState);
+
 
   return (
     <>
-      <MovieHeroSection bg={`https://image.tmdb.org/t/p/original${movieGenres.length !== 0 ? actionMovies[0].backdrop_path : ""}`}>
+      <MovieHeroSection bg={`https://image.tmdb.org/t/p/original${actionMovies.length === 0 || actionMovies[0].backdrop_path}`}>
         <MovieSectionTitle>Films</MovieSectionTitle>
       </MovieHeroSection>
       <StyledMovies className="section-padding">
@@ -56,9 +52,11 @@ const Movies = () => {
           <SectionTitle>Action</SectionTitle>
           <MinimalCardList mediaList={actionMovies.slice(0, actionLimit)} defined_media_type="movie" />
           <ButtonWrapper>
-            <Button animateprimary onClick={() => actionDispatch("increment")}>
-              Voir Plus
-            </Button>
+            {actionLimit >= 20 || (
+              <Button animateprimary onClick={() => actionDispatch("increment")}>
+                Voir Plus
+              </Button>
+            )}
             {actionLimit > 5 && (
               <Button animatesecondary secondary buttonmargin="10px" onClick={() => actionDispatch("decrement")}>
                 Voir Moins
@@ -68,9 +66,9 @@ const Movies = () => {
           <SectionDivider />
         </section>
 
-        <section id={movieGenres.length !== 0 ? movieGenres[2].id : ""}>
+        {/* <section id={movieGenres.length !== 0 ? movieGenres[2].id : ""}>
           <SectionTitle>Animation</SectionTitle>
-          <MinimalCardList mediaList={animationMovies.slice(0, animationLimit)} defined_media_type="movie" />
+          <MinimalCardList mediaList={animationMovies.slice(0, animationLimit)} />
           <ButtonWrapper>
             <Button animateprimary onClick={() => animationDispatch("increment")}>
               Voir Plus
@@ -82,7 +80,7 @@ const Movies = () => {
             )}
           </ButtonWrapper>
           <SectionDivider />
-        </section>
+        </section> */}
       </StyledMovies>
     </>
   );

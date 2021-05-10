@@ -8,7 +8,7 @@ const StyledMovieHeroSection = styled.section`
   height: 70vh;
   display: flex;
   align-items: flex-end;
-  /* padding-top: 7% !important; */
+  /* padding-top: 7% !important; */ 
 `;
 
 const MovieHeroSection = ({ children, bg }) => {
