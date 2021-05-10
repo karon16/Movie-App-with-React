@@ -114,7 +114,7 @@ const MinimalCard = ({ onClick, title, releaseDate, poster, genre_ids, media_typ
           <Button cardbutton animateprimary onClick={onClick}>
             Bande d'annonce
           </Button>
-          <Link to={`/${defined_media_type !== undefined ? defined_media_type : media_type}/${id}`}>
+          <Link to={`/${media_type === undefined ? defined_media_type : media_type}/${id}`}>
             <Button buttonmargin="10px" secondary cardbutton animatesecondary>
               Plus d'Infos
             </Button>

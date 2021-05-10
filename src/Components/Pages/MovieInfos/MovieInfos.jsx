@@ -26,10 +26,23 @@ const MovieInfos = ({ match }) => {
   const [openModal, setOpenModal] = useState(false);
   const [loader, setLoader] = useState(false);
   const [mediaInfo, setMediaInfo] = useState();
+  const [movieUrl, setMovieVideoUrl] = useState();
+  const [similarMovies, setSimilarMovies] = useState();
 
   const urlSegment = match.url;
-  console.log("urlSegment", urlSegment);
+
+  let [type, movieId] = urlSegment.split("/").slice(1, 3);
+  movieId = Number(movieId);
+
+  console.log("type : ", type, "movieId : ", movieId);
+
+  const similarMoviesUrl = `
+  https://api.themoviedb.org/3/${type}/${movieId}/similar?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr&page=1`;
+
   const url = `https://api.themoviedb.org/3${urlSegment}?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr`;
+  const movieVideoUrl = `https://api.themoviedb.org/3/movie/${
+    mediaInfo === undefined || mediaInfo.id
+  }/videos?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr`;
 
   const ShowModal = () => {
     return setOpenModal(true);
@@ -44,18 +57,28 @@ const MovieInfos = ({ match }) => {
         setLoader(false);
         setMediaInfo(singleMediaInfo);
       });
-  }, [url]);
+    fetch(movieVideoUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        setMovieVideoUrl(data.results);
+      });
 
-  console.log(mediaInfo);
+    fetch(similarMoviesUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        const similarMoviesList = data.results;
+        setSimilarMovies(similarMoviesList);
+      });
+  }, [movieVideoUrl, similarMoviesUrl, url]);
+
+  console.log("movie similar", similarMovies);
+  console.log("video url", movieUrl);
 
   return (
     <>
-      {loader ? (
-        <Loader />
-      ) : (
+      {mediaInfo === undefined || (
         <>
-          <StyledHeroSection className="section-padding">
-            {/*bg={`https://image.tmdb.org/t/p/original/${mediaInfo.backdrop_path}`*/}
+          <StyledHeroSection className="section-padding" bg={`https://image.tmdb.org/t/p/original/${mediaInfo.backdrop_path}`}>
             <CardInfo mediaInfo={mediaInfo} onClick={ShowModal} />
           </StyledHeroSection>
           <MediaVideoContainer className="section-padding">
@@ -67,7 +90,7 @@ const MovieInfos = ({ match }) => {
             <MinimalCardList mediaList={[]} />
           </MediaVideoContainer>
           <Modal onClose={() => setOpenModal(false)} onOpen={() => setOpenModal(true)} open={openModal}>
-            <VideoOverview />
+            <VideoOverview mediaLink={mediaInfo.id} />
           </Modal>
         </>
       )}

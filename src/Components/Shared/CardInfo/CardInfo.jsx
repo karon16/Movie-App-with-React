@@ -2,6 +2,7 @@ import styled from "styled-components";
 import GenreList from "../../Shared/Genre/GenreList";
 import "semantic-ui-css/semantic.min.css";
 import { Icon } from "semantic-ui-react";
+import { useState } from "react";
 
 const StyledCard = styled.div`
   display: flex;
@@ -35,8 +36,11 @@ const StyledCard = styled.div`
     line-height: 1rem;
     margin: 0px;
   }
-  .recommandation-percent {
+  .green {
     color: #04aa04;
+  }
+  .red {
+    color: #f80303;
   }
   .recommandation {
     font-weight: bold;
@@ -66,29 +70,41 @@ const StyledCard = styled.div`
 `;
 
 const CardInfo = ({ onClick, mediaInfo }) => {
+  const [voteAverage, setVoteAverage] = useState("green");
+  // console.log(mediaInfo.vote_average);
+
+  console.log("card media : ", mediaInfo);
   return (
-    <StyledCard>
-      <div className="movie-image-container">
-        <div className="jeereq">
-          <img src="https://image.tmdb.org/t/p/w500/rEm96ib0sPiZBADNKBHKBv5bve9.jpg" alt="movie" className="movie-poster" onClick={onClick} />
-          <Icon name="play" inverted size="huge" className="play-icon" onClick={onClick} />
-        </div>
-      </div>
-      <div className="info-container">
-        <h3 className="movie-title">{mediaInfo.name}</h3>
-        <div className="movie-meta-container">
-          <h4 className="type-film">Film</h4>
-          <GenreList genre_ids={[]} media_type="movie" />
-        </div>
-        <p className="recommandation">
-          Recommandé à : <span className="recommandation-percent">{`${mediaInfo.vote_average * 10}%`}</span>
-        </p>
-        <h4 className="overview-title">Aperçu</h4>
-        <p className="overview"> {mediaInfo.overview}</p>
-        <h4 className="director-title">Realisateurs</h4>
-        <em className="director-name">hello</em>
-      </div>
-    </StyledCard>
+    <>
+      {mediaInfo === undefined || (
+        <StyledCard>
+          <div className="movie-image-container">
+            <div className="jeereq">
+              <img src={`https://image.tmdb.org/t/p/w500/${mediaInfo.poster_path}`} alt="movie" className="movie-poster" onClick={onClick} />
+              <Icon name="play" inverted size="huge" className="play-icon" onClick={onClick} />
+            </div>
+          </div>
+          <div className="info-container">
+            <h3 className="movie-title">{mediaInfo.name !== undefined ? mediaInfo.name : mediaInfo.title}</h3>
+            <div className="movie-meta-container">
+              <h4 className="type-film">Film</h4>
+              <GenreList genre_ids={mediaInfo.genres.map((genre) => genre.id)} media_type={mediaInfo.type} />
+            </div>
+            <p className="recommandation">
+              Recommandé à : <span className={voteAverage}>{`${mediaInfo.vote_average * 10}%`}</span>
+            </p>
+            <h4 className="overview-title">Aperçu</h4>
+            <p className="overview">{mediaInfo.overview}</p>
+            <h4 className="director-title">Realisateurs</h4>
+            {mediaInfo.created_by !== undefined ? (
+              mediaInfo.created_by.map(({ name }) => <em className="director-name">{name} &nbsp;&nbsp;</em>)
+            ) : (
+              <em className="director-name">Realisateur Inconnue</em>
+            )}
+          </div>
+        </StyledCard>
+      )}
+    </>
   );
 };
 

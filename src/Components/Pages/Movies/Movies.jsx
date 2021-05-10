@@ -37,9 +37,10 @@ const reducer = (state, action) => {
 const Movies = () => {
   const [movieGenres, setMovieGenres] = useContext(MovieGenresContext);
   const [actionMovies, setActionMovies] = useContext(RenderMovieContext);
-  console.log(actionMovies);
 
   const [animationMovies, setAnimationMovies] = useContext(AnimationMovieContext);
+
+  console.log("animation ", animationMovies);
 
   const [actionLimit, actionDispatch] = useReducer(reducer, initialState);
   const [animationLimit, animationDispatch] = useReducer(reducer, initialState);
@@ -69,7 +70,7 @@ const Movies = () => {
 
         <section id={movieGenres.length !== 0 ? movieGenres[2].id : ""}>
           <SectionTitle>Animation</SectionTitle>
-          <MinimalCardList mediaList={animationMovies.slice(0, animationLimit)} />
+          <MinimalCardList mediaList={animationMovies.slice(0, animationLimit)} defined_media_type="movie" />
           <ButtonWrapper>
             <Button animateprimary onClick={() => animationDispatch("increment")}>
               Voir Plus

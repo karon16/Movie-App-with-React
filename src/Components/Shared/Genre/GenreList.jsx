@@ -64,7 +64,7 @@ const GenreList = ({ genre_ids, media_type }) => {
 
   return (
     <GenreContainer>
-      {media_type === "tv"
+      {media_type === "tv" || media_type === "Miniseries"
         ? tvGenreTable()
             .slice(0, 2)
             .map((genre, id) => <Genre key={id}>{genre}</Genre>)
