@@ -77,6 +77,10 @@ const StyledMinimalCard = styled.div`
     .movie-info-container {
       display: none;
     }
+    .movie-image {
+      width: 100%;
+      height: 300px;
+    }
     &:hover {
       z-index: 1;
       transform: scale(1);
@@ -88,6 +92,22 @@ const StyledMinimalCard = styled.div`
       .movie-info-container {
         display: none;
       }
+    }
+  }
+  @media ${({ theme }) => theme.mediaQueries["bellow-768"]} {
+    width: calc((25%) - 10px);
+    margin-bottom: 15px;
+    .movie-image {
+      width: 100%;
+      height: 250px;
+    }
+  }
+  @media ${({ theme }) => theme.mediaQueries["bellow-420"]} {
+    width: calc((34%) - 10px);
+    margin-bottom: 15px;
+    .movie-image {
+      width: 100%;
+      height: 200px;
     }
   }
 `;

@@ -9,12 +9,12 @@ const StyledNavigationGenreList = styled.div`
   width: 90%;
 `;
 
-const NavigationGenreList = ({ genreList, onClick, active, mediaType }) => {
+const NavigationGenreList = ({ genreList, onClick, mediaType }) => {
   return (
     <StyledNavigationGenreList>
       {genreList.map((genre, index) => {
         return (
-          <NavigationGenre key={index} id={genre.id} onClick={onClick} active={active} mediaType={mediaType}>
+          <NavigationGenre key={index} id={genre.id} onClick={onClick} mediaType={mediaType}>
             {genre.name}
           </NavigationGenre>
         );

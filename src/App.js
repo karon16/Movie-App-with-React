@@ -26,7 +26,7 @@ function App() {
             </ActionMovieProvider>
           </AnimationMovieProvier>
           <TvGenresProvider>
-            <Route path="/series" component={Series} />
+            <Route path="/series/:id" component={Series} />
           </TvGenresProvider>
           <Route path="/movie/:id" render={({ match }) => <MovieInfos match={match} />} />
           <Route path="/tv/:id" render={({ match }) => <MovieInfos match={match} />} />

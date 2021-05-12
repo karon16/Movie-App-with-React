@@ -49,10 +49,12 @@ const Movies = ({ match }) => {
   const [limit, dispatch] = useReducer(reducer, initialState);
 
   const actionMoviesUrl = `https://api.themoviedb.org/3/discover/movie?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr&sort_by=popularity.desc&include_adult=false&include_video=false&page=${limit}&with_genres=${movieUrlId}&with_watch_monetization_types=flatrate;`;
-  let newMovieId = movieGenres.filter((genre) => genre.id === movieUrlId);
+  let newMovieId = movieGenres.find((genre) => genre.id === movieUrlId);
+
+  // console.log(newMovieId)
 
   const UpdateGenreTitle = () => {
-    setMovieGenreTile(newMovieId === undefined || newMovieId.length === 0 || newMovieId[0].name);
+    setMovieGenreTile(newMovieId === undefined || newMovieId.name);
   };
 
   useEffect(() => {
@@ -61,6 +63,7 @@ const Movies = ({ match }) => {
       .then((data) => {
         const actionMoviesList = data.results;
         setMovies(actionMoviesList);
+        // window.scrollTo({ top: 0, behavior: "smooth" });
       });
   }, [actionMoviesUrl]);
 
@@ -72,14 +75,14 @@ const Movies = ({ match }) => {
 
   return (
     <>
-      <MovieHeroSection bg={`https://image.tmdb.org/t/p/original${movies.length === 0 || movies[0].backdrop_path}`}>
+      <MovieHeroSection bg={`https://image.tmdb.org/t/p/original${movies.length !== 0 ? movies[0].backdrop_path : ""}`}>
         <MovieSectionTitle>Films</MovieSectionTitle>
       </MovieHeroSection>
       <StyledMovies className="section-padding">
-        <NavigationGenreList genreList={movieGenres} onClick={UpdateGenreTitle} mediaType="films"  />
+        <NavigationGenreList genreList={movieGenres} onClick={UpdateGenreTitle} mediaType="films" />
         <section id={movieGenres.length !== 0 ? movieGenres[0].id : ""}>
           <SectionTitle>{movieGenreTitle}</SectionTitle>
-          <MinimalCardList mediaList={movies.slice(0, 20)} defined_media_type="movie" />
+          <MinimalCardList mediaList={movies} defined_media_type="movie" />
           <ButtonWrapper>
             {limit > 1 && (
               <Button animatesecondary secondary onClick={() => dispatch("reinit")}>

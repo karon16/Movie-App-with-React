@@ -10,16 +10,10 @@ const StyledNavigationGenre = styled(Link)`
   font-size: 1rem;
 `;
 
-const NavigationGenre = ({ children, id, onClick, active, mediaType }) => {
+const NavigationGenre = ({ children, id, onClick, mediaType }) => {
   return (
     <>
-      <StyledNavigationGenre
-        scroll={(el) => el.scrollIntoView({ behavior: "smooth", block: "center", inline: "end" })}
-        to={`/${mediaType}/${id}`}
-        onClick={onClick}
-        // className={active}
-        activeClassName={active}
-      >
+      <StyledNavigationGenre to={`/${mediaType}/${id}`} onClick={onClick} id={id}>
         {children}
       </StyledNavigationGenre>
     </>

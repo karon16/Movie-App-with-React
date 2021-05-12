@@ -49,13 +49,14 @@ const Home = () => {
   useEffect(() => {
     getMovies();
     getTvs();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   return (
     <>
       <HeroSection />
       <StyledHome className="section-padding">
-        <SectionTitle>Films</SectionTitle>
+        <SectionTitle>Films Tendances</SectionTitle>
         <MinimalCardList mediaList={movies} />
         {console.log(movies)}
         <Link to="/films/28">
@@ -64,7 +65,7 @@ const Home = () => {
           </Button>
         </Link>
         <SectionDivider />
-        <SectionTitle>Series</SectionTitle>
+        <SectionTitle>Series Tendances</SectionTitle>
         <MinimalCardList mediaList={tvs} />
         <Link to="/series">
           <Button animateprimary centered>

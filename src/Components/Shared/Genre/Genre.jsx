@@ -4,7 +4,6 @@ const StyledGenre = styled.span`
   color: ${({ theme }) => theme.colors.paleWhite};
   font-family: ${({ theme }) => theme.fonts.biryani};
   font-size: ${({ fontsize }) => fontsize || "0.8rem"};
-  /* font-size: 0.7rem; */
 
   .bull--color {
     color: ${({ theme }) => theme.colors.lightBlue};
