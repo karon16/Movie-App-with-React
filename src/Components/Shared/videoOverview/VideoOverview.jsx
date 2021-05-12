@@ -10,8 +10,8 @@ const VideoOverview = ({ videoOverview }) => {
       <iframe
         id="player"
         type="text/html"
-        width="640"
-        height="360"
+        width="100%"
+        height="500px"
         src={`http://www.youtube.com/embed/${videoOverview}?enablejsapi=1&origin=https://projet-kda-movie-app.netlify.app/`}
         frameborder="0"
         title="video"

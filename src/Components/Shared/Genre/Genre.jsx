@@ -3,13 +3,20 @@ import styled from "styled-components";
 const StyledGenre = styled.span`
   color: ${({ theme }) => theme.colors.paleWhite};
   font-family: ${({ theme }) => theme.fonts.biryani};
-  font-size: 0.7rem;
+  font-size: ${({ fontsize }) => fontsize || "0.8rem"};
+  /* font-size: 0.7rem; */
+
+  .bull--color {
+    color: ${({ theme }) => theme.colors.lightBlue};
+  }
 `;
 
-const Genre = ({ children }) => {
+const Genre = ({ children, fontsize }) => {
   return (
     <>
-      <StyledGenre>&bull; {children}&nbsp;&nbsp;</StyledGenre>
+      <StyledGenre fontsize={fontsize}>
+        <span className="bull--color">&bull;</span> {children}&nbsp;&nbsp;
+      </StyledGenre>
     </>
   );
 };

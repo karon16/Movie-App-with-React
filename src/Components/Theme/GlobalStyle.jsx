@@ -26,6 +26,9 @@ body{
 .section-padding{
     padding: 3% 5%;
 }
+.active{
+    color : red;
+}
 `;
 
 export default GlobalStyle;

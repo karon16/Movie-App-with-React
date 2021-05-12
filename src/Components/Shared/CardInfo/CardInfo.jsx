@@ -28,6 +28,7 @@ const StyledCard = styled.div`
   }
   .movie-title {
     font-size: 4rem;
+    line-height: 4rem;
     margin: 0;
     font-family: ${({ theme }) => theme.fonts.biryani};
   }
@@ -70,7 +71,6 @@ const StyledCard = styled.div`
     transform: translate(-50%, -50%);
     opacity: 0.5;
     transition: all 0.4s ease;
-    /* display: none; */
   }
   .jeereq {
     position: relative;
@@ -90,10 +90,6 @@ const StyledCard = styled.div`
 const CardInfo = ({ onClick, mediaInfo }) => {
   const [voteAverage, setVoteAverage] = useState("green");
 
-  // const filteredompagnieLogos = mediaInfo.production_companies.filter((logo) => logo.logo_path !== null);
-  // console.log("emmie", mediaInfo);
-
-  // console.log("card media : ", mediaInfo.genres);
   return (
     <>
       {mediaInfo === undefined || (
@@ -106,10 +102,8 @@ const CardInfo = ({ onClick, mediaInfo }) => {
           </div>
           <div className="info-container">
             <h3 className="movie-title">{mediaInfo.name !== undefined ? mediaInfo.name : mediaInfo.title}</h3>
-            <div className="movie-meta-container">
-              {/* <h4 className="type-film">Film</h4> */}
-              <GenreList genre_ids={mediaInfo.genres.map((genre) => genre.id)} media_type={mediaInfo.type} />
-            </div>
+            <h4 className="type-film">{mediaInfo.type !== undefined ? mediaInfo.type : "Film"}</h4>
+            <GenreList genre_ids={mediaInfo.genres.map((genre) => genre.id)} media_type={mediaInfo.type} fontsize="1rem" />
             <p className="recommandation">
               Recommandé à : <span className={voteAverage}>{`${mediaInfo.vote_average * 10}%`}</span>
             </p>
@@ -121,12 +115,6 @@ const CardInfo = ({ onClick, mediaInfo }) => {
             ) : (
               <em className="director-name">Realisateurs : Données Indisponibles</em>
             )}
-            {/* <div className="logo-container">
-              {filteredompagnieLogos.map((logo) => {
-                // eslint-disable-next-line jsx-a11y/alt-text
-                return <img src={`https://image.tmdb.org/t/p/original/${logo.logo_path}`} />;
-              })}
-            </div> */}
           </div>
         </StyledCard>
       )}

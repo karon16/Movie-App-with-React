@@ -4,27 +4,19 @@ import GenreList from "../Genre/GenreList";
 import { Link } from "react-router-dom";
 
 const StyledMinimalCard = styled.div`
-  /* position: relative; */
   width: calc((20%) - 10px);
   margin-bottom: 20px;
   transition: transform 0.4s ease;
   position: relative;
-  /* background: white; */
 
   .image-container {
     width: 100%;
-    /* border: 1px solid red; */
   }
-  /* .poster-container {
-    position: relative;
 
-    width: 100%;
-  } */
   .movie-image {
     width: 100%;
     height: 400px;
     object-fit: cover;
-    /* z-index: 2; */
   }
 
   .movie-info-container {
@@ -104,12 +96,10 @@ const MinimalCard = ({ onClick, title, releaseDate, poster, genre_ids, media_typ
   return (
     <StyledMinimalCard>
       <div className="image-container">
-        {/* <div className="poster-container"> */}
         <Link to={`/${media_type === undefined ? defined_media_type : media_type}/${id}/#`}>
           <img src={`https://image.tmdb.org/t/p/w500/${poster}`} alt="movie backdrop" className="movie-image" />
           <div className="dark-box"></div>
         </Link>
-        {/* </div> */}
       </div>
       <div className="movie-info-container">
         <h3 className="movie-name">{title}</h3>
@@ -118,7 +108,7 @@ const MinimalCard = ({ onClick, title, releaseDate, poster, genre_ids, media_typ
           <Button cardbutton animateprimary onClick={onClick}>
             Bande d'annonce
           </Button>
-          <Link to={`/${media_type === undefined ? defined_media_type : media_type}/${id}/#`}>
+          <Link to={`/${media_type === undefined ? defined_media_type : media_type}/${id}`}>
             <Button buttonmargin="10px" secondary cardbutton animatesecondary>
               Plus d'Infos
             </Button>

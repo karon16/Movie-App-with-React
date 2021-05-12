@@ -8,11 +8,7 @@ const Footer = () => {
     <StyledFooter>
       <div className="footer-main-container">
         <div>
-          <img
-            src={TlLogo}
-            alt="tala movies logo"
-            className="tala-movies-logo"
-          />
+          <img src={TlLogo} alt="tala movies logo" className="tala-movies-logo" />
         </div>
         <div className="footer-row-container">
           <div className="flex-column footer-row-block">
@@ -21,12 +17,12 @@ const Footer = () => {
             <StyledLink to="#">Contacts</StyledLink>
           </div>
           <div className="footer-row-block hidden-420">
-            <StyledLink bold="bold" to="/films">
+            <StyledLink bold="bold" to="/films/28">
               Films
             </StyledLink>
             <div className="flex-row">
               <div className="flex-column">
-                <StyledLink subcategories="true" to="#">
+                <StyledLink subcategories="true" to="/films/28">
                   Action
                 </StyledLink>
                 <StyledLink subcategories="true" to="#">
@@ -125,10 +121,7 @@ const Footer = () => {
               alt="logo the movie data base"
             />
           </div>
-          <p className="tmdb-message">
-            Ce produit utilise l'API TMDb mais n'est ni approuvé ni certifié par
-            TMDb.
-          </p>
+          <p className="tmdb-message">Ce produit utilise l'API TMDb mais n'est ni approuvé ni certifié par TMDb.</p>
         </div>
       </div>
     </StyledFooter>

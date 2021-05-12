@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import { HashLink } from "react-router-hash-link";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const StyledNavigationGenre = styled(HashLink)`
+const StyledNavigationGenre = styled(Link)`
   color: ${({ theme }) => theme.colors.lightBlue};
   font-family: ${({ theme }) => theme.fonts.biryani};
   border: 1px solid ${({ theme }) => theme.colors.lightBlue};
@@ -11,13 +10,15 @@ const StyledNavigationGenre = styled(HashLink)`
   font-size: 1rem;
 `;
 
-const NavigationGenre = ({ children, id, onClick }) => {
+const NavigationGenre = ({ children, id, onClick, active, mediaType }) => {
   return (
     <>
       <StyledNavigationGenre
         scroll={(el) => el.scrollIntoView({ behavior: "smooth", block: "center", inline: "end" })}
-        to={`/films/${id}`}
+        to={`/${mediaType}/${id}`}
         onClick={onClick}
+        // className={active}
+        activeClassName={active}
       >
         {children}
       </StyledNavigationGenre>

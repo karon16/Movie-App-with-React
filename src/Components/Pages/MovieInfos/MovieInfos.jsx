@@ -36,6 +36,8 @@ const reducer = (state, action) => {
       return state + 5;
     case "decrement":
       return state - 5;
+    case "reinit":
+      return initialState;
     default:
       return initialState;
   }
@@ -62,7 +64,7 @@ const MovieInfos = ({ match }) => {
   const similarMoviesUrl = `${apiUrl}${urlSegment}/similar?${personalKey}&language=fr&page=1`;
 
   const url = `${apiUrl}/${type}/${movieId}?${personalKey}&language=fr`;
-  // console.log(url);
+
   const movieVideoUrl = `${apiUrl}/${type}/${mediaInfo === undefined || mediaInfo.id}/videos?${personalKey}&language=fr`;
 
   const actorsUrl = `${apiUrl}${urlSegment}/credits?${personalKey}&language=fr`;
@@ -98,13 +100,10 @@ const MovieInfos = ({ match }) => {
         const actorMediaList = data.cast;
         setSActors(actorMediaList);
       });
+    actionDispatch("reinit");
     setLoader(false);
+    window.scrollTo(0, 0);
   }, [actorsUrl, movieVideoUrl, similarMoviesUrl, url]);
-
-  // console.log("movie similar", similarMovies);
-  // console.log("video url", movieUrl);
-  // console.log("actors", actors);
-  // console.log("mediaInfo", mediaInfo);
 
   return (
     <>
@@ -138,8 +137,11 @@ const MovieInfos = ({ match }) => {
               )}
             </ButtonWrapper>
           </MediaVideoContainer>
-          <Modal onClose={() => setOpenModal(false)} onOpen={() => setOpenModal(true)} open={openModal}>
-            <VideoOverview videoOverview={movieUrl === undefined || movieUrl.length === 0 ? "" : movieUrl[0].key} />
+          <Modal basic closeIcon onClose={() => setOpenModal(false)} onOpen={() => setOpenModal(true)} open={openModal}>
+            <Modal.Header>Bande d'annonce</Modal.Header>
+            <Modal.Content video>
+              {movieUrl === undefined || movieUrl.length === 0 ? "video Indisponible" : <VideoOverview videoOverview={movieUrl[0].key} />}
+            </Modal.Content>
           </Modal>
         </>
       )}

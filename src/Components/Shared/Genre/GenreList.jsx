@@ -8,7 +8,7 @@ const GenreContainer = styled.div`
   margin: 5px 0;
 `;
 
-const GenreList = ({ genre_ids, media_type }) => {
+const GenreList = ({ genre_ids, media_type, fontsize }) => {
   const [movieGenres, setMovieGenres] = useState([]);
   const [tvGenres, setTvGenres] = useState([]);
 
@@ -67,10 +67,18 @@ const GenreList = ({ genre_ids, media_type }) => {
       {media_type === "tv" || media_type === "Miniseries"
         ? tvGenreTable()
             .slice(0, 2)
-            .map((genre, id) => <Genre key={id}>{genre}</Genre>)
+            .map((genre, id) => (
+              <Genre key={id} fontsize={fontsize}>
+                {genre}
+              </Genre>
+            ))
         : movieGenreTable()
             .slice(0, 2)
-            .map((genre, id) => <Genre key={id}>{genre}</Genre>)}
+            .map((genre, id) => (
+              <Genre key={id} fontsize={fontsize}>
+                {genre}
+              </Genre>
+            ))}
     </GenreContainer>
   );
 };
