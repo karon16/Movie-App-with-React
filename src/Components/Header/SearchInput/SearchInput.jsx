@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import "semantic-ui-css/semantic.min.css";
 import { Input, Icon } from "semantic-ui-react";
+import { useHistory } from "react-router-dom";
 
 const SearchBar = styled.input`
   background: none;
@@ -9,16 +10,15 @@ const SearchBar = styled.input`
   border-radius: 0px !important;
 `;
 
-const SearchInput = ({ value }) => {
+const SearchInput = ({ onChange }) => {
+  const history = useHistory();
+
+  const linkToSearchPage = () => {
+    history.push("/recherche");
+  };
   return (
     <>
-      <SearchBar
-        as={Input}
-        type="search"
-        value={value}
-        name="search"
-        icon={<Icon name="search" />}
-      />
+      <SearchBar as={Input} type="search" name="search" icon={<Icon name="search" />} onChange={onChange} onClick={linkToSearchPage} />
     </>
   );
 };

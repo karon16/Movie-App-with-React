@@ -116,7 +116,7 @@ const MinimalCard = ({ onClick, title, releaseDate, poster, genre_ids, media_typ
   return (
     <StyledMinimalCard>
       <div className="image-container">
-        <Link to={`/${media_type === undefined ? defined_media_type : media_type}/${id}/#`}>
+        <Link to={`/${media_type === undefined ? defined_media_type : media_type}/${id}`}>
           <img src={`https://image.tmdb.org/t/p/w500/${poster}`} alt="movie backdrop" className="movie-image" />
           <div className="dark-box"></div>
         </Link>

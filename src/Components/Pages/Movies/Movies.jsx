@@ -13,7 +13,8 @@ const StyledMovies = styled.div`
   background: #0e1930;
 
   .active {
-    color: red;
+    color: white;
+    background-color: ${({ theme }) => theme.colors.lightBlue};
   }
 `;
 
@@ -47,6 +48,7 @@ const Movies = ({ match }) => {
   const [movies, setMovies] = useState([]);
   const [movieGenreTitle, setMovieGenreTile] = useState("Action");
   const [limit, dispatch] = useReducer(reducer, initialState);
+  const [toggleButton, setToggleButton] = useState(false);
 
   const actionMoviesUrl = `https://api.themoviedb.org/3/discover/movie?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr&sort_by=popularity.desc&include_adult=false&include_video=false&page=${limit}&with_genres=${movieUrlId}&with_watch_monetization_types=flatrate;`;
   let newMovieId = movieGenres.find((genre) => genre.id === movieUrlId);
@@ -57,6 +59,12 @@ const Movies = ({ match }) => {
     setMovieGenreTile(newMovieId === undefined || newMovieId.name);
   };
 
+  const ButtonIsActive = (event) => {
+    setToggleButton(!toggleButton);
+    // return toggleButton ? console.log(event.target.className) : "bad";
+  };
+
+  // console.log(toggleButton);
   useEffect(() => {
     fetch(actionMoviesUrl)
       .then((response) => response.json())
@@ -79,7 +87,7 @@ const Movies = ({ match }) => {
         <MovieSectionTitle>Films</MovieSectionTitle>
       </MovieHeroSection>
       <StyledMovies className="section-padding">
-        <NavigationGenreList genreList={movieGenres} onClick={UpdateGenreTitle} mediaType="films" />
+        <NavigationGenreList genreList={movieGenres} onClick={ButtonIsActive} mediaType="films" />
         <section id={movieGenres.length !== 0 ? movieGenres[0].id : ""}>
           <SectionTitle>{movieGenreTitle}</SectionTitle>
           <MinimalCardList mediaList={movies} defined_media_type="movie" />

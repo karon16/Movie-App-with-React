@@ -56,7 +56,7 @@ const NavigationBar = styled.nav`
   }
 `;
 
-const Header = () => {
+const Header = ({ onChange }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   const HandleClick = () => {
@@ -66,22 +66,14 @@ const Header = () => {
   return (
     <NavigationBar>
       <div>
-        <img
-          src={HeaderLogo}
-          alt="tala movies logo"
-          className="tala-movies-logo"
-        />
+        <img src={HeaderLogo} alt="tala movies logo" className="tala-movies-logo" />
       </div>
       <div className={` nav-right-side ${toggleMenu ? "nav-active" : null}`}>
         <Navigation onClick={HandleClick} />
-        <SearchInput />
+        <SearchInput onChange={onChange} />
       </div>
       <div onClick={HandleClick} className="burger-menu">
-        {toggleMenu ? (
-          <Icon name="close" inverted />
-        ) : (
-          <Icon name="bars" inverted />
-        )}
+        {toggleMenu ? <Icon name="close" inverted /> : <Icon name="bars" inverted />}
       </div>
     </NavigationBar>
   );

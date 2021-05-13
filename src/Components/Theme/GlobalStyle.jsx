@@ -29,6 +29,16 @@ body{
 .active{
     color : red;
 }
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 13px;
+    /* border-radius: px; */
+}
+::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.lightBlue};
+    /* border-radius: 2px; */
+}
 `;
 
 export default GlobalStyle;

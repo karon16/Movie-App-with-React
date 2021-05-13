@@ -45,6 +45,7 @@ const reducer = (state, action) => {
 
 const MovieInfos = ({ match }) => {
   const [openModal, setOpenModal] = useState(false);
+
   // eslint-disable-next-line no-unused-vars
   const [loader, setLoader] = useState(false);
   const [mediaInfo, setMediaInfo] = useState();
@@ -54,21 +55,23 @@ const MovieInfos = ({ match }) => {
   const [actionLimit, actionDispatch] = useReducer(reducer, initialState);
 
   const urlSegment = match.url;
-  console.log("match", match);
+
+  // console.log("match", match);
+  // console.log("urlSegment", urlSegment);
 
   let [type, movieId] = urlSegment.split("/").slice(1, 3);
-  movieId = Number(movieId);
 
   const apiUrl = "https://api.themoviedb.org/3";
   const personalKey = "api_key=ff3f7a6f9e9804bf8c152b62e26b928c";
   const similarMoviesUrl = `${apiUrl}${urlSegment}/similar?${personalKey}&language=fr&page=1`;
 
-  const url = `${apiUrl}/${type}/${movieId}?${personalKey}&language=fr`;
+  const url = `${apiUrl}${urlSegment}?${personalKey}&language=fr`;
 
-  const movieVideoUrl = `${apiUrl}/${type}/${mediaInfo === undefined || mediaInfo.id}/videos?${personalKey}&language=fr`;
+  const movieVideoUrl = `${apiUrl}${urlSegment}/videos?${personalKey}&language=fr`;
 
   const actorsUrl = `${apiUrl}${urlSegment}/credits?${personalKey}&language=fr`;
-
+  console.log(similarMoviesUrl);
+  console.log(actorsUrl);
   const ShowModal = () => {
     return setOpenModal(true);
   };

@@ -10,10 +10,10 @@ const StyledNavigationGenre = styled(Link)`
   font-size: 1rem;
 `;
 
-const NavigationGenre = ({ children, id, onClick, mediaType }) => {
+const NavigationGenre = ({ children, id, onClick, mediaType, className }) => {
   return (
     <>
-      <StyledNavigationGenre to={`/${mediaType}/${id}`} onClick={onClick} id={id}>
+      <StyledNavigationGenre to={`/${mediaType}/${id}`} onClick={onClick} id={id} className={className}>
         {children}
       </StyledNavigationGenre>
     </>

@@ -7,24 +7,29 @@ import Series from "./Components/Pages/Series/Series";
 import MovieInfos from "./Components/Pages/MovieInfos/MovieInfos";
 import WelcomePage from "./Components/Pages/WelcomePage/WelcomePage";
 import { MovieGenresProvider, TvGenresProvider } from "./Components/Contexts/NavigationGenreContext";
-import { ActionMovieProvider } from "./Components/Contexts/RenderMovieContext";
-import { AnimationMovieProvier } from "./Components/Contexts/AnimationMovieContext";
+import { useState, useeffects } from "react";
+import Search from "./Components/Pages/Search/Search";
+// import { ActionMovieProvider } from "./Components/Contexts/RenderMovieContext";
+// import { AnimationMovieProvier } from "./Components/Contexts/AnimationMovieContext";
 
-function App() {
+const App = () => {
+  const [userInput, setUserInput] = useState("");
   const location = useLocation();
+
+  const getUserInput = (event) => {
+    setUserInput(event.target.value);
+  };
+
+  console.log(userInput);
 
   return (
     <>
-      {location.pathname !== "/" && <Header />}
+      {location.pathname !== "/" && <Header onChange={getUserInput} />}
       <Switch>
         <Route exact path="/" component={WelcomePage} />
         <Route path="/accueil" component={Home} />
         <MovieGenresProvider>
-          <AnimationMovieProvier>
-            <ActionMovieProvider>
-              <Route path="/films/:id" component={Movies} />
-            </ActionMovieProvider>
-          </AnimationMovieProvier>
+          <Route path="/films/:id" component={Movies} />
           <TvGenresProvider>
             <Route path="/series/:id" component={Series} />
           </TvGenresProvider>
@@ -32,9 +37,10 @@ function App() {
           <Route path="/tv/:id" render={({ match }) => <MovieInfos match={match} />} />
         </MovieGenresProvider>
       </Switch>
+      <Route path="/recherche" component={Search} userInput={userInput} />
       {location.pathname !== "/" && <Footer />}
     </>
   );
-}
+};
 
 export default App;
