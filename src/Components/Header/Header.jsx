@@ -70,7 +70,7 @@ const Header = ({ onChange }) => {
       </div>
       <div className={` nav-right-side ${toggleMenu ? "nav-active" : null}`}>
         <Navigation onClick={HandleClick} />
-        <SearchInput onChange={onChange} />
+        <SearchInput onChange={onChange} onClick={HandleClick}/>
       </div>
       <div onClick={HandleClick} className="burger-menu">
         {toggleMenu ? <Icon name="close" inverted /> : <Icon name="bars" inverted />}

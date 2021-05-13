@@ -32,12 +32,10 @@ const VideoOverview = ({ videoOverview }) => {
         id="player"
         type="text/html"
         width="100%"
-        // height={height}
         src={`http://www.youtube.com/embed/${videoOverview}?autoplay=1?enablejsapi=1&origin=https://projet-kda-movie-app.netlify.app/`}
         frameborder="0"
         title="video"
         className="youtube-video"
-        autoplay="1"
       ></iframe>
     </MediaOverviewContainer>
   );

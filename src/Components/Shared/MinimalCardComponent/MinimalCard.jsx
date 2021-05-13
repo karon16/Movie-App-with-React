@@ -2,6 +2,7 @@ import Button from "../Button/Button";
 import styled from "styled-components";
 import GenreList from "../Genre/GenreList";
 import { Link } from "react-router-dom";
+import DefaultPoster from "../../img/Poster_overview.png";
 
 const StyledMinimalCard = styled.div`
   width: calc((20%) - 10px);
@@ -117,7 +118,11 @@ const MinimalCard = ({ onClick, title, releaseDate, poster, genre_ids, media_typ
     <StyledMinimalCard>
       <div className="image-container">
         <Link to={`/${media_type === undefined ? defined_media_type : media_type}/${id}`}>
-          <img src={`https://image.tmdb.org/t/p/w500/${poster}`} alt="movie backdrop" className="movie-image" />
+          <img
+            src={`${poster === null ? DefaultPoster : `https://image.tmdb.org/t/p/w500/${poster}`}`}
+            alt="movie backdrop"
+            className="movie-image"
+          />
           <div className="dark-box"></div>
         </Link>
       </div>

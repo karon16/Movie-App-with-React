@@ -8,6 +8,7 @@ const SearchBar = styled.input`
   outline: none;
   height: 25px;
   border-radius: 0px !important;
+ 
 `;
 
 const SearchInput = ({ onChange }) => {

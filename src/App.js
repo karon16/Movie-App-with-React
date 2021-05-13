@@ -7,7 +7,7 @@ import Series from "./Components/Pages/Series/Series";
 import MovieInfos from "./Components/Pages/MovieInfos/MovieInfos";
 import WelcomePage from "./Components/Pages/WelcomePage/WelcomePage";
 import { MovieGenresProvider, TvGenresProvider } from "./Components/Contexts/NavigationGenreContext";
-import { useState, useeffects } from "react";
+import { useState, useEffects } from "react";
 import Search from "./Components/Pages/Search/Search";
 // import { ActionMovieProvider } from "./Components/Contexts/RenderMovieContext";
 // import { AnimationMovieProvier } from "./Components/Contexts/AnimationMovieContext";
@@ -20,7 +20,7 @@ const App = () => {
     setUserInput(event.target.value);
   };
 
-  console.log(userInput);
+  // console.log(userInput);
 
   return (
     <>
@@ -37,7 +37,7 @@ const App = () => {
           <Route path="/tv/:id" render={({ match }) => <MovieInfos match={match} />} />
         </MovieGenresProvider>
       </Switch>
-      <Route path="/recherche" component={Search} userInput={userInput} />
+      <Route path="/recherche" render={({ userQuery }) => <Search userQuery={userInput} />} />
       {location.pathname !== "/" && <Footer />}
     </>
   );

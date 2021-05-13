@@ -60,14 +60,16 @@ const Series = ({ match }) => {
       .then((data) => {
         const seriesList = data.results;
         setSeries(seriesList);
+        dispatch("reinit");
+        UpdateGenreTitle();
       });
   }, [seriesUrl]);
 
-  useEffect(() => {
-    dispatch("reinit");
-    UpdateGenreTitle();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [serieUrlId]);
+  // useEffect(() => {
+  //   dispatch("reinit");
+  //   UpdateGenreTitle();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [serieUrlId]);
 
   console.log(
     `https://image.tmdb.org/t/p/original${
@@ -83,7 +85,7 @@ const Series = ({ match }) => {
       <StyledSeries className="section-padding">
         <NavigationGenreList genreList={tvGenres} mediaType="series" />
         <SectionTitle>{serieGenreTitle}</SectionTitle>
-        <MinimalCardList mediaList={series.filter((serie) => serie.poster_path !== null)} defined_media_type="tv" />
+        <MinimalCardList mediaList={series} defined_media_type="tv" />
         <ButtonWrapper>
           {limit > 1 && (
             <Button animatesecondary secondary onClick={() => dispatch("reinit")}>

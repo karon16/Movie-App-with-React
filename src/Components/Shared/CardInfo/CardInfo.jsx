@@ -4,6 +4,7 @@ import GenreList from "../../Shared/Genre/GenreList";
 import "semantic-ui-css/semantic.min.css";
 import { Icon } from "semantic-ui-react";
 import { useState } from "react";
+import DefaultPoster from "../../img/Poster_overview.png";
 
 const StyledCard = styled.div`
   display: flex;
@@ -96,7 +97,12 @@ const CardInfo = ({ onClick, mediaInfo }) => {
         <StyledCard>
           <div className="movie-image-container">
             <div className="jeereq">
-              <img src={`https://image.tmdb.org/t/p/w500/${mediaInfo.poster_path}`} alt="movie" className="movie-poster" onClick={onClick} />
+              <img
+                src={`${mediaInfo.poster_path === null ? DefaultPoster : `https://image.tmdb.org/t/p/w500/${mediaInfo.poster_path}`}`}
+                alt="movie"
+                className="movie-poster"
+                onClick={onClick}
+              />
               <Icon name="play" inverted size="huge" className="play-icon" onClick={onClick} />
             </div>
           </div>

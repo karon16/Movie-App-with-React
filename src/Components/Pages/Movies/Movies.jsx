@@ -30,7 +30,8 @@ const reducer = (state, action) => {
     case "increment":
       return state + 1;
     case "decrement":
-      return state - 1;
+      return state === 1 ? 1 : state - 1;
+
     case "reinit":
       return initialState;
     case "goTo500":
@@ -92,18 +93,11 @@ const Movies = ({ match }) => {
           <SectionTitle>{movieGenreTitle}</SectionTitle>
           <MinimalCardList mediaList={movies} defined_media_type="movie" />
           <ButtonWrapper>
-            {limit > 1 && (
-              <Button animatesecondary secondary onClick={() => dispatch("reinit")}>
-                {limit - limit + 1}
+            <>
+              <Button animatesecondary secondary buttonmargin="10px" onClick={() => dispatch("decrement")}>
+                -
               </Button>
-            )}
-            {limit === 1 || (
-              <>
-                <Button animatesecondary secondary buttonmargin="10px" onClick={() => dispatch("decrement")}>
-                  -
-                </Button>
-              </>
-            )}
+            </>
             {limit >= 499 || (
               <>
                 <Button animateprimary buttonmargin="10px">
@@ -115,9 +109,6 @@ const Movies = ({ match }) => {
                 </Button>
               </>
             )}
-            <Button animateprimary secondary buttonmargin="10px" onClick={() => dispatch("goTo500")}>
-              500
-            </Button>
           </ButtonWrapper>
         </section>
       </StyledMovies>
