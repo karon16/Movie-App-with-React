@@ -8,6 +8,7 @@ import Button from "../../Shared/Button/Button";
 import MovieSectionTitle from "../../Shared/MovieSectionTitle/MovieSectionTitle";
 import { useContext, useReducer, useEffect, useState } from "react";
 import { MovieGenresContext } from "../../Contexts/NavigationGenreContext";
+// import { Route } from "reat-router-dom";
 
 const StyledSeries = styled.div`
   background: #0e1930;
@@ -85,6 +86,7 @@ const Series = ({ match }) => {
       <StyledSeries className="section-padding">
         <NavigationGenreList genreList={tvGenres} mediaType="series" />
         <SectionTitle>{serieGenreTitle}</SectionTitle>
+        {/* <Route path="/series/:id" component ={MediaByGenre} */}
         <MinimalCardList mediaList={series} defined_media_type="tv" />
         <ButtonWrapper>
           {limit > 1 && (

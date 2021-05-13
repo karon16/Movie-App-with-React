@@ -8,6 +8,23 @@ const StyledNavigationGenre = styled(Link)`
   padding: 10px 20px;
   margin: 5px;
   font-size: 1rem;
+
+  @media ${({ theme }) => theme.mediaQueries["bellow-1024"]} {
+    padding: 7px 17px;
+    font-size: 0.8rem;
+    margin: 4px;
+  }
+  @media ${({ theme }) => theme.mediaQueries["bellow-768"]} {
+    padding: 4px 14px;
+    font-size: 0.7rem;
+    margin: 3px;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries["bellow-420"]} {
+    padding: 2px 12px;
+    font-size: 0.6rem;
+    margin: 2px;
+  }
 `;
 
 const NavigationGenre = ({ children, id, onClick, mediaType, className }) => {

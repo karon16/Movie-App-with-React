@@ -11,11 +11,6 @@ import { MovieGenresContext } from "../../Contexts/NavigationGenreContext";
 const StyledMovies = styled.div`
   width: 100vw;
   background: #0e1930;
-
-  .active {
-    color: white;
-    background-color: ${({ theme }) => theme.colors.lightBlue};
-  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -31,7 +26,6 @@ const reducer = (state, action) => {
       return state + 1;
     case "decrement":
       return state === 1 ? 1 : state - 1;
-
     case "reinit":
       return initialState;
     case "goTo500":
@@ -49,30 +43,26 @@ const Movies = ({ match }) => {
   const [movies, setMovies] = useState([]);
   const [movieGenreTitle, setMovieGenreTile] = useState("Action");
   const [limit, dispatch] = useReducer(reducer, initialState);
-  const [toggleButton, setToggleButton] = useState(false);
+  // const [toggleButton, setToggleButton] = useState(false);
 
   const actionMoviesUrl = `https://api.themoviedb.org/3/discover/movie?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr&sort_by=popularity.desc&include_adult=false&include_video=false&page=${limit}&with_genres=${movieUrlId}&with_watch_monetization_types=flatrate;`;
   let newMovieId = movieGenres.find((genre) => genre.id === movieUrlId);
-
-  // console.log(newMovieId)
 
   const UpdateGenreTitle = () => {
     setMovieGenreTile(newMovieId === undefined || newMovieId.name);
   };
 
-  const ButtonIsActive = (event) => {
-    setToggleButton(!toggleButton);
-    // return toggleButton ? console.log(event.target.className) : "bad";
-  };
+  // const ButtonIsActive = (event) => {
+  //   setToggleButton(!toggleButton);
+  // };
 
-  // console.log(toggleButton);
   useEffect(() => {
     fetch(actionMoviesUrl)
       .then((response) => response.json())
       .then((data) => {
         const actionMoviesList = data.results;
         setMovies(actionMoviesList);
-        // window.scrollTo({ top: 0, behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
   }, [actionMoviesUrl]);
 
@@ -88,7 +78,7 @@ const Movies = ({ match }) => {
         <MovieSectionTitle>Films</MovieSectionTitle>
       </MovieHeroSection>
       <StyledMovies className="section-padding">
-        <NavigationGenreList genreList={movieGenres} onClick={ButtonIsActive} mediaType="films" />
+        <NavigationGenreList genreList={movieGenres} mediaType="films" />
         <section id={movieGenres.length !== 0 ? movieGenres[0].id : ""}>
           <SectionTitle>{movieGenreTitle}</SectionTitle>
           <MinimalCardList mediaList={movies} defined_media_type="movie" />
@@ -103,7 +93,6 @@ const Movies = ({ match }) => {
                 <Button animateprimary buttonmargin="10px">
                   {limit}
                 </Button>
-
                 <Button animatesecondary secondary buttonmargin="10px" onClick={() => dispatch("increment")}>
                   +
                 </Button>

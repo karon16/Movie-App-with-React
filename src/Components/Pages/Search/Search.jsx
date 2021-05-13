@@ -9,7 +9,7 @@ import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 const SearchWrapper = styled.div`
   background: rgb(14, 25, 48);
   width: 100vw;
-  min-height: 100vw;
+  min-height: 100vh;
   padding-top: 7%;
 `;
 
@@ -22,7 +22,6 @@ const ButtonWrapper = styled.div`
 const Search = ({ userQuery }) => {
   const [movieType, setMovieType] = useState("movie");
   const [searhedMovies, setSearhedMovies] = useState([]);
-//   const [searhedTvs, setSearhedTvs] = useState([]);
   const [loader, setLoader] = useState(false);
 
   const url = `https://api.themoviedb.org/3/search/${movieType}?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr&query=${userQuery}&page=1&include_adult=false `;
@@ -68,9 +67,7 @@ const Search = ({ userQuery }) => {
               Series
             </Button>
           </ButtonWrapper>
-          <SectionTitle>
-            Resultat pour : {userQuery}
-          </SectionTitle>
+          <SectionTitle>Resultat pour : {userQuery}</SectionTitle>
 
           <MinimalCardList
             mediaList={searhedMovies === undefined || searhedMovies.length === 0 ? [] : searhedMovies}

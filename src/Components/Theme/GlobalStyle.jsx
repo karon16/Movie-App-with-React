@@ -26,9 +26,12 @@ body{
 .section-padding{
     padding: 3% 5%;
 }
-.active{
-    color : red;
-}
+
+.active {
+    color: white !important;
+    background-color: ${({ theme }) => theme.colors.lightBlue};
+  }
+
 
 ::-webkit-scrollbar {
     background-color: transparent;
