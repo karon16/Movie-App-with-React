@@ -42,7 +42,6 @@ export const ButtonContainer = styled.button`
     cardbutton &&
     css`
       padding: 10px 6px;
-      /* border: 1px solid white; */
     `}
     ${({ centered }) =>
     centered &&
@@ -66,13 +65,61 @@ export const ButtonContainer = styled.button`
         box-shadow: 0px 0px 10px 0px rgba(250, 250, 250, 0.1);
       `}
   }
+  @media ${({ theme }) => theme.mediaQueries["bellow-1024"]} {
+    padding: 13px 23px;
+    line-height: 1.4rem;
+    font-size: 1.4rem;
+    margin: 8px 0;
+    margin-left: ${({ buttonmargin }) => buttonmargin || "0"};
+
+    ${({ centered }) =>
+      centered &&
+      css`
+        margin: 10px auto;
+        display: block;
+      `}
+  }
   @media ${({ theme }) => theme.mediaQueries["bellow-768"]} {
-  
+    padding: 12px 22px;
+    line-height: 1.1rem;
+    font-size: 1.1rem;
+    margin: 7px 0;
+    margin-left: ${({ buttonmargin }) => buttonmargin || "0"};
+
+    ${({ centered }) =>
+      centered &&
+      css`
+        margin: 7px auto;
+        display: block;
+      `}
   }
-  @media ${({ theme }) => theme.mediaQueries["bellow-1000"]} {
-  
-  }
+
   @media ${({ theme }) => theme.mediaQueries["bellow-420"]} {
-    
+    padding: 10px 20px;
+    line-height: 1rem;
+    font-size: 1rem;
+    margin: 5px 0;
+    margin-left: ${({ buttonmargin }) => buttonmargin || "0"};
+
+    ${({ centered }) =>
+      centered &&
+      css`
+        margin: 10px auto;
+        display: block;
+      `}
+  }
+  @media ${({ theme }) => theme.mediaQueries["bellow-320"]} {
+    padding: 7px 15px;
+    line-height: 0.8rem;
+    font-size: 0.8rem;
+    margin: 5px 0;
+    margin-left: ${({ buttonmargin }) => buttonmargin || "0"};
+
+    ${({ centered }) =>
+      centered &&
+      css`
+        margin: 10px auto;
+        display: block;
+      `}
   }
 `;

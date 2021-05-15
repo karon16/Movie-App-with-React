@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import "react-slideshow-image/dist/styles.css";
-import { Slide } from "react-slideshow-image";
 import { trendingMedia } from "../../ApiLinks/ApiLinks";
 import TrendingMediaList from "./TrendingMediaList";
 
@@ -21,7 +20,7 @@ const HeroSection = () => {
 
   return (
     <>
-        <TrendingMediaList trendingMedias={trendingMedias} />
+      <TrendingMediaList trendingMedias={trendingMedias} />
     </>
   );
 };

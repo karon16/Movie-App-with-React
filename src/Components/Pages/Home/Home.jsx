@@ -43,7 +43,7 @@ const Home = () => {
         <MinimalCardList mediaList={movies} isLoading={isLoading} />
         {console.log(movies)}
         <Link to="/films/28">
-          <Button animateprimary centered>
+          <Button animateprimary centered >
             Voir Plus
           </Button>
         </Link>
