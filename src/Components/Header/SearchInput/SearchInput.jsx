@@ -8,7 +8,11 @@ const SearchBar = styled.input`
   outline: none;
   height: 25px;
   border-radius: 0px !important;
- 
+
+  @media ${({ theme }) => theme.mediaQueries["bellow-1000"]} {
+    margin-right: 10px;
+    width: 70%;
+  }
 `;
 
 const SearchInput = ({ onChange }) => {

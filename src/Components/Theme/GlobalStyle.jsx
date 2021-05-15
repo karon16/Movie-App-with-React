@@ -6,7 +6,7 @@ html{
 }
 body{
     overflow-x :hidden;
-    
+  background: #0e1930;
 }
 *{
     padding : 0;
@@ -27,7 +27,7 @@ body{
     padding: 3% 5%;
 }
 
-.active {
+.active-genre{
     color: white !important;
     background-color: ${({ theme }) => theme.colors.lightBlue};
   }

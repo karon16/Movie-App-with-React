@@ -3,12 +3,10 @@ import NavigationGenreList from "../../Shared/NavigationGenre/NavigationGenreLis
 import MovieHeroSection from "../../Shared/MovieHeroSection/MovieHeroSection";
 import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
-// import SectionDivider from "../../Shared/SectionDivider/SectionDivider";
 import Button from "../../Shared/Button/Button";
 import MovieSectionTitle from "../../Shared/MovieSectionTitle/MovieSectionTitle";
 import { useContext, useReducer, useEffect, useState } from "react";
 import { MovieGenresContext } from "../../Contexts/NavigationGenreContext";
-// import { Route } from "reat-router-dom";
 
 const StyledSeries = styled.div`
   background: #0e1930;
@@ -45,32 +43,28 @@ const Series = ({ match }) => {
   const [limit, dispatch] = useReducer(reducer, initialState);
   const [series, setSeries] = useState([]);
   const [serieGenreTitle, setSerieGenreTile] = useState("Action & Adventure");
+  const [isLoading, setIsLoading] = useState(true);
 
   const seriesUrl = `https://api.themoviedb.org/3/discover/tv?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr&sort_by=popularity.desc&include_adult=false&include_video=false&page=${limit}&with_genres=${serieUrlId}&with_watch_monetization_types=flatrate;`;
   let updatedGenreId = tvGenres.find((genre) => genre.id === serieUrlId);
-
-  // console.log(newMovieId)
 
   const UpdateGenreTitle = () => {
     setSerieGenreTile(updatedGenreId === undefined || updatedGenreId.name);
   };
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(seriesUrl)
       .then((response) => response.json())
       .then((data) => {
         const seriesList = data.results;
+        setIsLoading(false);
         setSeries(seriesList);
         dispatch("reinit");
         UpdateGenreTitle();
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [seriesUrl]);
-
-  // useEffect(() => {
-  //   dispatch("reinit");
-  //   UpdateGenreTitle();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [serieUrlId]);
 
   console.log(
     `https://image.tmdb.org/t/p/original${
@@ -83,38 +77,28 @@ const Series = ({ match }) => {
       <MovieHeroSection bg={`https://image.tmdb.org/t/p/original${series.length !== 0 ? series[0].backdrop_path : ""}`}>
         <MovieSectionTitle>Series</MovieSectionTitle>
       </MovieHeroSection>
+      <NavigationGenreList genreList={tvGenres} mediaType="series" />
+
       <StyledSeries className="section-padding">
-        <NavigationGenreList genreList={tvGenres} mediaType="series" />
         <SectionTitle>{serieGenreTitle}</SectionTitle>
         {/* <Route path="/series/:id" component ={MediaByGenre} */}
-        <MinimalCardList mediaList={series} defined_media_type="tv" />
+        <MinimalCardList mediaList={series} defined_media_type="tv" isLoading={isLoading} />
         <ButtonWrapper>
-          {limit > 1 && (
-            <Button animatesecondary secondary onClick={() => dispatch("reinit")}>
-              {limit - limit + 1}
+          <>
+            <Button animatesecondary secondary buttonmargin="10px" onClick={() => dispatch("decrement")}>
+              -
             </Button>
-          )}
-          {limit === 1 || (
-            <>
-              <Button animatesecondary secondary buttonmargin="10px" onClick={() => dispatch("decrement")}>
-                -
-              </Button>
-            </>
-          )}
+          </>
           {limit >= 499 || (
             <>
               <Button animateprimary buttonmargin="10px">
                 {limit}
               </Button>
-
               <Button animatesecondary secondary buttonmargin="10px" onClick={() => dispatch("increment")}>
                 +
               </Button>
             </>
           )}
-          <Button animateprimary secondary buttonmargin="10px" onClick={() => dispatch("goTo500")}>
-            500
-          </Button>
         </ButtonWrapper>
       </StyledSeries>
     </>

@@ -1,6 +1,5 @@
 import NavigationGenre from "./NavigationGenre";
 import styled from "styled-components";
-import { useState } from "react";
 
 const StyledNavigationGenreList = styled.div`
   display: flex;
@@ -9,51 +8,39 @@ const StyledNavigationGenreList = styled.div`
   margin: 0 auto;
   width: 100%;
   padding: 10px 50px;
-  /* position: sticky; */
-  /* top: 10%; */
+  top: 45px;
+  position: sticky;
   z-index: 100;
-  /* background: ${({ theme }) => theme.colors.darkBlue}; */
-  /* background: rgba(9, 19, 38, 0.95); */
+  background: ${({ theme }) => theme.colors.darkBlue};
 
   @media ${({ theme }) => theme.mediaQueries["bellow-1024"]} {
     padding: 7px 30px;
-    margin: 5px auto;
+    position: unset;
   }
   @media ${({ theme }) => theme.mediaQueries["bellow-768"]} {
     padding: 5px 20px;
-    margin: 6px auto;
+    position: unset;
   }
 
   @media ${({ theme }) => theme.mediaQueries["bellow-420"]} {
     padding: 3px 10px;
-    margin: 7px auto;
+    position: unset;
   }
 `;
 
 const NavigationGenreList = ({ genreList, onClick, mediaType }) => {
-  const [activeClassName, setActiveClassName] = useState({
-    activeElement: null,
-    genreList: genreList.map((genre) => genre),
-  });
-
-  const toggleActiveClassName = (index) => {
-    return setActiveClassName({ ...activeClassName, activeElement: activeClassName.genreList[index] });
-  };
-
-  const toggleActiveClassNameStyle = (index) => {
-    return activeClassName.genreList[index] === activeClassName.activeElement ? "active" : null;
-  };
-
   return (
     <StyledNavigationGenreList>
+      <NavigationGenre onClick={() => onClick(undefined)}>Tous les Films</NavigationGenre>
       {genreList.map((genre, index) => {
         return (
           <NavigationGenre
             key={index}
             id={genre.id}
-            onClick={() => toggleActiveClassName(index)}
+            onClick={() => {
+              onClick(genre.id);
+            }}
             mediaType={mediaType}
-            className={toggleActiveClassNameStyle(index)}
           >
             {genre.name}
           </NavigationGenre>

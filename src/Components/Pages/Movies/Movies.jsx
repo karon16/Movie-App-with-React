@@ -36,52 +36,58 @@ const reducer = (state, action) => {
 };
 
 const Movies = ({ match }) => {
-  let movieUrlId = Number(match.params.id);
-
   // eslint-disable-next-line no-unused-vars
   const [movieGenres, setMovieGenres] = useContext(MovieGenresContext);
   const [movies, setMovies] = useState([]);
-  const [movieGenreTitle, setMovieGenreTile] = useState("Action");
+  const [movieGenreTitle, setMovieGenreTile] = useState();
   const [limit, dispatch] = useReducer(reducer, initialState);
-  // const [toggleButton, setToggleButton] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [activeGenre, setActiveGenre] = useState();
 
-  const actionMoviesUrl = `https://api.themoviedb.org/3/discover/movie?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr&sort_by=popularity.desc&include_adult=false&include_video=false&page=${limit}&with_genres=${movieUrlId}&with_watch_monetization_types=flatrate;`;
-  let newMovieId = movieGenres.find((genre) => genre.id === movieUrlId);
+  const actionMoviesUrl = `https://api.themoviedb.org/3/discover/movie?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr&sort_by=popularity.desc&include_adult=false&${
+    activeGenre === undefined ? "" : "with_genres=" + activeGenre
+  }&include_video=false&page=${limit}&with_watch_monetization_types=flatrate;`;
+
+  console.log(movies);
+  let updatedGenreId = movieGenres.find((genre) => genre.id === activeGenre);
 
   const UpdateGenreTitle = () => {
-    setMovieGenreTile(newMovieId === undefined || newMovieId.name);
+    setMovieGenreTile(updatedGenreId === undefined ? "Tous les Films" : updatedGenreId.name);
   };
 
-  // const ButtonIsActive = (event) => {
-  //   setToggleButton(!toggleButton);
-  // };
-
   useEffect(() => {
+    setIsLoading(true);
     fetch(actionMoviesUrl)
       .then((response) => response.json())
       .then((data) => {
-        const actionMoviesList = data.results;
-        setMovies(actionMoviesList);
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        console.log(data);
+        setIsLoading(false);
+        setMovies(data.results);
       });
+    UpdateGenreTitle();
   }, [actionMoviesUrl]);
+
+  const handleClick = (id) => {
+    setActiveGenre(id);
+  };
 
   useEffect(() => {
     dispatch("reinit");
-    UpdateGenreTitle();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [movieUrlId]);
+  }, []);
 
   return (
     <>
       <MovieHeroSection bg={`https://image.tmdb.org/t/p/original${movies.length !== 0 ? movies[0].backdrop_path : ""}`}>
         <MovieSectionTitle>Films</MovieSectionTitle>
       </MovieHeroSection>
+      <NavigationGenreList genreList={movieGenres} mediaType="films" onClick={handleClick} />
+
       <StyledMovies className="section-padding">
-        <NavigationGenreList genreList={movieGenres} mediaType="films" />
         <section id={movieGenres.length !== 0 ? movieGenres[0].id : ""}>
           <SectionTitle>{movieGenreTitle}</SectionTitle>
-          <MinimalCardList mediaList={movies} defined_media_type="movie" />
+
+          <MinimalCardList mediaList={movies} defined_media_type="movie" isLoading={isLoading} />
           <ButtonWrapper>
             <>
               <Button animatesecondary secondary buttonmargin="10px" onClick={() => dispatch("decrement")}>

@@ -56,9 +56,6 @@ const MovieInfos = ({ match }) => {
 
   const urlSegment = match.url;
 
-  // console.log("match", match);
-  // console.log("urlSegment", urlSegment);
-
   let [type, movieId] = urlSegment.split("/").slice(1, 3);
 
   const apiUrl = "https://api.themoviedb.org/3";
@@ -126,6 +123,7 @@ const MovieInfos = ({ match }) => {
             <MinimalCardList
               mediaList={similarMovies !== undefined ? similarMovies.slice(0, actionLimit) : []}
               defined_media_type={type === "movie" ? "movie" : "tv"}
+              minHeight="400"
             />
             <ButtonWrapper>
               {actionLimit >= 20 || (

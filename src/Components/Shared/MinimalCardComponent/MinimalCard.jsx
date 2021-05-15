@@ -3,12 +3,15 @@ import styled from "styled-components";
 import GenreList from "../Genre/GenreList";
 import { Link } from "react-router-dom";
 import DefaultPoster from "../../img/Poster_overview.png";
+import { LoadingSkeleton } from "../LoadingSkeleton/LoadingSkeleton";
 
 const StyledMinimalCard = styled.div`
   width: calc((20%) - 10px);
   margin-bottom: 20px;
   transition: transform 0.4s ease;
   position: relative;
+  height: 400px;
+  /* margin: 5px; */
 
   .image-container {
     width: 100%;
@@ -75,6 +78,8 @@ const StyledMinimalCard = styled.div`
   }
 
   @media ${({ theme }) => theme.mediaQueries["bellow-1024"]} {
+    height: 300px;
+
     .movie-info-container {
       display: none;
     }
@@ -96,6 +101,8 @@ const StyledMinimalCard = styled.div`
     }
   }
   @media ${({ theme }) => theme.mediaQueries["bellow-768"]} {
+    height: 250px;
+
     width: calc((25%) - 10px);
     margin-bottom: 15px;
     .movie-image {
@@ -104,6 +111,8 @@ const StyledMinimalCard = styled.div`
     }
   }
   @media ${({ theme }) => theme.mediaQueries["bellow-420"]} {
+    height: 200px;
+
     width: calc((34%) - 10px);
     margin-bottom: 15px;
     .movie-image {
@@ -113,35 +122,45 @@ const StyledMinimalCard = styled.div`
   }
 `;
 
-const MinimalCard = ({ onClick, title, releaseDate, poster, genre_ids, media_type, id, defined_media_type }) => {
+const MinimalCard = ({ onClick, title, releaseDate, poster, genre_ids, media_type, id, defined_media_type, loading }) => {
+  // console.log("loading :", loading);
+
   return (
-    <StyledMinimalCard>
-      <div className="image-container">
-        <Link to={`/${media_type === undefined ? defined_media_type : media_type}/${id}`}>
-          <img
-            src={`${poster === null ? DefaultPoster : `https://image.tmdb.org/t/p/w500/${poster}`}`}
-            alt="movie backdrop"
-            className="movie-image"
-          />
-          <div className="dark-box"></div>
-        </Link>
-      </div>
-      <div className="movie-info-container">
-        <h3 className="movie-name">{title}</h3>
-        <p className="movie-duration">Sorti : {releaseDate}</p>
-        <div className="button-container">
-          <Button cardbutton animateprimary onClick={onClick}>
-            Bande d'annonce
-          </Button>
-          <Link to={`/${media_type === undefined ? defined_media_type : media_type}/${id}`}>
-            <Button buttonmargin="10px" secondary cardbutton animatesecondary>
-              Plus d'Infos
-            </Button>
-          </Link>
-        </div>
-        <GenreList genre_ids={genre_ids} media_type={media_type} />
-      </div>
-    </StyledMinimalCard>
+    <>
+      {loading ? (
+        <StyledMinimalCard>
+          <LoadingSkeleton />
+        </StyledMinimalCard>
+      ) : (
+        <StyledMinimalCard>
+          <div className="image-container">
+            <Link to={`/${media_type === undefined ? defined_media_type : media_type}/${id}`}>
+              <img
+                src={`${poster === null ? DefaultPoster : `https://image.tmdb.org/t/p/w500/${poster}`}`}
+                alt="movie backdrop"
+                className="movie-image"
+              />
+              <div className="dark-box"></div>
+            </Link>
+          </div>
+          <div className="movie-info-container">
+            <h3 className="movie-name">{title}</h3>
+            <p className="movie-duration">Sorti : {releaseDate}</p>
+            <div className="button-container">
+              <Button cardbutton animateprimary onClick={onClick}>
+                Bande d'annonce
+              </Button>
+              <Link to={`/${media_type === undefined ? defined_media_type : media_type}/${id}`}>
+                <Button buttonmargin="10px" secondary cardbutton animatesecondary>
+                  Plus d'Infos
+                </Button>
+              </Link>
+            </div>
+            <GenreList genre_ids={genre_ids} media_type={media_type} />
+          </div>
+        </StyledMinimalCard>
+      )}
+    </>
   );
 };
 

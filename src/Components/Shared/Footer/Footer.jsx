@@ -22,7 +22,7 @@ const Footer = () => {
             </StyledLink>
             <div className="flex-row">
               <div className="flex-column">
-                <StyledLink subcategories="true" to="/films/28">
+                <StyledLink subcategories="true" to="/films">
                   Action
                 </StyledLink>
                 <StyledLink subcategories="true" to="#">

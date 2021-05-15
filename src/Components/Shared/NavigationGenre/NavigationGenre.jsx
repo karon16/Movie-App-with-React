@@ -8,6 +8,10 @@ const StyledNavigationGenre = styled(Link)`
   padding: 10px 20px;
   margin: 5px;
   font-size: 1rem;
+  &:focus {
+    color: white !important;
+    background-color: ${({ theme }) => theme.colors.lightBlue};
+  }
 
   @media ${({ theme }) => theme.mediaQueries["bellow-1024"]} {
     padding: 7px 17px;
@@ -30,7 +34,7 @@ const StyledNavigationGenre = styled(Link)`
 const NavigationGenre = ({ children, id, onClick, mediaType, className }) => {
   return (
     <>
-      <StyledNavigationGenre to={`/${mediaType}/${id}`} onClick={onClick} id={id} className={className}>
+      <StyledNavigationGenre onClick={onClick} id={id} className={className}>
         {children}
       </StyledNavigationGenre>
     </>
