@@ -27,9 +27,20 @@ export const StyledHeroSection = styled.section`
     color: white;
     text-align: center;
   }
+  @media ${({ theme }) => theme.mediaQueries["bellow-1280"]} {
+    height: 80vh;
+    .movie-title {
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+    .movie-description {
+      font-size: 1.2rem;
+      width: 80%;
+    }
+  }
 
   @media ${({ theme }) => theme.mediaQueries["bellow-1024"]} {
-    height: 40vh;
+    height: 70vh;
     .movie-title {
       font-size: 4rem;
       line-height: 4rem;
@@ -40,7 +51,7 @@ export const StyledHeroSection = styled.section`
     }
   }
   @media ${({ theme }) => theme.mediaQueries["bellow-768"]} {
-    height: 50vh;
+    height: 60vh;
     .movie-title {
       font-size: 3rem;
       line-height: 3rem;
@@ -51,7 +62,10 @@ export const StyledHeroSection = styled.section`
     }
   }
   @media ${({ theme }) => theme.mediaQueries["bellow-580"]} {
-    height: 60vh;
+    height: 50vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+
     .movie-title {
       font-size: 2.5rem;
       line-height: 2.5rem;
@@ -63,7 +77,7 @@ export const StyledHeroSection = styled.section`
   }
 
   @media ${({ theme }) => theme.mediaQueries["bellow-420"]} {
-    height: 50vh;
+    height: 45vh;
     .movie-title {
       font-size: 2rem;
       line-height: 2rem;
@@ -71,6 +85,17 @@ export const StyledHeroSection = styled.section`
     .movie-description {
       font-size: 1rem;
       width: 90%;
+    }
+  }
+  @media ${({ theme }) => theme.mediaQueries["bellow-320"]} {
+    height: 40vh;
+    .movie-title {
+      font-size: 1.8rem;
+      line-height: 1.8rem;
+    }
+    .movie-description {
+      font-size: 0.9rem;
+      width: 95%;
     }
   }
 `;

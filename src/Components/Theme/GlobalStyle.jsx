@@ -33,15 +33,28 @@ body{
   }
 
 
+
 ::-webkit-scrollbar {
-    background-color: transparent;
-    width: 13px;
-    /* border-radius: px; */
+    background-color: rgba(250, 250, 250,1);
+    width: 10px;
 }
 ::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.colors.lightBlue};
-    /* border-radius: 2px; */
 }
+
+.visible-search-bar{
+    width :30%;
+    /* display: block; */
+    opacity: 1;
+
+  }
+  @media ${({ theme }) => theme.mediaQueries["bellow-1000"]} {
+    .visible-search-bar{
+    width :50%;
+    opacity: 1;
+
+  }
+  }
 `;
 
 export default GlobalStyle;

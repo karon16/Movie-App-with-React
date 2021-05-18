@@ -1,17 +1,12 @@
-import styled from "styled-components";
 import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList";
-import HeroSection from "../../Shared/HeroSection/HeroSection";
+import HeroSection from "./HeroSection/HeroSection";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import SectionDivider from "../../Shared/SectionDivider/SectionDivider";
 import Button from "../../Shared/Button/Button";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { moviesUrl, tvsUrl } from "../../ApiLinks/ApiLinks";
-
-const StyledHome = styled.div`
-  background: #0e1930;
-  width: 100vw;
-`;
+import { StyledHome } from "./HomeStyle";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -41,16 +36,15 @@ const Home = () => {
       <StyledHome className="section-padding">
         <SectionTitle>Films Tendances</SectionTitle>
         <MinimalCardList mediaList={movies} isLoading={isLoading} />
-        {console.log(movies)}
-        <Link to="/films/28">
-          <Button animateprimary centered >
+        <Link to="/films">
+          <Button animateprimary centered>
             Voir Plus
           </Button>
         </Link>
         <SectionDivider />
         <SectionTitle>Series Tendances</SectionTitle>
         <MinimalCardList mediaList={tvs} isLoading={isLoading} />
-        <Link to="/series/10759">
+        <Link to="/series">
           <Button animateprimary centered>
             Voir Plus
           </Button>

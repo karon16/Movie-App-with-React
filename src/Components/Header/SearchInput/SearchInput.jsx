@@ -1,29 +1,40 @@
-import styled from "styled-components";
 import "semantic-ui-css/semantic.min.css";
-import { Input, Icon } from "semantic-ui-react";
-import { useHistory } from "react-router-dom";
-
-const SearchBar = styled.input`
-  background: none;
-  outline: none;
-  height: 25px;
-  border-radius: 0px !important;
-
-  @media ${({ theme }) => theme.mediaQueries["bellow-1000"]} {
-    margin-right: 10px;
-    width: 70%;
-  }
-`;
+import { useHistory, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { StyledIcon, SearchBar } from "./SearchInputStyle";
 
 const SearchInput = ({ onChange }) => {
   const history = useHistory();
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleClick = () => {
+    return setIsVisible(!isVisible);
+  };
 
   const linkToSearchPage = () => {
     history.push("/recherche");
   };
+
+  useEffect(() => {
+    return history.listen((location) => {
+      if (location.pathname !== "/recherche") {
+        return setIsVisible(false);
+      }
+    });
+  }, [history]);
+
   return (
     <>
-      <SearchBar as={Input} type="search" name="search" icon={<Icon name="search" />} onChange={onChange} onClick={linkToSearchPage} />
+      {/* <SearchBar as={Input} type="search" name="search" icon={<Icon name="search" />} onChange={onChange} onClick={linkToSearchPage} focus small /> */}
+      <SearchBar
+        type="search"
+        name="search"
+        onChange={onChange}
+        onClick={linkToSearchPage}
+        className={isVisible ? "visible-search-bar" : null}
+        placeholder="Recherche..."
+      />
+      <StyledIcon name="search" inverted onClick={handleClick} />
     </>
   );
 };

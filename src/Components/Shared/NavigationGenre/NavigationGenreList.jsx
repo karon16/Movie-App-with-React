@@ -31,7 +31,7 @@ const StyledNavigationGenreList = styled.div`
 const NavigationGenreList = ({ genreList, onClick, mediaType }) => {
   return (
     <StyledNavigationGenreList>
-      <NavigationGenre onClick={() => onClick(undefined)}>Tous les Films</NavigationGenre>
+      <NavigationGenre onClick={() => onClick(undefined)}>{mediaType === "films" ? "Tous les Films" : "Toutes les Series"}</NavigationGenre>
       {genreList.map((genre, index) => {
         return (
           <NavigationGenre

@@ -5,8 +5,6 @@ const StyledSectionTitle = styled.h3`
   color: white;
   font-family: ${({ theme }) => theme.fonts.biryani};
   margin-bottom: ${({ theme }) => theme.sizes.defaultPaddingTop};
-  /* border-bottom: 2px solid ${({ theme }) => theme.colors.lightBlue};
-  display: inline-block; */
 `;
 
 const SectionTitle = ({ children }) => {

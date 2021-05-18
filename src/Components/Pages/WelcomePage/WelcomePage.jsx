@@ -5,7 +5,7 @@ import { WelcomeMainContainer } from "./WelcomePageStyle";
 import { Link } from "react-router-dom";
 import ImageBackground from "../../img/bg.jpg";
 
-function WelcomePage() {
+const WelcomePage = () => {
   return (
     <WelcomeMainContainer bg={ImageBackground}>
       <div className="cinema-logo-container">
@@ -30,6 +30,6 @@ function WelcomePage() {
       </Link>
     </WelcomeMainContainer>
   );
-}
+};
 
 export default WelcomePage;

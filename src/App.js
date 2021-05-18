@@ -1,13 +1,13 @@
 import Home from "./Components/Pages/Home/Home";
-import { Route, Switch, useLocation } from "react-router-dom";
-import Header from "./Components/Header/Header";
+import { Route, Switch, useLocation, Redirect } from "react-router-dom";
+import Header from "./Components/Header/Header/Header";
 import Footer from "./Components/Shared/Footer/Footer";
 import Movies from "./Components/Pages/Movies/Movies";
 import Series from "./Components/Pages/Series/Series";
 import MovieInfos from "./Components/Pages/MovieInfos/MovieInfos";
 import WelcomePage from "./Components/Pages/WelcomePage/WelcomePage";
 import { MovieGenresProvider, TvGenresProvider } from "./Components/Contexts/NavigationGenreContext";
-import { useState } from "react";
+import { useState, useEffect, useHistory } from "react";
 import Search from "./Components/Pages/Search/Search";
 
 const App = () => {
@@ -27,7 +27,7 @@ const App = () => {
         <MovieGenresProvider>
           <Route path="/films" component={Movies} />
           <TvGenresProvider>
-            <Route path="/series/:id" component={Series} />
+            <Route path="/series" component={Series} />
           </TvGenresProvider>
           <Route path="/movie/:id" render={({ match }) => <MovieInfos match={match} />} />
           <Route path="/tv/:id" render={({ match }) => <MovieInfos match={match} />} />

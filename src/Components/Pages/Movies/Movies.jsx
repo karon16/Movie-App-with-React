@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import NavigationGenreList from "../../Shared/NavigationGenre/NavigationGenreList";
-import MovieHeroSection from "../../Shared/MovieHeroSection/MovieHeroSection";
+import MediaHeroSection from "../../Shared/MediaHeroSection/MediaHeroSection";
 import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import Button from "../../Shared/Button/Button";
@@ -48,7 +48,6 @@ const Movies = ({ match }) => {
     activeGenre === undefined ? "" : "with_genres=" + activeGenre
   }&include_video=false&page=${limit}&with_watch_monetization_types=flatrate;`;
 
-  console.log(movies);
   let updatedGenreId = movieGenres.find((genre) => genre.id === activeGenre);
 
   const UpdateGenreTitle = () => {
@@ -60,11 +59,12 @@ const Movies = ({ match }) => {
     fetch(actionMoviesUrl)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setIsLoading(false);
         setMovies(data.results);
       });
     UpdateGenreTitle();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [actionMoviesUrl]);
 
   const handleClick = (id) => {
@@ -74,13 +74,17 @@ const Movies = ({ match }) => {
   useEffect(() => {
     dispatch("reinit");
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeGenre]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   return (
     <>
-      <MovieHeroSection bg={`https://image.tmdb.org/t/p/original${movies.length !== 0 ? movies[0].backdrop_path : ""}`}>
+      <MediaHeroSection bg={`https://image.tmdb.org/t/p/original${movies.length !== 0 ? movies[0].backdrop_path : ""}`}>
         <MovieSectionTitle>Films</MovieSectionTitle>
-      </MovieHeroSection>
+      </MediaHeroSection>
       <NavigationGenreList genreList={movieGenres} mediaType="films" onClick={handleClick} />
 
       <StyledMovies className="section-padding">

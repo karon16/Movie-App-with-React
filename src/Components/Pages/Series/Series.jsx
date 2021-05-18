@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import NavigationGenreList from "../../Shared/NavigationGenre/NavigationGenreList";
-import MovieHeroSection from "../../Shared/MovieHeroSection/MovieHeroSection";
+import MediaHeroSection from "../../Shared/MediaHeroSection/MediaHeroSection";
 import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import Button from "../../Shared/Button/Button";
@@ -36,52 +36,56 @@ const reducer = (state, action) => {
 };
 
 const Series = ({ match }) => {
-  let serieUrlId = Number(match.params.id);
-
   // eslint-disable-next-line no-unused-vars
   const [tvGenres, setTvGenres] = useContext(MovieGenresContext);
   const [limit, dispatch] = useReducer(reducer, initialState);
   const [series, setSeries] = useState([]);
-  const [serieGenreTitle, setSerieGenreTile] = useState("Action & Adventure");
+  const [serieGenreTitle, setSerieGenreTile] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [activeGenre, setActiveGenre] = useState();
 
-  const seriesUrl = `https://api.themoviedb.org/3/discover/tv?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr&sort_by=popularity.desc&include_adult=false&include_video=false&page=${limit}&with_genres=${serieUrlId}&with_watch_monetization_types=flatrate;`;
-  let updatedGenreId = tvGenres.find((genre) => genre.id === serieUrlId);
+  const seriesUrl = `https://api.themoviedb.org/3/discover/tv?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr&sort_by=popularity.desc&include_adult=false&${
+    activeGenre === undefined ? "" : "with_genres=" + activeGenre
+  }&include_video=false&page=${limit}&with_watch_monetization_types=flatrate;`;
+
+  let updatedGenreId = tvGenres.find((genre) => genre.id === activeGenre);
 
   const UpdateGenreTitle = () => {
-    setSerieGenreTile(updatedGenreId === undefined || updatedGenreId.name);
+    setSerieGenreTile(updatedGenreId === undefined ? "Toutes les Series" : updatedGenreId.name);
   };
 
-  useEffect(() => {
+  const handleClick = (id) => {
+    setActiveGenre(id);
+  };
+  const getMediaTvs = async () => {
     setIsLoading(true);
-    fetch(seriesUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        const seriesList = data.results;
-        setIsLoading(false);
-        setSeries(seriesList);
-        dispatch("reinit");
-        UpdateGenreTitle();
-      });
+    try {
+      const response = await fetch(seriesUrl);
+      const data = await response.json();
+      setIsLoading(false);
+      setSeries(data.results);
+    } catch (error) {}
+  };
+  useEffect(() => {
+    getMediaTvs();
+    UpdateGenreTitle();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [seriesUrl]);
 
-  console.log(
-    `https://image.tmdb.org/t/p/original${
-      series.length !== 0 && series[0].backdrop_path !== null ? series[0].backdrop_path : "/4OeX0dKmalJ7EUBats8NpV0YMD1.jpg"
-    }`
-  );
+  useEffect(() => {
+    dispatch("reinit");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeGenre]);
 
   return (
     <>
-      <MovieHeroSection bg={`https://image.tmdb.org/t/p/original${series.length !== 0 ? series[0].backdrop_path : ""}`}>
+      <MediaHeroSection bg={`https://image.tmdb.org/t/p/original${series.length !== 0 ? series[0].backdrop_path : ""}`}>
         <MovieSectionTitle>Series</MovieSectionTitle>
-      </MovieHeroSection>
-      <NavigationGenreList genreList={tvGenres} mediaType="series" />
+      </MediaHeroSection>
+      <NavigationGenreList genreList={tvGenres} mediaType="series" onClick={handleClick} />
 
       <StyledSeries className="section-padding">
         <SectionTitle>{serieGenreTitle}</SectionTitle>
-        {/* <Route path="/series/:id" component ={MediaByGenre} */}
         <MinimalCardList mediaList={series} defined_media_type="tv" isLoading={isLoading} />
         <ButtonWrapper>
           <>

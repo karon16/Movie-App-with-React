@@ -1,4 +1,4 @@
-import { StyledMovieHeroSection } from "./MovieHeroSectionStyle";
+import { StyledMovieHeroSection } from "./MediaHeroSectionStyle";
 
 const MovieHeroSection = ({ children, bg }) => {
   return (

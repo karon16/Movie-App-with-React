@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "react-slideshow-image/dist/styles.css";
-import { trendingMedia } from "../../ApiLinks/ApiLinks";
+import { trendingMedia } from "../../../ApiLinks/ApiLinks";
 import TrendingMediaList from "./TrendingMediaList";
 
 const HeroSection = () => {

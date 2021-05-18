@@ -12,6 +12,7 @@ function Button({
   buttonmargin,
   centered,
   onClick,
+  className,
 }) {
   return (
     <ButtonContainer
@@ -25,6 +26,7 @@ function Button({
       buttonmargin={buttonmargin}
       centered={centered}
       onClick={onClick}
+      className={className}
     >
       {children}
     </ButtonContainer>

@@ -11,10 +11,24 @@ const StyledMinimalCard = styled.div`
   transition: transform 0.4s ease;
   position: relative;
   height: 400px;
-  /* margin: 5px; */
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
+  text-align: center;
 
+  .green {
+    color: #04aa04;
+  }
+  .red {
+    color: #f80303;
+  }
+  .orange {
+    color: orange;
+  }
   .image-container {
     width: 100%;
+  }
+
+  .recommandation--bold {
+    font-weight: bold;
   }
 
   .movie-image {
@@ -60,7 +74,11 @@ const StyledMinimalCard = styled.div`
   }
   .button-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+  }
+  .genre-list-container {
+    display: flex;
+    justify-content: center;
   }
 
   &:hover {
@@ -122,9 +140,17 @@ const StyledMinimalCard = styled.div`
   }
 `;
 
-const MinimalCard = ({ onClick, title, releaseDate, poster, genre_ids, media_type, id, defined_media_type, loading }) => {
-  // console.log("loading :", loading);
-
+const MinimalCard = ({ title, releaseDate, poster, genre_ids, media_type, id, defined_media_type, loading, vote_average }) => {
+  const mediaAverage = Math.floor(vote_average * 10);
+  const voteAverage = () => {
+    if (mediaAverage < 55) {
+      return "red";
+    } else if (mediaAverage > 55 && mediaAverage < 70) {
+      return "orange";
+    } else {
+      return "green";
+    }
+  };
   return (
     <>
       {loading ? (
@@ -145,18 +171,19 @@ const MinimalCard = ({ onClick, title, releaseDate, poster, genre_ids, media_typ
           </div>
           <div className="movie-info-container">
             <h3 className="movie-name">{title}</h3>
-            <p className="movie-duration">Sorti : {releaseDate}</p>
+            <p className="movie-duration">
+              Recommandé à : <span className={`${voteAverage()} recommandation--bold`}>{`${mediaAverage}%`}</span>
+            </p>
             <div className="button-container">
-              <Button cardbutton animateprimary onClick={onClick}>
-                Bande d'annonce
-              </Button>
               <Link to={`/${media_type === undefined ? defined_media_type : media_type}/${id}`}>
-                <Button buttonmargin="10px" secondary cardbutton animatesecondary>
+                <Button primary cardbutton animatesecondary>
                   Plus d'Infos
                 </Button>
               </Link>
             </div>
-            <GenreList genre_ids={genre_ids} media_type={media_type} />
+            <div className="genre-list-container">
+              <GenreList genre_ids={genre_ids} media_type={media_type} />
+            </div>
           </div>
         </StyledMinimalCard>
       )}
