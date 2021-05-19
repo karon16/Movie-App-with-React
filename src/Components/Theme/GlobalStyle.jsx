@@ -44,13 +44,12 @@ body{
 
 .visible-search-bar{
     width :30%;
-    /* display: block; */
     opacity: 1;
 
   }
   @media ${({ theme }) => theme.mediaQueries["bellow-1000"]} {
     .visible-search-bar{
-    width :50%;
+    width :70%;
     opacity: 1;
 
   }

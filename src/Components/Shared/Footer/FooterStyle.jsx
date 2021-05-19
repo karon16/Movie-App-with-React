@@ -10,8 +10,8 @@ export const StyledFooter = styled.footer`
   .footer-main-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     margin: 0 auto;
     width: 80%;
   }
@@ -55,7 +55,7 @@ export const StyledFooter = styled.footer`
 
   .copyright,
   .tmdb-message {
-    text-align: center;
+    /* text-align: center; */
     color: ${({ theme }) => theme.colors.paleWhite};
     font-family: ${({ theme }) => theme.fonts.biryani};
     font-size: 0.8rem;
@@ -64,7 +64,7 @@ export const StyledFooter = styled.footer`
   .tmbd-logo {
     width: 40%;
     display: block;
-    margin: 10px auto;
+    margin: 10px 0;
   }
   .h-line {
     width: 60%;

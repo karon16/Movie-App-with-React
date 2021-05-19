@@ -15,6 +15,11 @@ const CardInfo = ({ onClick, mediaInfo, type }) => {
       return "green";
     }
   };
+
+  const min = mediaInfo === undefined || mediaInfo.runtime % 60;
+  const hour = mediaInfo === undefined || (mediaInfo.runtime - min) / 60;
+  const runtime = `${hour}h ${min}min`;
+
   return (
     <>
       {mediaInfo === undefined || (
@@ -36,7 +41,7 @@ const CardInfo = ({ onClick, mediaInfo, type }) => {
               {mediaInfo.type === "movie" || type === "movie" ? (
                 <p>
                   <Icon name="clock" inverted />
-                  {mediaInfo.runtime} minutes &nbsp; &nbsp; &nbsp;
+                  {runtime}&nbsp; &nbsp; &nbsp;
                   <Icon name="calendar" inverted />
                   {mediaInfo.release_date}
                 </p>

@@ -3,21 +3,18 @@ import styled from "styled-components";
 const SeasonsWrapper = styled.div`
   width: 100%;
   display: flex;
-  /* justify-content: space-between; */
   flex-wrap: wrap;
   color: white;
 `;
 
 const Season = styled.div`
-  /* width: 100px; */
+  
   width: calc((14%) - 10px);
   margin-right: 10px;
   margin-top: 10px;
 
-  /* border: 1px solid white; */
-
   .image-cointainer {
-    /* width: 100%; */
+
   }
   .season-poster {
     width: 100%;

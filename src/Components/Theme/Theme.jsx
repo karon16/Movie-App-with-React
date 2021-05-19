@@ -23,7 +23,7 @@ const Theme = {
   },
   sizes: {
     defaultPaddingTop: "3%",
-    defaultPaddingSides: "calc((5%))",
+    defaultPaddingSides: "calc((5%) + 8.5px)",
   },
 };
 

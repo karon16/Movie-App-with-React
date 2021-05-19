@@ -1,5 +1,5 @@
 import "semantic-ui-css/semantic.min.css";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { StyledIcon, SearchBar } from "./SearchInputStyle";
 

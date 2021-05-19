@@ -7,8 +7,9 @@ import { LoadingSkeleton } from "../LoadingSkeleton/LoadingSkeleton";
 
 const StyledMinimalCard = styled.div`
   width: calc((20%) - 10px);
-  margin-bottom: 20px;
-  transition: transform 0.4s ease;
+  margin: 0 5px;
+  margin-bottom: 15px;
+  transition: transform 0.4s ease 0.2s;
   position: relative;
   height: 400px;
   box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
@@ -43,8 +44,9 @@ const StyledMinimalCard = styled.div`
     position: absolute;
     width: 100%;
     padding: 10px;
-    display: none;
+    /* display: none; */
     opacity: 0;
+    transition: opacity 0.4s ease 0.2s;
   }
   .dark-box {
     top: 0;
@@ -54,7 +56,7 @@ const StyledMinimalCard = styled.div`
     position: absolute;
     background: rgba(0, 0, 0, 1);
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease 0.2s;
   }
   .movie-name {
     color: ${({ theme }) => theme.colors.white};
@@ -90,13 +92,16 @@ const StyledMinimalCard = styled.div`
       opacity: 0.85;
     }
     .movie-info-container {
-      display: block;
+      /* display: block; */
       opacity: 1;
     }
   }
 
   @media ${({ theme }) => theme.mediaQueries["bellow-1024"]} {
-    height: 300px;
+    height: 270px;
+    margin: 0 5px;
+
+    margin-bottom: 15px;
 
     .movie-info-container {
       display: none;
@@ -118,7 +123,7 @@ const StyledMinimalCard = styled.div`
       }
     }
   }
-  @media ${({ theme }) => theme.mediaQueries["bellow-768"]} {
+  @media ${({ theme }) => theme.mediaQueries["bellow-900"]} {
     height: 250px;
 
     width: calc((25%) - 10px);
@@ -128,14 +133,57 @@ const StyledMinimalCard = styled.div`
       height: 250px;
     }
   }
-  @media ${({ theme }) => theme.mediaQueries["bellow-420"]} {
+  @media ${({ theme }) => theme.mediaQueries["bellow-768"]} {
+    height: 230px;
+
+    width: calc((25%) - 10px);
+    margin-bottom: 15px;
+    .movie-image {
+      width: 100%;
+      height: 230px;
+    }
+  }
+
+  @media ${({ theme }) => theme.mediaQueries["bellow-600"]} {
     height: 200px;
+
+    width: calc((25%) - 10px);
+    margin-bottom: 15px;
+    .movie-image {
+      width: 100%;
+      height: 200px;
+    }
+  }
+  @media ${({ theme }) => theme.mediaQueries["bellow-580"]} {
+    height: 220px;
+
+    width: calc((33%) - 10px);
+    margin-bottom: 15px;
+    .movie-image {
+      width: 100%;
+      height: 220px;
+    }
+  }
+
+  @media ${({ theme }) => theme.mediaQueries["bellow-420"]} {
+    height: 190px;
+    margin: 0 3px;
+    margin-bottom: 20px;
+    width: calc((34%) - 10px);
+    margin-bottom: 15px;
+    .movie-image {
+      width: 100%;
+      height: 190px;
+    }
+  }
+  @media ${({ theme }) => theme.mediaQueries["bellow-320"]} {
+    height: 150px;
 
     width: calc((34%) - 10px);
     margin-bottom: 15px;
     .movie-image {
       width: 100%;
-      height: 200px;
+      height: 150px;
     }
   }
 `;

@@ -17,9 +17,6 @@ const TrendingMediaList = ({ trendingMedias }) => {
 
               <p className="movie-description">{`${media.overview.split(".")[0]}.`}</p>
               <div>
-                {/* <Button animateprimary fontsize="1.5rem" animation>
-                  Bande d'annonce
-                </Button> */}
                 <Link to={`/${media.media_type}/${media.id}`}>
                   <Button buttonmargin="10px" primary animatesecondary fontsize="1.3rem" animation>
                     Plus d'Infos

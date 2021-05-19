@@ -14,7 +14,7 @@ export const WelcomeMainContainer = styled.section`
   background: linear-gradient(0deg, rgba(14, 25, 48, 1) 11%, rgba(14, 25, 48, 0.7685324618128502) 45%, rgba(14, 25, 48, 0.2531262993478641) 95%),
     url("${({ bg }) => bg}");
   display: flex;
-  background-size: cover;
+  background-size: contain;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +40,7 @@ export const WelcomeMainContainer = styled.section`
   .double-arrows {
     margin: 30px 0;
     animation: 0.8s ${bouncingArrows} ease-out alternate infinite;
-    width: 100%;
+    width: 80%;
   }
   .border {
     border: 1px solid white;

@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import NavigationGenreList from "../../Shared/NavigationGenre/NavigationGenreList";
 import MediaHeroSection from "../../Shared/MediaHeroSection/MediaHeroSection";
 import MinimalCardList from "../../Shared/MinimalCardComponent/MinimalCardList";
@@ -7,17 +6,7 @@ import Button from "../../Shared/Button/Button";
 import MovieSectionTitle from "../../Shared/MovieSectionTitle/MovieSectionTitle";
 import { useContext, useReducer, useEffect, useState } from "react";
 import { MovieGenresContext } from "../../Contexts/NavigationGenreContext";
-
-const StyledSeries = styled.div`
-  background: #0e1930;
-  width: 100vw;
-`;
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 0px auto;
-`;
+import { StyledSeries, ButtonWrapper } from "./SeriesStyle";
 
 const initialState = 1;
 const reducer = (state, action) => {
@@ -44,7 +33,9 @@ const Series = ({ match }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [activeGenre, setActiveGenre] = useState();
 
-  const seriesUrl = `https://api.themoviedb.org/3/discover/tv?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr&sort_by=popularity.desc&include_adult=false&${
+  const seriesUrl = `https://api.themoviedb.org/3/discover/tv?api_key=${
+    process.env.REACT_APP_API_KEY
+  }&language=fr&sort_by=popularity.desc&include_adult=false&${
     activeGenre === undefined ? "" : "with_genres=" + activeGenre
   }&include_video=false&page=${limit}&with_watch_monetization_types=flatrate;`;
 
@@ -76,6 +67,10 @@ const Series = ({ match }) => {
     dispatch("reinit");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeGenre]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <>

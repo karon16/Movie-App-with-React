@@ -16,8 +16,9 @@ export const NavigationBar = styled.nav`
     align-items: center;
     width: 60%;
   }
-  .burger-close--margin{
-    margin :0px !important;  }
+  .burger-close--margin {
+    margin: 0px !important;
+  }
   .burger-menu {
     display: none;
   }
@@ -39,13 +40,13 @@ export const NavigationBar = styled.nav`
       height: 41px;
       width: 100vw;
       right: 0px;
-      background-color: rgba(0, 0, 0, 0.95);
+      background-color: rgba(0, 0, 0, 0.9);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       opacity: 0;
-      transform: translateX(100%);
+      transform: translateY(-200%);
       transition: all 0.5s ease-in-out 0.2s;
       z-index: -10;
     }
@@ -54,8 +55,7 @@ export const NavigationBar = styled.nav`
     }
     .nav-active {
       opacity: 1;
-
-      transform: translateX(0%);
+      transform: translateY(0%);
     }
     .nav-right-side-container {
       display: flex;

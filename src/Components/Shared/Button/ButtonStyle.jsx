@@ -75,7 +75,7 @@ export const ButtonContainer = styled.button`
     ${({ centered }) =>
       centered &&
       css`
-        margin: 10px auto;
+        margin: 20px auto;
         display: block;
       `}
   }

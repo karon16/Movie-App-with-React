@@ -10,7 +10,6 @@ import Button from "../../Shared/Button/Button";
 import { StyledHeroSection, MediaVideoContainer, ButtonWrapper } from "./MovieInfosStyle";
 import TrailerIframe from "./TrailerIframe/TrailerIframe";
 import Recommandations from "./Recommandations/Recommandations";
-import SerieSeasonsList from "./SerieSeasons/SerieSeasonsList";
 
 const initialState = 5;
 const reducer = (state, action) => {
@@ -90,13 +89,6 @@ const MovieInfos = ({ match }) => {
         <TrailerIframe movieUrl={movieUrl} />
         <SectionDivider />
 
-        {type === "tv" && (
-          <>
-            <SectionTitle>Saisons</SectionTitle>
-            <SerieSeasonsList seasons={mediaInfo === undefined ? [] : mediaInfo.seasons} />
-            <SectionDivider />
-          </>
-        )}
         <SectionTitle>Casting</SectionTitle>
         <ActorCardList urlSegment={urlSegment} />
         <SectionDivider />

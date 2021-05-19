@@ -3,7 +3,7 @@ import DoubleArrows from "../../img/doubleArrow.svg";
 import Cinema from "../../img/cinema.svg";
 import { WelcomeMainContainer } from "./WelcomePageStyle";
 import { Link } from "react-router-dom";
-import ImageBackground from "../../img/bg.jpg";
+import ImageBackground from "../../img/bcg.png";
 
 const WelcomePage = () => {
   return (
@@ -24,7 +24,7 @@ const WelcomePage = () => {
         <img src={DoubleArrows} alt="double arrow icon" className="double-arrows" />
       </div>
       <Link to="/accueil">
-        <Button animateprimary animation fontsize="1.7rem">
+        <Button animateprimary animation fontsize="1.5rem">
           Parcourir
         </Button>
       </Link>

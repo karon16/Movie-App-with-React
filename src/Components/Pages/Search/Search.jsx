@@ -4,7 +4,6 @@ import Button from "../../Shared/Button/Button";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import { ButtonWrapper, SearchWrapper, PaginationWrapper } from "./SearchStyle";
 import "semantic-ui-css/semantic.min.css";
-import { Icon } from "semantic-ui-react";
 
 const Search = ({ userQuery }) => {
   const [mediaType, setMediaType] = useState("movie");
@@ -15,7 +14,7 @@ const Search = ({ userQuery }) => {
   const [totalPages, setTotalPages] = useState();
   const [currentPage, setCurrentPage] = useState(1);
 
-  const url = `https://api.themoviedb.org/3/search/${mediaType}?api_key=ff3f7a6f9e9804bf8c152b62e26b928c&language=fr&query=${userQuery}&page=${currentPage}&include_adult=false `;
+  const url = `https://api.themoviedb.org/3/search/${mediaType}?api_key=${process.env.REACT_APP_API_KEY}&language=fr&query=${userQuery}&page=${currentPage}&include_adult=false `;
 
   const fetchMovies = () => {
     setMediaType("movie");

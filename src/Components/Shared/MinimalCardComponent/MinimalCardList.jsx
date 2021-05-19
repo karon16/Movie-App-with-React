@@ -5,7 +5,7 @@ const StyledMinimalCardList = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   min-height: ${({ minHeight }) => minHeight || "850px"};
 
   @media ${({ theme }) => theme.mediaQueries["bellow-1024"]} {

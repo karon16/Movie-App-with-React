@@ -16,8 +16,7 @@ const ActorCardList = ({ urlSegment }) => {
   const actorsList = actors.filter((actor) => actor.profile_path !== null).slice(0, 10);
 
   const apiUrl = "https://api.themoviedb.org/3";
-  const personalKey = "api_key=ff3f7a6f9e9804bf8c152b62e26b928c";
-  const actorsUrl = `${apiUrl}${urlSegment}/credits?${personalKey}&language=fr`;
+  const actorsUrl = `${apiUrl}${urlSegment}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=fr`;
 
   useEffect(() => {
     setIsLoading(true);
@@ -28,6 +27,8 @@ const ActorCardList = ({ urlSegment }) => {
         setSActors(data.cast);
       });
   }, [actorsUrl]);
+
+  console.log(actors);
 
   return (
     <StyledActorCardList>

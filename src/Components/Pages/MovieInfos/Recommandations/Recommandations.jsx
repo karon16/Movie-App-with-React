@@ -1,15 +1,9 @@
 import { useState, useEffect, useReducer } from "react";
-import styled from "styled-components";
 import Button from "../../../Shared/Button/Button";
 import MinimalCardList from "../../../Shared/MinimalCardComponent/MinimalCardList";
 import SectionDivider from "../../../Shared/SectionDivider/SectionDivider";
 import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 0px auto;
-`;
+import { ButtonWrapper } from "./RecommandationsStyle";
 
 const initialState = 5;
 const reducer = (state, action) => {
@@ -45,7 +39,7 @@ const Recommandations = ({ apiUrl, urlSegment, personalKey, type }) => {
   useEffect(() => {
     getRecommandations();
     visibleMediaDispatch("reinit");
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [recommandationsUrl]);
 
   return (

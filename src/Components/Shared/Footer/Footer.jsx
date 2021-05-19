@@ -10,7 +10,7 @@ const Footer = () => {
         <div>
           <img src={TlLogo} alt="tala movies logo" className="tala-movies-logo" />
         </div>
-        <div className="footer-row-container">
+        {/* <div className="footer-row-container">
           <div className="flex-column footer-row-block">
             <StyledLink to="/accueil">Accueil</StyledLink>
             <StyledLink to="#">A propos</StyledLink>
@@ -108,8 +108,8 @@ const Footer = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="h-line"></div>
+        </div> */}
+        {/* <div className="h-line"></div> */}
         <p className="copyright">
           Copyright © 2021 Tala.movies <br></br>Tous droits reservés.
         </p>

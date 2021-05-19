@@ -7,7 +7,7 @@ import Series from "./Components/Pages/Series/Series";
 import MovieInfos from "./Components/Pages/MovieInfos/MovieInfos";
 import WelcomePage from "./Components/Pages/WelcomePage/WelcomePage";
 import { MovieGenresProvider, TvGenresProvider } from "./Components/Contexts/NavigationGenreContext";
-import { useState, useEffect, useHistory } from "react";
+import { useState } from "react";
 import Search from "./Components/Pages/Search/Search";
 
 const App = () => {
