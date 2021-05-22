@@ -36,7 +36,7 @@ export const NavigationBar = styled.nav`
     }
     .nav-right-side {
       position: absolute;
-      top: 41px;
+      top: 39px;
       height: 41px;
       width: 100vw;
       right: 0px;

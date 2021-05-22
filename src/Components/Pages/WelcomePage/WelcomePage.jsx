@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import ImageBackground from "../../img/bcg.png";
 
 const WelcomePage = () => {
+  
   return (
     <WelcomeMainContainer bg={ImageBackground}>
       <div className="cinema-logo-container">

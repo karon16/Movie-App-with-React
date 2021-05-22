@@ -24,7 +24,7 @@ const Recommandations = ({ apiUrl, urlSegment, personalKey, type }) => {
   const [recommandationsMovies, setRecommandationsMovies] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
-  const recommandationsUrl = `${apiUrl}${urlSegment}/recommendations?${personalKey}&language=fr&page=1`;
+  const recommandationsUrl = `${apiUrl}${urlSegment}/recommendations?api_key=${personalKey}&language=fr&page=1`;
 
   const getRecommandations = async () => {
     setIsLoading(true);

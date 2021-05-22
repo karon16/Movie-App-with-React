@@ -41,11 +41,11 @@ const MovieInfos = ({ match }) => {
   let [type, movieId] = urlSegment.split("/").slice(1, 3);
 
   const apiUrl = "https://api.themoviedb.org/3";
-  const personalKey = "api_key=ff3f7a6f9e9804bf8c152b62e26b928c";
-  const similarMoviesUrl = `${apiUrl}${urlSegment}/similar?${personalKey}&language=fr&page=1`;
+  const personalKey = process.env.REACT_APP_API_KEY;
+  const similarMoviesUrl = `${apiUrl}${urlSegment}/similar?api_key=${personalKey}&language=fr&page=1`;
 
-  const url = `${apiUrl}${urlSegment}?${personalKey}&language=fr`;
-  const movieVideoUrl = `${apiUrl}${urlSegment}/videos?${personalKey}&language=fr`;
+  const url = `${apiUrl}${urlSegment}?api_key=${personalKey}&language=fr`;
+  const movieVideoUrl = `${apiUrl}${urlSegment}/videos?api_key=${personalKey}&language=fr`;
   const [isLoading, setIsLoading] = useState(true);
 
   const ShowModal = () => {
