@@ -86,3 +86,8 @@ export const WelcomeMainContainer = styled.section`
     }
   }
 `;
+
+export const Cont = styled.div`
+  width: 100vw;
+  height: 100vh;
+`;
