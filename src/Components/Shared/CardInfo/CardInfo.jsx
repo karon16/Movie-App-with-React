@@ -46,7 +46,7 @@ const CardInfo = ({ onClick, mediaInfo, type }) => {
                   {mediaInfo.release_date}
                   &nbsp; &nbsp; &nbsp;
                   <Icon name="calendar" inverted />
-                  {mediaInfo.production_countries[0].name}
+                  {mediaInfo.production_countries === undefined && mediaInfo.production_countries[0].name}
                 </p>
               ) : (
                 <p>
@@ -59,7 +59,7 @@ const CardInfo = ({ onClick, mediaInfo, type }) => {
                   {mediaInfo.first_air_date}
                   &nbsp; &nbsp; &nbsp;
                   <Icon name="flag" inverted />
-                  {mediaInfo.production_countries[0].name}
+                  {mediaInfo.production_countries === undefined && mediaInfo.production_countries[0].name}
                 </p>
               )}
 

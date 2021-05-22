@@ -44,26 +44,30 @@ const Recommandations = ({ apiUrl, urlSegment, personalKey, type }) => {
 
   return (
     <div>
-      <SectionDivider />
-      <SectionTitle>Recommandations</SectionTitle>
-      <MinimalCardList
-        mediaList={recommandationsMovies !== undefined ? recommandationsMovies.slice(0, visibleMedia) : []}
-        defined_media_type={type === "movie" ? "movie" : "tv"}
-        minHeight="400"
-        isLoading={isLoading}
-      />
-      <ButtonWrapper>
-        {visibleMedia > 5 && (
-          <Button animatesecondary secondary onClick={() => visibleMediaDispatch("decrement")}>
-            Voir Moins
-          </Button>
-        )}
-        {visibleMedia >= 20 || (
-          <Button animateprimary buttonmargin="10px" onClick={() => visibleMediaDispatch("increment")}>
-            Voir Plus
-          </Button>
-        )}
-      </ButtonWrapper>
+      {recommandationsMovies !== undefined && recommandationsMovies.length !== 0 ? (
+        <>
+          <SectionDivider />
+          <SectionTitle>Recommandations</SectionTitle>
+          <MinimalCardList
+            mediaList={recommandationsMovies !== undefined ? recommandationsMovies.slice(0, visibleMedia) : []}
+            defined_media_type={type === "movie" ? "movie" : "tv"}
+            minHeight="400"
+            isLoading={isLoading}
+          />
+          <ButtonWrapper>
+            {visibleMedia > 5 && (
+              <Button animatesecondary secondary onClick={() => visibleMediaDispatch("decrement")}>
+                Voir Moins
+              </Button>
+            )}
+            {visibleMedia >= 20 || (
+              <Button animateprimary buttonmargin="10px" onClick={() => visibleMediaDispatch("increment")}>
+                Voir Plus
+              </Button>
+            )}
+          </ButtonWrapper>
+        </>
+      ) : null}
     </div>
   );
 };

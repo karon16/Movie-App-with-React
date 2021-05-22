@@ -28,7 +28,6 @@ const ActorCardList = ({ urlSegment }) => {
       });
   }, [actorsUrl]);
 
-  console.log(actors);
 
   return (
     <StyledActorCardList>

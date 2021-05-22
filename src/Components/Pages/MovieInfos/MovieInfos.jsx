@@ -91,26 +91,32 @@ const MovieInfos = ({ match }) => {
 
         <SectionTitle>Casting</SectionTitle>
         <ActorCardList urlSegment={urlSegment} />
-        <SectionDivider />
-        <SectionTitle>Titres similaires</SectionTitle>
-        <MinimalCardList
-          mediaList={similarMovies !== undefined ? similarMovies.slice(0, actionLimit) : []}
-          defined_media_type={type === "movie" ? "movie" : "tv"}
-          minHeight="400"
-          isLoading={isLoading}
-        />
-        <ButtonWrapper>
-          {actionLimit > 5 && (
-            <Button animatesecondary secondary onClick={() => actionDispatch("decrement")}>
-              Voir Moins
-            </Button>
-          )}
-          {actionLimit >= 20 || (
-            <Button animateprimary buttonmargin="10px" onClick={() => actionDispatch("increment")}>
-              Voir Plus
-            </Button>
-          )}
-        </ButtonWrapper>
+        {similarMovies !== undefined &&
+          (similarMovies.length !== 0 ? (
+            <>
+              <SectionDivider />
+              <SectionTitle>Titres similaires</SectionTitle>
+              <MinimalCardList
+                mediaList={similarMovies !== undefined ? similarMovies.slice(0, actionLimit) : []}
+                defined_media_type={type === "movie" ? "movie" : "tv"}
+                minHeight="400"
+                isLoading={isLoading}
+              />
+              <ButtonWrapper>
+                {actionLimit > 5 && (
+                  <Button animatesecondary secondary onClick={() => actionDispatch("decrement")}>
+                    Voir Moins
+                  </Button>
+                )}
+                {actionLimit >= 20 || (
+                  <Button animateprimary buttonmargin="10px" onClick={() => actionDispatch("increment")}>
+                    Voir Plus
+                  </Button>
+                )}
+              </ButtonWrapper>
+            </>
+          ) : null)}
+
         <Recommandations urlSegment={urlSegment} apiUrl={apiUrl} personalKey={personalKey} />
       </MediaVideoContainer>
       <VideoOverview

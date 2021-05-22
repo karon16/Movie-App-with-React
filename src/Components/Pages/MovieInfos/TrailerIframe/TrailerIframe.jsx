@@ -5,13 +5,13 @@ import { StyledMediaTrailer } from "./TrailerIframeStyle";
 const TrailerIframe = ({ movieUrl }) => {
   return (
     <>
-      <StyledMediaTrailer>
-        <SectionDivider />
-        <SectionTitle>Trailer</SectionTitle>
-        <div>
-          {movieUrl === undefined || movieUrl.length === 0 ? (
-            "video Indisponible"
-          ) : (
+      {movieUrl === undefined || movieUrl.length === 0 ? (
+        ""
+      ) : (
+        <StyledMediaTrailer>
+          <SectionDivider />
+          <SectionTitle>Trailer</SectionTitle>
+          <div>
             <iframe
               id="player"
               type="text/html"
@@ -21,9 +21,9 @@ const TrailerIframe = ({ movieUrl }) => {
               title="video"
               className="trailer"
             ></iframe>
-          )}
-        </div>
-      </StyledMediaTrailer>
+          </div>
+        </StyledMediaTrailer>
+      )}
     </>
   );
 };
