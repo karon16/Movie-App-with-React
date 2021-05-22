@@ -25,7 +25,6 @@ const SearchInput = ({ onChange }) => {
 
   return (
     <>
-      {/* <SearchBar as={Input} type="search" name="search" icon={<Icon name="search" />} onChange={onChange} onClick={linkToSearchPage} focus small /> */}
       <SearchBar
         type="search"
         name="search"

@@ -51,6 +51,9 @@ const CardInfo = ({ onClick, mediaInfo, type }) => {
                   Total d'episodes : {mediaInfo.number_of_episodes} &nbsp; &nbsp; &nbsp;
                   <Icon name="file video" inverted />
                   Total de saisons : {mediaInfo.number_of_seasons}
+                  &nbsp; &nbsp; &nbsp;
+                  <Icon name="calendar" inverted />
+                  {mediaInfo.first_air_date}
                 </p>
               )}
 

@@ -5,6 +5,7 @@ import HeaderLogo from "../../img/logo-min.svg";
 import "semantic-ui-css/semantic.min.css";
 import { Icon } from "semantic-ui-react";
 import { NavigationBar } from "./HeaderStyle";
+import { Link } from "react-router-dom";
 
 const Header = ({ onChange }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -16,7 +17,9 @@ const Header = ({ onChange }) => {
   return (
     <NavigationBar>
       <div>
-        <img src={HeaderLogo} alt="tala movies logo" className="tala-movies-logo" />
+        <Link to="/accueil">
+          <img src={HeaderLogo} alt="tala movies logo" className="tala-movies-logo" />
+        </Link>
       </div>
       <div className="nav-right-side-container">
         <div className={` nav-right-side ${toggleMenu ? "nav-active" : null}`}>
@@ -25,7 +28,11 @@ const Header = ({ onChange }) => {
         <SearchInput onChange={onChange} />
 
         <div onClick={HandleClick} className="burger-menu">
-          {toggleMenu ? <Icon name="close" inverted className="burger-close--margin"/> : <Icon name="bars" inverted className="burger-bars--margin" />}
+          {toggleMenu ? (
+            <Icon name="close" inverted className="burger-close--margin" />
+          ) : (
+            <Icon name="bars" inverted className="burger-bars--margin" />
+          )}
         </div>
       </div>
     </NavigationBar>

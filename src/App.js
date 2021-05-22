@@ -1,5 +1,5 @@
 import Home from "./Components/Pages/Home/Home";
-import { Route, Switch, useLocation, Redirect } from "react-router-dom";
+import { Route, Switch, useLocation} from "react-router-dom";
 import Header from "./Components/Header/Header/Header";
 import Footer from "./Components/Shared/Footer/Footer";
 import Movies from "./Components/Pages/Movies/Movies";

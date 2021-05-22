@@ -100,14 +100,14 @@ const MovieInfos = ({ match }) => {
           isLoading={isLoading}
         />
         <ButtonWrapper>
-          {actionLimit >= 20 || (
-            <Button animateprimary onClick={() => actionDispatch("increment")}>
-              Voir Plus
+          {actionLimit > 5 && (
+            <Button animatesecondary secondary onClick={() => actionDispatch("decrement")}>
+              Voir Moins
             </Button>
           )}
-          {actionLimit > 5 && (
-            <Button animatesecondary secondary buttonmargin="10px" onClick={() => actionDispatch("decrement")}>
-              Voir Moins
+          {actionLimit >= 20 || (
+            <Button animateprimary buttonmargin="10px" onClick={() => actionDispatch("increment")}>
+              Voir Plus
             </Button>
           )}
         </ButtonWrapper>

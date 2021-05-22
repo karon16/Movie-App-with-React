@@ -53,14 +53,14 @@ const Recommandations = ({ apiUrl, urlSegment, personalKey, type }) => {
         isLoading={isLoading}
       />
       <ButtonWrapper>
-        {visibleMedia >= 20 || (
-          <Button animateprimary onClick={() => visibleMediaDispatch("increment")}>
-            Voir Plus
+        {visibleMedia > 5 && (
+          <Button animatesecondary secondary onClick={() => visibleMediaDispatch("decrement")}>
+            Voir Moins
           </Button>
         )}
-        {visibleMedia > 5 && (
-          <Button animatesecondary secondary buttonmargin="10px" onClick={() => visibleMediaDispatch("decrement")}>
-            Voir Moins
+        {visibleMedia >= 20 || (
+          <Button animateprimary buttonmargin="10px" onClick={() => visibleMediaDispatch("increment")}>
+            Voir Plus
           </Button>
         )}
       </ButtonWrapper>
