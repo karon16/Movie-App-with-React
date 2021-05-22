@@ -20,7 +20,6 @@ const StyledMinimalCardList = styled.div`
 `;
 
 const MinimalCardList = ({ mediaList, defined_media_type, isLoading, minHeight }) => {
-  console.log(mediaList);
   return (
     <StyledMinimalCardList minHeight={minHeight}>
       {mediaList.map((media, index) => {
