@@ -36,7 +36,7 @@ const VideoOverview = ({ videoId, onClose, open, onOpen }) => {
               id="player"
               type="text/html"
               width="100%"
-              src={`http://www.youtube.com/embed/${videoId}?autoplay=1?enablejsapi=1&origin=https://projet-kda-movie-app.netlify.app/`}
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=1?enablejsapi=1&origin=https://projet-kda-movie-app.netlify.app/`}
               frameborder="0"
               title="video"
             ></StyledIframe>
