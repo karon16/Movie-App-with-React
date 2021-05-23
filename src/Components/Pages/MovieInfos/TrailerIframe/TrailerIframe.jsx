@@ -16,7 +16,7 @@ const TrailerIframe = ({ movieUrl }) => {
               id="player"
               type="text/html"
               width="100%"
-              src={`http://www.youtube.com/embed/${movieUrl[0].key}?autoplay=1?enablejsapi=1&origin=https://projet-kda-movie-app.netlify.app/`}
+              src={`https://www.youtube.com/embed/${movieUrl[0].key}?autoplay=1?enablejsapi=1&origin=https://projet-kda-movie-app.netlify.app/`}
               frameborder="0"
               title="video"
               className="trailer"
