@@ -11,7 +11,12 @@ from{
 export const WelcomeMainContainer = styled.section`
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(0deg, rgba(14, 25, 48, 1) 11%, rgba(14, 25, 48, 0.7685324618128502) 45%, rgba(14, 25, 48, 0.2531262993478641) 95%),
+  background: linear-gradient(
+      0deg,
+      rgba(14, 25, 48, 1) 11%,
+      rgba(14, 25, 48, 0.7685324618128502) 45%,
+      rgba(14, 25, 48, 0.2531262993478641) 95%
+    ),
     url("${({ bg }) => bg}");
   display: flex;
   background-size: contain;
@@ -90,4 +95,8 @@ export const WelcomeMainContainer = styled.section`
 export const Cont = styled.div`
   width: 100vw;
   height: 100vh;
+
+  .multi-device-image {
+    width: 50%;
+  }
 `;
