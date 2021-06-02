@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
 export const StyledHeroSection = styled.section`
-  background: linear-gradient(0deg, rgba(14, 25, 48, 1) 11%, rgba(14, 25, 48, 0.7685324618128502) 45%, rgba(14, 25, 48, 0.2531262993478641) 95%),
+  background: linear-gradient(
+      0deg,
+      rgba(14, 25, 48, 1) 11%,
+      rgba(14, 25, 48, 0.7685324618128502) 45%,
+      rgba(14, 25, 48, 0.2531262993478641) 95%
+    ),
     url("${({ bg }) => bg}") center center;
   background-size: cover;
   width: 100vw;
@@ -40,7 +45,7 @@ export const StyledHeroSection = styled.section`
   }
 
   @media ${({ theme }) => theme.mediaQueries["bellow-1024"]} {
-    height: 40vh;
+    height: 55vh;
     .movie-title {
       font-size: 4rem;
       line-height: 4rem;
