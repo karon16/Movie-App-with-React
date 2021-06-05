@@ -39,11 +39,25 @@ const WelcomePage = () => {
         </Link>
       </WelcomeMainContainer>
       <Cont className="cont">
-        <img
-          src={Multideviceimage}
-          alt="multi device"
-          className="multi-device-image"
-        />
+        <div className="multi-device-image-container">
+          <img
+            src={Multideviceimage}
+            alt="multi device"
+            className="multi-device-image"
+          />
+        </div>
+
+        <div className="text-container">
+          <h2 className="multi-device-text">
+            Votre plateforme Disponible sur plusieurs types d'écrans
+          </h2>
+          <ul>
+            <li>Desktop</li>
+            <li>Pc</li>
+            <li>Tablette</li>
+            <li>Mobile</li>
+</ul>
+        </div>
       </Cont>
     </>
   );

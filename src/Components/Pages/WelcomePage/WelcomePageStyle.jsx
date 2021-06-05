@@ -95,8 +95,25 @@ export const WelcomeMainContainer = styled.section`
 export const Cont = styled.div`
   width: 100vw;
   height: 100vh;
+  display: flex;
+  color: white;
+  border: 1px solid white;
 
   .multi-device-image {
+    width: 100%;
+  }
+  .multi-device-image-container {
+    border: 1px solid white;
     width: 50%;
+  }
+  .multi-device-text {
+    font-size: 3rem;
+    color: white;
+    font-family: ${({ theme }) => theme.fonts.biryani};
+  }
+  .text-container {
+    padding-top: 25px;
+    width: 50%;
+    border: 1px solid white;
   }
 `;
