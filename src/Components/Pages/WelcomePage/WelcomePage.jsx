@@ -38,7 +38,7 @@ const WelcomePage = () => {
           </Button>
         </Link>
       </WelcomeMainContainer>
-      <Cont className="cont">
+      {/* <Cont className="cont">
         <div className="multi-device-image-container">
           <img
             src={Multideviceimage}
@@ -58,7 +58,7 @@ const WelcomePage = () => {
             <li>Mobile</li>
 </ul>
         </div>
-      </Cont>
+      </Cont> */}
     </>
   );
 };
