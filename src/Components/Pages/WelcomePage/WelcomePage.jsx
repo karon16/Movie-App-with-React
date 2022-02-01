@@ -4,7 +4,7 @@ import Cinema from "../../img/cinema.svg";
 import { WelcomeMainContainer, Cont } from "./WelcomePageStyle";
 import { Link } from "react-router-dom";
 import ImageBackground from "../../img/bcg.png";
-import Multideviceimage from "../../img/multidevice.png";
+// import Multideviceimage from "../../img/multidevice.png";
 
 const WelcomePage = () => {
   return (
